@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OutdoorSeniors | Verified Caretakers in Bangalore</title>
+  <meta name="description" content="Background-verified caretakers in Bangalore for elder care, baby care & post-operative nursing. Transparent pricing. Same-day placement available.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --green-dark: #111111;
+      --green-mid: #333333;
+      --green-light: #555555;
+      --amber: #111111;
+      --amber-bg: #F0F0F0;
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --cream: #F7F7F7;
+      --border: #E0E0E0;
+      --text-light: #666;
+      --text-xs: #999;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    section { padding: 80px 0; scroll-margin-top: 64px; }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      color: #111;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-light);
+      max-width: 580px;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo { font-size: 20px; font-weight: 800; color: var(--green-dark); letter-spacing: -0.5px; flex-shrink: 0; }
+    .logo span { color: var(--amber); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-link { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.2px; transition: color 0.15s; white-space: nowrap; }
+    .nav-link:hover { color: #000; }
+    .nav-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+
+    /* HAMBURGER */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid #E0E0E0;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 7px 8px;
+      width: 36px;
+      height: 36px;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      width: 18px;
+      background: #111;
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* MOBILE MENU */
+    .mobile-menu { display: none; border-top: 1px solid var(--border); background: #fff; }
+    .mobile-menu.open { display: block; }
+    .mobile-link {
+      display: block;
+      padding: 14px 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: #333;
+      border-bottom: 1px solid #F0F0F0;
+      transition: color 0.15s, padding-left 0.15s;
+    }
+    .mobile-link:last-child { border-bottom: none; }
+    .mobile-link:hover { color: #000; padding-left: 4px; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--wa-green);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      background: var(--cream);
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #F0F0F0;
+      color: var(--green-mid);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5.5vw, 58px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #111;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+      max-width: 700px;
+    }
+    .hero h1 em { font-style: normal; color: var(--green-mid); }
+    .hero-sub {
+      font-size: 18px;
+      color: #444;
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    }
+    .btn-wa:hover {
+      background: var(--wa-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+    }
+    .hero-note { font-size: 13px; color: var(--text-xs); margin-top: 16px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--green-dark); padding: 20px 0; }
+    .trust-items { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; }
+    .trust-item { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 14px; font-weight: 500; }
+
+    /* PRICING */
+    .pricing { background: #fff; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .price-card {
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      position: relative;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .price-card:hover {
+      border-color: var(--amber);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-4px);
+    }
+    .price-card.featured { border-color: var(--amber); background: #F5F5F5; }
+    .price-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--amber);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 18px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .plan-type { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amber); margin-bottom: 6px; }
+    .plan-name { font-size: 22px; font-weight: 800; color: #111; margin-bottom: 6px; }
+    .plan-desc { font-size: 14px; color: var(--text-light); margin-bottom: 22px; line-height: 1.5; }
+    .price-amount { font-size: 42px; font-weight: 800; color: var(--green-dark); line-height: 1; }
+    .price-unit { font-size: 16px; color: var(--text-light); font-weight: 500; }
+    .price-gst { font-size: 12px; color: var(--text-xs); margin-top: 4px; margin-bottom: 16px; }
+    .discount-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+    .discount-tag { background: var(--amber-bg); color: var(--amber); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 50px; }
+    .plan-features { list-style: none; margin-bottom: 28px; }
+    .plan-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: #333; padding: 7px 0; border-bottom: 1px solid var(--border); }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features .check { color: var(--green-mid); font-weight: 700; font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .btn-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--wa-green);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-book:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+    /* DURATION SELECTOR */
+    .dur-select-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-xs);
+      margin-bottom: 10px;
+    }
+    .duration-selector { display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+    .dur-opt {
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .dur-opt:hover { border-color: var(--green-mid); background: #F5F5F5; }
+    .dur-opt.dur-active { border-color: #111; background: #F5F5F5; }
+    .dur-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+    .dur-days { font-size: 13px; font-weight: 700; color: #333; }
+    .dur-opt.dur-active .dur-days { color: var(--green-mid); }
+    .dur-rate { font-size: 12px; color: var(--text-xs); }
+    .dur-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--amber-bg);
+      color: var(--amber);
+      padding: 2px 8px;
+      border-radius: 50px;
+    }
+    .dur-badge-best { background: #E8E8E8; color: #111; }
+    .dur-price { font-size: 26px; font-weight: 800; color: var(--green-dark); line-height: 1.2; }
+    .dur-opt.dur-active .dur-price { color: var(--green-mid); }
+    .dur-sub { font-size: 12px; color: var(--text-xs); margin-top: 2px; }
+
+    /* SERVICES */
+    .services { background: var(--cream); }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .service-card { background: #fff; border-radius: var(--radius); padding: 28px 24px; border: 1px solid var(--border); }
+    .service-icon { font-size: 36px; margin-bottom: 14px; }
+    .service-title { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .service-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+    /* HOW IT WORKS */
+    .how { background: #fff; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+    .step { text-align: center; padding: 24px; }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      background: var(--green-dark);
+      color: #fff;
+      font-size: 22px;
+      font-weight: 800;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+    .step-title { font-size: 18px; font-weight: 700; color: #111; margin-bottom: 8px; }
+    .step-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+    /* WHY US */
+    .why { background: var(--cream); }
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+    .why-card { background: #fff; border-radius: var(--radius); padding: 22px; border: 1px solid var(--border); display: flex; gap: 14px; align-items: flex-start; }
+    .why-icon { font-size: 26px; flex-shrink: 0; }
+    .why-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 4px; }
+    .why-desc { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+    /* FINAL CTA */
+    .final-cta { background: var(--green-dark); padding: 80px 0; text-align: center; }
+    .final-cta h2 { font-size: clamp(26px, 4vw, 42px); font-weight: 800; color: #fff; margin-bottom: 14px; }
+    .final-cta .sub { font-size: 18px; color: rgba(255,255,255,0.72); margin-bottom: 36px; }
+
+    /* FOOTER */
+    footer { background: #111; color: #888; padding: 40px 0; text-align: center; }
+    .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+    footer p { font-size: 13px; margin-bottom: 6px; }
+    footer a { color: var(--wa-green); }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 16px; font-size: 13px; }
+
+    /* STICKY WA BUTTON */
+    .wa-sticky {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa-green);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 22px;
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-sticky:hover { background: var(--wa-dark); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+    .wa-svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; max-width: 480px; }
+    }
+
+    /* Mobile */
+    @media (max-width: 640px) {
+      section { padding: 48px 0; }
+      .container { padding: 0 18px; }
+
+      /* Nav */
+      .logo { font-size: 17px; }
+
+      /* Hero */
+      .hero { padding: 44px 0 36px; }
+      .hero h1 { font-size: 34px; letter-spacing: -0.5px; }
+      .hero-sub { font-size: 16px; margin-bottom: 28px; }
+
+      /* Trust bar */
+      .trust-items { gap: 10px 20px; }
+      .trust-item { font-size: 13px; }
+
+      /* Pricing */
+      .pricing-grid { max-width: 100%; }
+      .price-card { padding: 28px 20px; }
+      .price-amount { font-size: 34px; }
+
+      /* Section text */
+      .section-sub { font-size: 15px; margin-bottom: 32px; }
+
+      /* Services — 2 cols on mobile */
+      .services-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .service-card { padding: 20px 16px; }
+      .service-icon { font-size: 28px; margin-bottom: 10px; }
+      .service-title { font-size: 15px; }
+
+      /* Steps */
+      .steps { gap: 20px; }
+      .step { padding: 16px; }
+
+      /* Why grid */
+      .why-grid { grid-template-columns: 1fr; }
+
+      /* CTA section */
+      .final-cta { padding: 56px 0; }
+      .final-cta h2 { font-size: 26px; }
+      .final-cta .sub { font-size: 16px; margin-bottom: 28px; }
+
+      /* Sticky button collapses to circle */
+      .wa-sticky { padding: 0; width: 58px; height: 58px; border-radius: 50%; justify-content: center; bottom: 20px; right: 16px; }
+      .wa-sticky .wa-label { display: none; }
+      .wa-sticky .wa-svg { width: 26px; height: 26px; }
+    }
+
+    /* Small mobile */
+    @media (max-width: 420px) {
+      .hero h1 { font-size: 30px; }
+      .btn-wa { width: 100%; justify-content: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .nav-cta { font-size: 13px; padding: 9px 16px; }
+      .price-card { padding: 24px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- STICKY WHATSAPP BUTTON -->
+<a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20caretaker%20services%20in%20Bangalore." target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp Us">
+  <svg class="wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="wa-label">WhatsApp Us Now</span>
+</a>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <div class="logo">Outdoor<span>Seniors</span></div>
+    <div class="nav-links">
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#why-us" class="nav-link">Why Us</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20caretaker%20services%20in%20Bangalore." target="_blank" rel="noopener" class="nav-cta">
+        <svg class="wa-svg" style="width:17px;height:17px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp Us
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#pricing" class="mobile-link">Pricing</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#how-it-works" class="mobile-link">How It Works</a>
+      <a href="#why-us" class="mobile-link">Why Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Trusted Caretakers<br>in Bangalore.<br><em>Placed in 1 Day.</em></h1>
+    <p class="hero-sub">Background-verified caretakers for elder care, baby care & post-operative nursing — with transparent, all-inclusive pricing. No hidden costs. Ever.</p>
+    <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20caretaker%20services%20in%20Bangalore." target="_blank" rel="noopener" class="btn-wa">
+      <svg class="wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us Now
+    </a>
+    <p class="hero-note">Average response time: under 15 minutes</p>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">✅ Background-Verified Caregivers</div>
+      <div class="trust-item">⚡ Same-Day Placement Available</div>
+      <div class="trust-item">🔄 Free Replacement Guarantee</div>
+      <div class="trust-item">💰 Transparent, All-Inclusive Pricing</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <p class="section-label">Simple Pricing</p>
+    <h2 class="section-title">No Hidden Costs. Ever.</h2>
+    <p class="section-sub">Every price below is all-inclusive with GST. What you see is exactly what you pay — no vague quotes, no surprises.</p>
+
+    <div class="pricing-grid">
+
+      <!-- ON-DEMAND -->
+      <div class="price-card">
+        <p class="plan-type">On-Demand</p>
+        <p class="plan-name">Daily Caretaker</p>
+        <p class="plan-desc">Same-day placement. Pick your pack below — add more days whenever you need, like credits.</p>
+
+        <p class="dur-select-label">Select your pack:</p>
+        <div class="duration-selector">
+
+          <div class="dur-opt dur-active"
+               data-wa="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20book%20the%20On-Demand%20Daily%20Caretaker%20for%201%20day%20at%20Rs.%201%2C770%20(all-inclusive%20with%20GST).%20Please%20help%20me%20get%20started."
+               data-label="1 Day">
+            <div class="dur-top">
+              <span class="dur-days">1 Day</span>
+              <span class="dur-rate">&#8377;1,770 / day</span>
+            </div>
+            <div class="dur-price">&#8377;1,770</div>
+            <div class="dur-sub">All-inclusive &middot; GST included</div>
+          </div>
+
+          <div class="dur-opt"
+               data-wa="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20book%20the%20On-Demand%20Daily%20Caretaker%20for%207%20days%20at%20Rs.%2011%2C771%20(5%25%20off%2C%20all-inclusive%20with%20GST).%20Please%20help%20me%20get%20started."
+               data-label="7 Days">
+            <div class="dur-top">
+              <span class="dur-days">7 Days</span>
+              <span class="dur-badge">5% off</span>
+            </div>
+            <div class="dur-price">&#8377;11,771</div>
+            <div class="dur-sub">&#8377;1,682 / day &middot; You save &#8377;619</div>
+          </div>
+
+          <div class="dur-opt"
+               data-wa="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20book%20the%20On-Demand%20Daily%20Caretaker%20for%2014%20days%20at%20Rs.%2022%2C302%20(10%25%20off%2C%20all-inclusive%20with%20GST).%20Please%20help%20me%20get%20started."
+               data-label="14 Days">
+            <div class="dur-top">
+              <span class="dur-days">14 Days</span>
+              <span class="dur-badge dur-badge-best">10% off &mdash; Best Value</span>
+            </div>
+            <div class="dur-price">&#8377;22,302</div>
+            <div class="dur-sub">&#8377;1,593 / day &middot; You save &#8377;2,478</div>
+          </div>
+
+        </div>
+
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> Caretaker placed same day</li>
+          <li><span class="check">&#10003;</span> Buy days like credits &mdash; use when needed</li>
+          <li><span class="check">&#10003;</span> Background-verified caretaker</li>
+          <li><span class="check">&#10003;</span> Elder care, baby care or post-op nursing</li>
+          <li><span class="check">&#10003;</span> 24-hour support from our team</li>
+        </ul>
+        <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20book%20the%20On-Demand%20Daily%20Caretaker%20for%201%20day%20at%20Rs.%201%2C770%20(all-inclusive%20with%20GST).%20Please%20help%20me%20get%20started."
+           id="onDemandBtn" target="_blank" rel="noopener" class="btn-book">
+          <svg class="wa-svg" style="width:17px;height:17px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span id="onDemandBtnText">Know More</span>
+        </a>
+      </div>
+
+      <!-- PART-TIME MONTHLY -->
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <p class="plan-type">Planned &middot; 1-Day Placement</p>
+        <p class="plan-name">Part-Time Caretaker</p>
+        <p class="plan-desc">12-hour daily coverage. Ideal for daytime elder or baby care support every day.</p>
+        <div>
+          <span class="price-amount">&#8377;30,000</span>
+          <span class="price-unit"> / month</span>
+        </div>
+        <p class="price-gst">All-inclusive &middot; GST included</p>
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> 12 hours / day coverage</li>
+          <li><span class="check">&#10003;</span> Caretaker placed within 1 working day</li>
+          <li><span class="check">&#10003;</span> Background-verified caretaker</li>
+          <li><span class="check">&#10003;</span> AI-matched to your family's needs</li>
+          <li><span class="check">&#10003;</span> Free replacement if not satisfied</li>
+          <li><span class="check">&#10003;</span> Ongoing support from our team</li>
+        </ul>
+        <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Part-Time%20Caretaker%20plan%20-%2012%20hrs%2Fday%20at%20Rs.%2030%2C000%2Fmonth.%20Please%20help%20me%20get%20started." target="_blank" rel="noopener" class="btn-book">
+          <svg class="wa-svg" style="width:17px;height:17px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Know More
+        </a>
+      </div>
+
+      <!-- FULL-TIME MONTHLY -->
+      <div class="price-card">
+        <p class="plan-type">Planned &middot; 1-Day Placement</p>
+        <p class="plan-name">Full-Time / Live-In</p>
+        <p class="plan-desc">24-hour live-in care. Full daily support and overnight presence for complete peace of mind.</p>
+        <div>
+          <span class="price-amount">&#8377;35,000</span>
+          <span class="price-unit"> / month</span>
+        </div>
+        <p class="price-gst">All-inclusive &middot; GST included</p>
+        <ul class="plan-features">
+          <li><span class="check">&#10003;</span> 24 hours / day, live-in caretaker</li>
+          <li><span class="check">&#10003;</span> Caretaker placed within 1 working day</li>
+          <li><span class="check">&#10003;</span> Background-verified caretaker</li>
+          <li><span class="check">&#10003;</span> AI-matched to your family's needs</li>
+          <li><span class="check">&#10003;</span> Free replacement if not satisfied</li>
+          <li><span class="check">&#10003;</span> Ongoing support from our team</li>
+        </ul>
+        <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Full-Time%20Live-In%20Caretaker%20plan%20-%2024%20hrs%2Fday%20at%20Rs.%2035%2C000%2Fmonth.%20Please%20help%20me%20get%20started." target="_blank" rel="noopener" class="btn-book">
+          <svg class="wa-svg" style="width:17px;height:17px;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Know More
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-label">What We Cover</p>
+    <h2 class="section-title">Care for Every Need</h2>
+    <p class="section-sub">All plans cover any of these services. Just tell us your requirement on WhatsApp and we will match the right caretaker.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">&#128116;</div>
+        <h3 class="service-title">Elder Care at Home</h3>
+        <p class="service-desc">Daily support, companionship, medication reminders, mobility assistance, and meal preparation for seniors.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128118;</div>
+        <h3 class="service-title">Baby Care &amp; Nanny</h3>
+        <p class="service-desc">Trained nannies for newborn routines, feeding, toddler activities, and school-age care matched to your parenting style.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#127973;</div>
+        <h3 class="service-title">Post-Operative Nursing</h3>
+        <p class="service-desc">Recovery support including wound care, medication administration, vital sign monitoring, and physician coordination.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">&#128241;</div>
+        <h3 class="service-title">Virtual Concierge</h3>
+        <p class="service-desc">Remote 24/7 check-ins, appointment scheduling, and medication reminders for seniors who live independently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <p class="section-label">The Process</p>
+    <h2 class="section-title">3 Steps to Get a Caretaker</h2>
+    <p class="section-sub">Most families have a caretaker placed within 24 hours of reaching out to us.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 class="step-title">WhatsApp Us</h3>
+        <p class="step-desc">Tell us who needs care, for how long, and what kind of support is needed. Takes 2 minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 class="step-title">We Match You</h3>
+        <p class="step-desc">We use our AI matching system to find the best-fit verified caretaker for your family's specific needs and personality.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 class="step-title">Caretaker Placed</h3>
+        <p class="step-desc">On-Demand plans are same-day. Planned monthly placements are done within 1 working day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why-us">
+  <div class="container">
+    <p class="section-label">Why OutdoorSeniors</p>
+    <h2 class="section-title">Built by People Who Needed This Too</h2>
+    <p class="section-sub">We started OutdoorSeniors after struggling to find reliable care for our own parents. Here is what we do differently.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">&#128269;</div>
+        <div>
+          <p class="why-title">100% Background Verified</p>
+          <p class="why-desc">Every caretaker is background-checked before they enter your home. No exceptions.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#129302;</div>
+        <div>
+          <p class="why-title">AI-Powered Matching</p>
+          <p class="why-desc">We match caretakers to your family's specific personality, routines, and care needs &mdash; not just availability.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128260;</div>
+        <div>
+          <p class="why-title">Free Replacement Guarantee</p>
+          <p class="why-desc">If the match is not right, we replace your caretaker at no extra cost. Your satisfaction is non-negotiable.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#128176;</div>
+        <div>
+          <p class="why-title">Transparent Pricing</p>
+          <p class="why-desc">No vague quotes. No surprise charges. Every plan is all-inclusive with GST. What you see is what you pay.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#9889;</div>
+        <div>
+          <p class="why-title">Same-Day Placement</p>
+          <p class="why-desc">Need someone today? Our On-Demand plan gets a verified caretaker to you the same day you reach out.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">&#129309;</div>
+        <div>
+          <p class="why-title">Ongoing Support</p>
+          <p class="why-desc">We stay engaged from your first enquiry through renewals. A real person is always available on WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Need a Caretaker in Bangalore?</h2>
+    <p class="sub">WhatsApp us now &mdash; we will help you find the right fit, fast.</p>
+    <a href="https://wa.me/919620384645?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20caretaker%20services%20in%20Bangalore." target="_blank" rel="noopener" class="btn-wa" style="display:inline-flex;margin:0 auto;">
+      <svg class="wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp Us Now
+    </a>
+    <p style="color:rgba(255,255,255,0.4);font-size:13px;margin-top:20px;margin-bottom:0;">Average response time: under 15 minutes &nbsp;&middot;&nbsp; Bangalore, India</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">OutdoorSeniors</div>
+    <p>Verified caretakers for elder care, baby care &amp; post-operative nursing in Bangalore.</p>
+    <p style="margin-top:8px;">WhatsApp: <a href="https://wa.me/919620384645" target="_blank" rel="noopener">+91 96203 84645</a></p>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
+    </div>
+    <div class="footer-links" style="margin-top:12px;">
+      <a href="careers.html">Careers</a>
+      <a href="refund-policy.html">Refund Policy</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+    </div>
+    <p style="margin-top:20px;font-size:12px;color:#444;">&copy; 2025 OutdoorSeniors. All rights reserved. Bangalore, India.</p>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-link').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // Duration selector
+  document.querySelectorAll('.dur-opt').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      this.closest('.duration-selector').querySelectorAll('.dur-opt').forEach(function(o) {
+        o.classList.remove('dur-active');
+      });
+      this.classList.add('dur-active');
+      var btn = document.getElementById('onDemandBtn');
+      btn.href = this.getAttribute('data-wa');
+    });
+  });
+</script>
+</body>
+</html>
