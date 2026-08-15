@@ -8,7 +8,775 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+/* ==========================================================================
+   OutdoorSeniors — shared stylesheet
+   Mobile-first: base styles target small screens, min-width queries scale up.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+:root {
+  --green-dark: #111111;
+  --green-mid: #333333;
+  --green-light: #555555;
+  --amber: #111111;
+  --amber-bg: #F0F0F0;
+  --wa-green: #25D366;
+  --wa-dark: #128C7E;
+  --cream: #F7F7F7;
+  --border: #E0E0E0;
+  --text-light: #666;
+  --text-xs: #999;
+  --ok: #16794C;
+  --ok-bg: #E8F4EE;
+  --no: #C2413B;
+  --no-bg: #FBEDEC;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+:focus-visible {
+  outline: 3px solid var(--wa-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
+
+section { padding: 48px 0; scroll-margin-top: 64px; }
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--text-light);
+  max-width: 580px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* ---------- Nav ---------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { font-size: 17px; font-weight: 800; color: var(--green-dark); letter-spacing: -0.5px; flex-shrink: 0; }
+.logo span { color: var(--amber); }
+.nav-links { display: none; align-items: center; gap: 28px; }
+.nav-link { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.2px; transition: color 0.15s; white-space: nowrap; }
+.nav-link:hover { color: #000; }
+.nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 7px 8px;
+  width: 38px;
+  height: 38px;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 18px;
+  background: #111;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { display: none; border-top: 1px solid var(--border); background: #fff; }
+.mobile-menu.open { display: block; }
+.mobile-link {
+  display: block;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #F0F0F0;
+  transition: color 0.15s, padding-left 0.15s;
+}
+.mobile-link:last-child { border-bottom: none; }
+.mobile-link:hover { color: #000; padding-left: 4px; }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+/* ---------- Buttons ---------- */
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  width: 100%;
+  text-align: center;
+}
+.btn-wa:hover {
+  background: var(--wa-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+}
+
+.btn-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-book:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #111;
+  color: #111;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 50px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: #111; color: #fff; }
+
+.wa-svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+.wa-svg-sm { width: 17px; height: 17px; }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: var(--cream);
+  padding: 44px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EDEDED;
+  color: var(--green-mid);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #111;
+  margin-bottom: 18px;
+  letter-spacing: -0.8px;
+  max-width: 700px;
+}
+.hero h1 em { font-style: normal; color: var(--green-mid); }
+.hero-sub {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 28px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.hero-note { font-size: 13px; color: var(--text-xs); margin-top: 16px; }
+
+/* ---------- Trust bar ---------- */
+
+.trust-bar { background: var(--green-dark); padding: 18px 0; }
+.trust-items { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: center; align-items: center; }
+.trust-item { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 500; }
+
+/* ---------- Service grid (homepage) ---------- */
+
+.services { background: var(--cream); }
+.services-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+
+.service-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+a.service-card:hover {
+  border-color: #111;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+.service-icon { font-size: 30px; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+.service-body { min-width: 0; flex: 1; }
+.service-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.service-title .arrow { color: var(--text-xs); font-weight: 400; transition: transform 0.2s; display: inline-block; }
+a.service-card:hover .service-title .arrow { transform: translateX(3px); color: #111; }
+.service-desc { font-size: 13.5px; color: var(--text-light); line-height: 1.55; }
+.service-durs {
+  font-size: 11.5px;
+  color: var(--text-xs);
+  margin-top: 8px;
+  letter-spacing: 0.2px;
+}
+
+/* Catch-all tile */
+.service-card.catchall {
+  border: 2px dashed #C8C8C8;
+  background: #FCFCFC;
+}
+a.service-card.catchall:hover { border-color: var(--wa-dark); border-style: dashed; }
+.service-card.catchall .service-title { color: #111; }
+
+/* ---------- How it works / steps ---------- */
+
+.how { background: #fff; }
+.steps { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.step { text-align: center; padding: 16px; }
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 21px;
+  font-weight: 800;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+.step-title { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 8px; }
+.step-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+/* ---------- Why us ---------- */
+
+.why { background: var(--cream); }
+.why-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.why-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.why-icon { font-size: 24px; flex-shrink: 0; line-height: 1.2; }
+.why-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.why-desc { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+/* ==========================================================================
+   SERVICE DETAIL PAGES
+   ========================================================================== */
+
+/* Breadcrumb */
+.crumb { padding: 14px 0 0; font-size: 13px; color: var(--text-xs); }
+.crumb a { color: var(--text-light); }
+.crumb a:hover { color: #111; text-decoration: underline; }
+.crumb .sep { margin: 0 6px; }
+
+/* Service hero */
+.svc-hero { background: var(--cream); padding: 24px 0 32px; border-bottom: 1px solid var(--border); }
+.svc-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.svc-hero h1 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.7px;
+  color: #111;
+  margin-bottom: 14px;
+}
+.svc-headline {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--green-mid);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  max-width: 560px;
+}
+.svc-intro { font-size: 15.5px; color: #444; line-height: 1.7; max-width: 620px; margin-bottom: 24px; }
+
+/* Photo placeholder — swap for real photography */
+.svc-photo {
+  background: linear-gradient(135deg, #EDEDED 0%, #E2E2E2 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  color: #AAA;
+  font-size: 13px;
+  margin-bottom: 22px;
+  text-align: center;
+  padding: 20px;
+}
+.svc-photo .ph-icon { font-size: 34px; opacity: 0.5; }
+
+/* Includes / excludes */
+.inex { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.inex-col h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--border);
+}
+.inex-col.yes h3 { color: var(--ok); }
+.inex-col.no h3 { color: var(--no); }
+.inex-col ul { list-style: none; }
+.inex-col li {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.55;
+  padding: 8px 0;
+}
+.inex-col .mark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.inex-col.yes .mark { background: var(--ok-bg); color: var(--ok); }
+.inex-col.no .mark { background: var(--no-bg); color: var(--no); }
+
+/* How it's done */
+.howto { list-style: none; counter-reset: hstep; }
+.howto li {
+  counter-increment: hstep;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.howto li:first-child { border-top: none; padding-top: 0; }
+.howto li::before {
+  content: counter(hstep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #111;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+}
+.howto .h-title { font-size: 15.5px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.howto .h-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+/* Enquiry / duration selector card */
+.enquire {
+  border: 2px solid #111;
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  background: #fff;
+}
+.enquire h3 { font-size: 19px; font-weight: 800; color: #111; margin-bottom: 6px; letter-spacing: -0.3px; }
+.enquire .eq-sub { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+
+.dur-select-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+  margin-bottom: 10px;
+}
+.duration-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.dur-opt {
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #444;
+  background: #fff;
+  font-family: inherit;
+}
+.dur-opt:hover { border-color: var(--green-mid); background: #F5F5F5; }
+.dur-opt.dur-active { border-color: #111; background: #111; color: #fff; }
+.dur-opt.dur-unsure { border-style: dashed; }
+
+.enquire-note { font-size: 12.5px; color: var(--text-xs); margin-top: 12px; text-align: center; line-height: 1.5; }
+
+/* FAQ */
+.faq-list { border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  padding: 16px 0;
+  cursor: pointer;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #111;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item .faq-a {
+  font-size: 14.5px;
+  color: var(--text-light);
+  line-height: 1.7;
+  padding: 0 0 18px;
+  max-width: 660px;
+}
+
+/* Related / other services */
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.related-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #222;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: #111; transform: translateY(-2px); }
+.related-card .r-icon { font-size: 22px; flex-shrink: 0; }
+.related-card .r-arrow { margin-left: auto; color: var(--text-xs); }
+
+/* Not-listed callout */
+.notlisted {
+  border: 2px dashed #C8C8C8;
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  background: #FCFCFC;
+}
+.notlisted h3 { font-size: 19px; font-weight: 800; color: #111; margin-bottom: 8px; letter-spacing: -0.3px; }
+.notlisted p { font-size: 14.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* ==========================================================================
+   CAREERS
+   ========================================================================== */
+
+.paths-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+.path-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.path-card.featured { border-color: #111; background: var(--cream); }
+.path-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.path-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px;
+}
+.path-sub { font-size: 14.5px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
+.path-list { list-style: none; margin-bottom: 24px; }
+.path-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.path-list li:last-child { border-bottom: none; }
+.path-list .check { color: var(--ok); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.path-card .btn-book { margin-top: auto; }
+
+.roles-note {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  margin-top: 24px;
+}
+.roles-note h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 8px; }
+.roles-note p { font-size: 14.5px; color: var(--text-light); line-height: 1.7; }
+
+@media (min-width: 800px) {
+  .paths-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .path-card { padding: 34px 30px; }
+  .path-title { font-size: 30px; }
+  .roles-note { padding: 26px 28px; }
+}
+
+/* ---------- Final CTA ---------- */
+
+.final-cta { background: var(--green-dark); padding: 56px 0; text-align: center; }
+.final-cta h2 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -0.5px; }
+.final-cta .sub { font-size: 16px; color: rgba(255,255,255,0.72); margin-bottom: 28px; }
+.final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
+.final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
+
+/* ---------- Footer ---------- */
+
+footer { background: #111; color: #888; padding: 40px 0; text-align: center; }
+.footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+footer p { font-size: 13px; margin-bottom: 6px; }
+footer a { color: var(--wa-green); }
+.footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; font-size: 13px; }
+
+/* ---------- Sticky WhatsApp button ---------- */
+
+.wa-sticky {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.wa-sticky:hover { background: var(--wa-dark); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+.wa-sticky .wa-label { display: none; }
+.wa-sticky .wa-svg { width: 26px; height: 26px; }
+
+/* ==========================================================================
+   BREAKPOINTS — scaling up from mobile
+   ========================================================================== */
+
+@media (min-width: 480px) {
+  .btn-wa { width: auto; }
+  .hero h1 { font-size: 36px; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 640px) {
+  .container { padding: 0 24px; }
+  section { padding: 64px 0; }
+
+  .section-title { font-size: 34px; }
+  .section-sub { font-size: 16px; margin-bottom: 40px; }
+
+  .hero { padding: 64px 0 52px; }
+  .hero h1 { font-size: 44px; letter-spacing: -1px; }
+  .hero-sub { font-size: 17px; margin-bottom: 32px; }
+
+  .trust-item { font-size: 14px; }
+
+  .services-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .service-card { padding: 20px 18px; }
+
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+  .svc-hero { padding: 28px 0 40px; }
+  .svc-hero h1 { font-size: 38px; letter-spacing: -1px; }
+  .svc-headline { font-size: 20px; }
+  .svc-intro { font-size: 16.5px; }
+
+  .inex { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .enquire { padding: 28px 26px; }
+
+  .final-cta { padding: 72px 0; }
+  .final-cta h2 { font-size: 34px; }
+  .final-cta .sub { font-size: 18px; }
+
+  .wa-sticky {
+    width: auto;
+    height: auto;
+    padding: 14px 22px;
+    border-radius: 50px;
+    bottom: 28px;
+    right: 28px;
+  }
+  .wa-sticky .wa-label { display: inline; }
+  .wa-sticky .wa-svg { width: 22px; height: 22px; }
+}
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+  .mobile-menu { display: none !important; }
+
+  .logo { font-size: 20px; }
+  .nav-cta { font-size: 14px; padding: 10px 22px; }
+
+  section { padding: 80px 0; }
+
+  .section-title { font-size: 40px; }
+
+  .hero { padding: 80px 0 64px; }
+  .hero h1 { font-size: 54px; }
+  .hero-sub { font-size: 18px; }
+
+  .services-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+  .why-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+  .svc-hero h1 { font-size: 46px; }
+
+  .related-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .final-cta h2 { font-size: 42px; }
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -90,7 +858,7 @@
 
     <div class="services-grid">
 
-      <a href="services/elder-care.html" class="service-card">
+      <a href="elder-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">👵</div>
         <div class="service-body">
           <div class="service-title">Elder Care at Home <span class="arrow">&rarr;</span></div>
@@ -99,7 +867,7 @@
         </div>
       </a>
 
-      <a href="services/bedridden-care.html" class="service-card">
+      <a href="bedridden-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🛏️</div>
         <div class="service-body">
           <div class="service-title">Bedridden Patient Care <span class="arrow">&rarr;</span></div>
@@ -108,7 +876,7 @@
         </div>
       </a>
 
-      <a href="services/post-operative-care.html" class="service-card">
+      <a href="post-operative-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🏥</div>
         <div class="service-body">
           <div class="service-title">Post-Operative &amp; Discharge Care <span class="arrow">&rarr;</span></div>
@@ -117,7 +885,7 @@
         </div>
       </a>
 
-      <a href="services/home-nursing.html" class="service-card">
+      <a href="home-nursing.html" class="service-card">
         <div class="service-icon" aria-hidden="true">💉</div>
         <div class="service-body">
           <div class="service-title">Home Nursing <span class="arrow">&rarr;</span></div>
@@ -126,7 +894,7 @@
         </div>
       </a>
 
-      <a href="services/japa-postnatal-care.html" class="service-card">
+      <a href="japa-postnatal-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🤱</div>
         <div class="service-body">
           <div class="service-title">Japa &amp; Postnatal Care <span class="arrow">&rarr;</span></div>
@@ -135,7 +903,7 @@
         </div>
       </a>
 
-      <a href="services/baby-care-nanny.html" class="service-card">
+      <a href="baby-care-nanny.html" class="service-card">
         <div class="service-icon" aria-hidden="true">👶</div>
         <div class="service-body">
           <div class="service-title">Baby Care &amp; Nanny <span class="arrow">&rarr;</span></div>
@@ -144,7 +912,7 @@
         </div>
       </a>
 
-      <a href="services/dementia-care.html" class="service-card">
+      <a href="dementia-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🧠</div>
         <div class="service-body">
           <div class="service-title">Dementia &amp; Alzheimer&rsquo;s Care <span class="arrow">&rarr;</span></div>
@@ -153,7 +921,7 @@
         </div>
       </a>
 
-      <a href="services/night-care.html" class="service-card">
+      <a href="night-care.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🌙</div>
         <div class="service-body">
           <div class="service-title">Night Care <span class="arrow">&rarr;</span></div>
@@ -162,7 +930,7 @@
         </div>
       </a>
 
-      <a href="services/physiotherapy-at-home.html" class="service-card">
+      <a href="physiotherapy-at-home.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🤸</div>
         <div class="service-body">
           <div class="service-title">Physiotherapy at Home <span class="arrow">&rarr;</span></div>
@@ -171,7 +939,7 @@
         </div>
       </a>
 
-      <a href="services/hospital-attendant.html" class="service-card">
+      <a href="hospital-attendant.html" class="service-card">
         <div class="service-icon" aria-hidden="true">🏨</div>
         <div class="service-body">
           <div class="service-title">Hospital Attendant <span class="arrow">&rarr;</span></div>
@@ -307,6 +1075,125 @@ Ref: OTHER" target="_blank" rel="noopener" class="service-card catchall">
   </div>
 </footer>
 
-<script src="assets/site.js"></script>
+<script>
+/* ==========================================================================
+   OutdoorSeniors — shared behaviour
+   1. Mobile nav toggle
+   2. WhatsApp link building (phone number lives here, once)
+   3. Duration selector on service pages
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ---- 1. Phone number: change it here and it changes everywhere ---- */
+  var WA_NUMBER = '919620384645';
+
+  function waHref(message) {
+    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  }
+
+  /* ---- 2. Mobile nav ---- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target.classList.contains('mobile-link')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  }
+
+  /* ---- 3. Simple WhatsApp links ----
+     Any element with data-wa-text gets its href built from that text.
+     Keeps the phone number out of the markup entirely. */
+  var simpleLinks = document.querySelectorAll('[data-wa-text]');
+  for (var i = 0; i < simpleLinks.length; i++) {
+    simpleLinks[i].setAttribute('href', waHref(simpleLinks[i].getAttribute('data-wa-text')));
+  }
+
+  /* ---- 4. Service enquiry block with duration options ----
+     Markup contract:
+       <div class="enquire" data-service="Elder Care at Home" data-ref="ELD">
+         <div class="duration-selector">                     <- one group
+           <button class="dur-opt dur-active" data-dur="12-hour day" data-ref="12H-DAY">…</button>
+         </div>
+         <a class="btn-book" data-enquire-btn>…</a>
+       </div>
+
+     A service can have more than one .duration-selector group — Japa needs
+     both a length (30/45/60 days) and a mode (day/live-in). Each group holds
+     its own selection; the labels and ref codes are joined in order, which is
+     what produces refs like JAPA-45D-LIVEIN. */
+  var blocks = document.querySelectorAll('[data-service]');
+
+  for (var b = 0; b < blocks.length; b++) {
+    (function (block) {
+      var service = block.getAttribute('data-service');
+      var baseRef = block.getAttribute('data-ref') || '';
+      var groups = block.querySelectorAll('.duration-selector');
+      var button = block.querySelector('[data-enquire-btn]');
+
+      if (!button || !groups.length) { return; }
+
+      function refresh() {
+        var labels = [];
+        var refs = [baseRef];
+
+        for (var g = 0; g < groups.length; g++) {
+          var active = groups[g].querySelector('.dur-opt.dur-active');
+          if (!active) { continue; }
+          labels.push(active.getAttribute('data-dur'));
+          var r = active.getAttribute('data-ref');
+          if (r) { refs.push(r); }
+        }
+
+        var message = [
+          'Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          'Duration: ' + (labels.length ? labels.join(', ') : 'Not specified'),
+          'When I need it: ',
+          'Area in Bangalore: ',
+          '',
+          'Ref: ' + refs.join('-')
+        ].join('\n');
+
+        button.setAttribute('href', waHref(message));
+      }
+
+      /* Selection is exclusive within a group, independent across groups. */
+      for (var g2 = 0; g2 < groups.length; g2++) {
+        (function (group) {
+          var options = group.querySelectorAll('.dur-opt');
+          for (var o = 0; o < options.length; o++) {
+            options[o].addEventListener('click', function () {
+              for (var k = 0; k < options.length; k++) {
+                options[k].classList.remove('dur-active');
+                options[k].setAttribute('aria-pressed', 'false');
+              }
+              this.classList.add('dur-active');
+              this.setAttribute('aria-pressed', 'true');
+              refresh();
+            });
+          }
+        })(groups[g2]);
+      }
+
+      refresh();
+    })(blocks[b]);
+  }
+})();
+
+</script>
 </body>
 </html>
