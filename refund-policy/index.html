@@ -70,6 +70,57 @@
   <meta name="twitter:description" content="OutdoorSeniors refund and cancellation policy for short-term caregiver bookings and monthly caretaker or nursing placements in Bangalore.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <!-- seo:end -->
+  <!-- analytics:start -->
+  <script>
+    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+       ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
+       meta       : Meta Pixel ID                   e.g. 1234567890123456
+       gads       : Google Ads conversion ID        e.g. AW-123456789
+       gadsLabel  : Google Ads conversion label     e.g. AbC-D_efGh12
+       Leave any of them as '' to keep that platform switched off. */
+    window.OS_TRACK = {
+      ga4: '',
+      meta: '1351887343782267',
+      gads: '',
+      gadsLabel: ''
+    };
+  </script>
+
+  <script>
+    (function () {
+      var c = window.OS_TRACK || {};
+
+      /* Google: GA4 and/or Google Ads share one gtag loader */
+      var gId = c.ga4 || c.gads;
+      if (gId) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        if (c.ga4) { window.gtag('config', c.ga4); }
+        if (c.gads) { window.gtag('config', c.gads); }
+      }
+
+      /* Meta Pixel */
+      if (c.meta) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+          n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', c.meta);
+        window.fbq('track', 'PageView');
+      }
+    })();
+  </script>
+  <!-- analytics:end -->
 </head>
 <body>
 

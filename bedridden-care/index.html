@@ -970,6 +970,57 @@ footer a { color: var(--wa-green); }
   }
   </script>
   <!-- seo:end -->
+  <!-- analytics:start -->
+  <script>
+    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+       ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
+       meta       : Meta Pixel ID                   e.g. 1234567890123456
+       gads       : Google Ads conversion ID        e.g. AW-123456789
+       gadsLabel  : Google Ads conversion label     e.g. AbC-D_efGh12
+       Leave any of them as '' to keep that platform switched off. */
+    window.OS_TRACK = {
+      ga4: '',
+      meta: '1351887343782267',
+      gads: '',
+      gadsLabel: ''
+    };
+  </script>
+
+  <script>
+    (function () {
+      var c = window.OS_TRACK || {};
+
+      /* Google: GA4 and/or Google Ads share one gtag loader */
+      var gId = c.ga4 || c.gads;
+      if (gId) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        if (c.ga4) { window.gtag('config', c.ga4); }
+        if (c.gads) { window.gtag('config', c.gads); }
+      }
+
+      /* Meta Pixel */
+      if (c.meta) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+          n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', c.meta);
+        window.fbq('track', 'PageView');
+      }
+    })();
+  </script>
+  <!-- analytics:end -->
 </head>
 <body>
 
@@ -1172,9 +1223,10 @@ Ref: BED" target="_blank" rel="noopener" class="btn-wa">
 <script>
 /* ==========================================================================
    OutdoorSeniors — shared behaviour
-   1. Mobile nav toggle
-   2. WhatsApp link building (phone number lives here, once)
-   3. Duration selector on service pages
+   1. Campaign tracking (UTM capture + conversion events)
+   2. Mobile nav toggle
+   3. WhatsApp link building (phone number lives here, once)
+   4. Duration selector on service pages
    ========================================================================== */
 
 (function () {
@@ -1182,6 +1234,82 @@ Ref: BED" target="_blank" rel="noopener" class="btn-wa">
 
   /* ---- 1. Phone number: change it here and it changes everywhere ---- */
   var WA_NUMBER = '919620384645';
+
+  /* ---- Campaign source capture ------------------------------------------
+     Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
+     So we capture where they came from on arrival, keep it for the session,
+     and stamp it into the WhatsApp message itself. That message is the only
+     record that survives the handoff — it is your ground truth for which ad
+     actually produced an enquiry. */
+
+  var SRC_KEY = 'os_src';
+
+  function readSource() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var src = q.get('utm_source') || (q.get('gclid') ? 'google' : (q.get('fbclid') ? 'meta' : ''));
+      var camp = q.get('utm_campaign') || '';
+      var content = q.get('utm_content') || '';
+      if (src) {
+        var tag = [src, camp, content].filter(Boolean).join('/');
+        sessionStorage.setItem(SRC_KEY, tag);
+        return tag;
+      }
+      return sessionStorage.getItem(SRC_KEY) || '';
+    } catch (e) { return ''; }
+  }
+
+  var CAMPAIGN = readSource();
+
+  /* Appends the campaign tag to the Ref line already at the end of each
+     message, so the enquiry arrives self-identifying. */
+  function withSource(message) {
+    return CAMPAIGN ? message + ' | ' + CAMPAIGN : message;
+  }
+
+  /* ---- Conversion events -------------------------------------------------
+     Fired on WhatsApp click. Each platform is optional: nothing runs unless
+     you have filled in the matching ID in the analytics block in <head>. */
+
+  function trackEnquiry(label) {
+    var cfg = window.OS_TRACK || {};
+
+    // Meta Pixel
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', { content_name: label, content_category: 'enquiry' });
+    }
+
+    // GA4
+    if (typeof window.gtag === 'function' && cfg.ga4) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'whatsapp',
+        event_label: label,
+        campaign_source: CAMPAIGN || 'direct'
+      });
+    }
+
+    // Google Ads conversion
+    if (typeof window.gtag === 'function' && cfg.gads && cfg.gadsLabel) {
+      window.gtag('event', 'conversion', { send_to: cfg.gads + '/' + cfg.gadsLabel });
+    }
+  }
+
+  /* Attach to any WhatsApp link. The label is read from the link's CURRENT
+     href at click time, not captured on load — otherwise changing the duration
+     would update the message but keep reporting the original selection. */
+  function wireTracking(el) {
+    el.addEventListener('click', function () {
+      var href = el.getAttribute('href') || '';
+      var msg = '';
+      try { msg = decodeURIComponent(href.split('?text=')[1] || ''); } catch (e) { msg = ''; }
+      trackEnquiry(refOf(msg));
+    });
+  }
+
+  function refOf(message) {
+    var i = message.indexOf('Ref: ');
+    return i < 0 ? 'unknown' : message.slice(i + 5).split(String.fromCharCode(10))[0].trim();
+  }
 
   function waHref(message) {
     return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
@@ -1214,7 +1342,11 @@ Ref: BED" target="_blank" rel="noopener" class="btn-wa">
      Keeps the phone number out of the markup entirely. */
   var simpleLinks = document.querySelectorAll('[data-wa-text]');
   for (var i = 0; i < simpleLinks.length; i++) {
-    simpleLinks[i].setAttribute('href', waHref(simpleLinks[i].getAttribute('data-wa-text')));
+    (function (el) {
+      var msg = withSource(el.getAttribute('data-wa-text'));
+      el.setAttribute('href', waHref(msg));
+      wireTracking(el);
+    })(simpleLinks[i]);
   }
 
   /* ---- 4. Service enquiry block with duration options ----
@@ -1262,7 +1394,9 @@ Ref: BED" target="_blank" rel="noopener" class="btn-wa">
           'Ref: ' + refs.join('-')
         ].join('\n');
 
-        button.setAttribute('href', waHref(message));
+        var stamped = withSource(message);
+        button.setAttribute('href', waHref(stamped));
+        if (!button._tracked) { button._tracked = true; wireTracking(button); }
       }
 
       /* Selection is exclusive within a group, independent across groups. */
