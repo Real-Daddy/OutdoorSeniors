@@ -461,24 +461,16 @@ nav {
 }
 .svc-intro { font-size: 15.5px; color: #444; line-height: 1.7; max-width: 620px; margin-bottom: 24px; }
 
-/* Photo placeholder — swap for real photography */
+/* Service hero photo */
 .svc-photo {
-  background: linear-gradient(135deg, #EDEDED 0%, #E2E2E2 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 16 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-  color: #AAA;
-  font-size: 13px;
+  overflow: hidden;
+  background: #EDEDED;
   margin-bottom: 22px;
-  text-align: center;
-  padding: 20px;
 }
-.svc-photo .ph-icon { font-size: 34px; opacity: 0.5; }
+.svc-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Includes / excludes */
 .inex { display: grid; grid-template-columns: 1fr; gap: 24px; }
@@ -909,7 +901,7 @@ Ref: HOSP" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <p class="svc-eyebrow">Hospital &middot; Non-medical</p>
     <h1>Hospital Attendant</h1>
     <p class="svc-headline">Someone with your patient in the ward, so the family can go home.</p>
-    <div class="svc-photo"><span class="ph-icon" aria-hidden="true">🏨</span><span>Photo &mdash; attendant at a patient&rsquo;s hospital bedside</span></div>
+    <div class="svc-photo"><img src="photo-hospital-attendant.jpg" alt="Hospital attendant helping an elderly patient drink water at the bedside" width="1586" height="992" fetchpriority="high" decoding="async"></div>
     <p class="svc-intro">Hospitals expect a bystander. Usually that means a family member sleeping upright in a chair for a week. An attendant takes the shift instead &mdash; feeding, hygiene, mobility, and being there in between the nurse&rsquo;s rounds.</p>
   </div>
 </section>

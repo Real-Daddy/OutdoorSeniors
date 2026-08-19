@@ -461,24 +461,16 @@ nav {
 }
 .svc-intro { font-size: 15.5px; color: #444; line-height: 1.7; max-width: 620px; margin-bottom: 24px; }
 
-/* Photo placeholder — swap for real photography */
+/* Service hero photo */
 .svc-photo {
-  background: linear-gradient(135deg, #EDEDED 0%, #E2E2E2 100%);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   aspect-ratio: 16 / 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 6px;
-  color: #AAA;
-  font-size: 13px;
+  overflow: hidden;
+  background: #EDEDED;
   margin-bottom: 22px;
-  text-align: center;
-  padding: 20px;
 }
-.svc-photo .ph-icon { font-size: 34px; opacity: 0.5; }
+.svc-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Includes / excludes */
 .inex { display: grid; grid-template-columns: 1fr; gap: 24px; }
@@ -940,7 +932,7 @@ footer a { color: var(--wa-green); }
       <div class="tile-grid">
 
         <a href="elder-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">👵</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-elder-care.jpg" alt="Caregiver supporting an elderly man as he walks at home in Bangalore" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Elder Care at Home</div>
             <div class="tile-meta">Hours &middot; Day &middot; Night &middot; Live-in</div>
@@ -948,7 +940,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="bedridden-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🛏️</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-bedridden-care.jpg" alt="Caregiver adjusting pillows for a bedridden elderly woman at home" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Bedridden Patient Care</div>
             <div class="tile-meta">Day &middot; Night &middot; Live-in</div>
@@ -956,7 +948,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="dementia-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🧠</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-dementia-care.jpg" alt="Caregiver looking through a photo album with an elderly woman" width="1551" height="1014" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Dementia &amp; Alzheimer&rsquo;s</div>
             <div class="tile-meta">Day &middot; Night &middot; Live-in</div>
@@ -964,7 +956,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="night-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🌙</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-night-care.jpg" alt="Night caregiver quietly checking on an elderly person asleep" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Night Care</div>
             <div class="tile-meta">A few nights &middot; Weekly &middot; Monthly</div>
@@ -983,7 +975,7 @@ footer a { color: var(--wa-green); }
       <div class="tile-grid">
 
         <a href="home-nursing.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">💉</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-home-nursing.jpg" alt="Nurse checking an elderly woman’s blood pressure at home" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Home Nursing</div>
             <div class="tile-meta">Visit &middot; Day &middot; Night &middot; 24-hour</div>
@@ -991,7 +983,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="post-operative-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🏥</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-post-operative-care.jpg" alt="Caregiver bringing water to a man recovering at home after surgery" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Post-Operative Care</div>
             <div class="tile-meta">1 week &middot; 2 weeks &middot; 1 month</div>
@@ -999,7 +991,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="physiotherapy-at-home.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🤸</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-physiotherapy-at-home.jpg" alt="Physiotherapist guiding an elderly man through a seated leg exercise at home" width="1536" height="1024" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Physiotherapy at Home</div>
             <div class="tile-meta">1 &middot; 6 &middot; 12 sessions</div>
@@ -1007,7 +999,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="hospital-attendant.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🏨</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-hospital-attendant.jpg" alt="Hospital attendant helping an elderly patient drink water at the bedside" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Hospital Attendant</div>
             <div class="tile-meta">Day &middot; Night &middot; 24-hour</div>
@@ -1026,7 +1018,7 @@ footer a { color: var(--wa-green); }
       <div class="tile-grid">
 
         <a href="japa-postnatal-care.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">🤱</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-japa-postnatal-care.jpg" alt="Japa carer holding a swaddled newborn while the mother rests" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Japa &amp; Postnatal Care</div>
             <div class="tile-meta">30 &middot; 45 &middot; 60 days</div>
@@ -1034,7 +1026,7 @@ footer a { color: var(--wa-green); }
         </a>
 
         <a href="baby-care-nanny.html" class="tile">
-          <div class="tile-art"><span aria-hidden="true">👶</span><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-art"><img src="photo-baby-care-nanny.jpg" alt="Nanny playing with wooden blocks with a toddler at home" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
             <div class="tile-name">Baby Care &amp; Nanny</div>
             <div class="tile-meta">Hours &middot; Full day &middot; Live-in</div>
