@@ -259,6 +259,44 @@ nav {
 }
 .hero-note { font-size: 13px; color: var(--text-xs); margin-top: 16px; }
 
+/* Hero image — sits beside the copy on desktop, below it on phones, so the
+   headline never has to compete with a photograph for contrast. */
+.hero-inner { display: grid; gap: 26px; align-items: center; }
+.hero-copy { min-width: 0; }
+
+.hero-media {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #E8E8E8;
+  box-shadow: 0 16px 44px rgba(0,0,0,0.13);
+}
+.hero-media img { width: 100%; height: 100%; object-fit: cover; }
+
+/* A whisper of warmth over the photo so it sits with the cream section
+   instead of looking pasted on. */
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(255,255,255,0.10) 0%, rgba(17,17,17,0.06) 100%);
+  pointer-events: none;
+}
+
+.hero-media .hero-caption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  background: rgba(255,255,255,0.94);
+  color: #111;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 50px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+}
+
 /* ---------- Trust bar ---------- */
 
 .trust-bar { background: var(--green-dark); padding: 18px 0; }
@@ -818,7 +856,12 @@ footer a { color: var(--wa-green); }
   .section-title { font-size: 40px; }
 
   .hero { padding: 80px 0 64px; }
-  .hero h1 { font-size: 54px; }
+  .hero h1 { font-size: 50px; }
+  /* 4:3 keeps the photo tall enough to balance the copy while cropping only
+     ~17% of a 16:10 source — a full-height panel would cut 40% and risk
+     losing a subject out of frame. */
+  .hero-inner { grid-template-columns: 1.02fr 0.98fr; gap: 52px; align-items: center; }
+  .hero-media { aspect-ratio: 4 / 3; }
   .hero-sub { font-size: 18px; }
 
   .tile-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
