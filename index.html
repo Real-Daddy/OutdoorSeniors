@@ -257,45 +257,53 @@ nav {
   max-width: 560px;
   line-height: 1.7;
 }
-.hero-note { font-size: 13px; color: var(--text-xs); margin-top: 16px; }
+.hero-note { font-size: 13px; color: #444; margin-top: 16px; }
 
-/* Hero image — sits beside the copy on desktop, below it on phones, so the
-   headline never has to compete with a photograph for contrast. */
-.hero-inner { display: grid; gap: 26px; align-items: center; }
-.hero-copy { min-width: 0; }
+/* ---------------------------------------------------------------------------
+   Hero with full-bleed photograph.
+   The photo sits behind everything; a cream scrim runs left-to-right so the
+   headline always has an opaque ground under it and the image is only fully
+   visible on the right, where the subjects are.
+   --------------------------------------------------------------------------- */
 
-.hero-media {
+.hero {
   position: relative;
-  border-radius: var(--radius);
+  background-color: var(--cream);
   overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: #E8E8E8;
-  box-shadow: 0 16px 44px rgba(0,0,0,0.13);
+  isolation: isolate;
 }
-.hero-media img { width: 100%; height: 100%; object-fit: cover; }
 
-/* A whisper of warmth over the photo so it sits with the cream section
-   instead of looking pasted on. */
-.hero-media::after {
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* keep the two men in frame when the box gets narrower than 21:9 */
+  object-position: 72% center;
+}
+
+/* The scrim. Mobile keeps it almost solid so type stays readable over a
+   heavily cropped image; wider screens let more of the photo through. */
+.hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(160deg, rgba(255,255,255,0.10) 0%, rgba(17,17,17,0.06) 100%);
-  pointer-events: none;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(247,247,247,0.985) 0%,
+    rgba(247,247,247,0.97) 58%,
+    rgba(247,247,247,0.92) 80%,
+    rgba(247,247,247,0.80) 100%
+  );
 }
 
-.hero-media .hero-caption {
-  position: absolute;
-  left: 14px;
-  bottom: 14px;
-  background: rgba(255,255,255,0.94);
-  color: #111;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 7px 13px;
-  border-radius: 50px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.12);
-}
+.hero-inner { position: relative; }
+.hero-copy { max-width: 620px; }
 
 /* ---------- Trust bar ---------- */
 
@@ -802,6 +810,15 @@ footer a { color: var(--wa-green); }
   .section-sub { font-size: 16px; margin-bottom: 40px; }
 
   .hero { padding: 64px 0 52px; }
+  .hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(247,247,247,0.97) 0%,
+      rgba(247,247,247,0.92) 52%,
+      rgba(247,247,247,0.60) 74%,
+      rgba(247,247,247,0.40) 100%
+    );
+  }
   .hero h1 { font-size: 44px; letter-spacing: -1px; }
   .hero-sub { font-size: 17px; margin-bottom: 32px; }
 
@@ -857,11 +874,23 @@ footer a { color: var(--wa-green); }
 
   .hero { padding: 80px 0 64px; }
   .hero h1 { font-size: 50px; }
-  /* 4:3 keeps the photo tall enough to balance the copy while cropping only
-     ~17% of a 16:10 source — a full-height panel would cut 40% and risk
-     losing a subject out of frame. */
-  .hero-inner { grid-template-columns: 1.02fr 0.98fr; gap: 52px; align-items: center; }
-  .hero-media { aspect-ratio: 4 / 3; }
+  /* No flex here: it would make .container shrink-to-fit and centre itself,
+     dropping the copy on top of the subjects. Plain padding keeps .container
+     at its normal 1100px so the copy starts at the true left margin. */
+  .hero { padding: 104px 0 96px; }
+  .hero::before {
+    background: linear-gradient(
+      to right,
+      rgba(247,247,247,0.99) 0%,
+      rgba(247,247,247,0.98) 42%,
+      rgba(247,247,247,0.92) 54%,
+      rgba(247,247,247,0.45) 64%,
+      rgba(247,247,247,0.05) 74%,
+      rgba(247,247,247,0) 82%
+    );
+  }
+  .hero-photo img { object-position: center center; }
+  .hero-copy { max-width: 560px; }
   .hero-sub { font-size: 18px; }
 
   .tile-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
@@ -1113,25 +1142,19 @@ footer a { color: var(--wa-green); }
 
 <!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-
-      <div class="hero-copy">
-        <div class="hero-badge">Bangalore &middot; Elder care, nursing &amp; baby care</div>
-        <h1>Trusted Caretakers &amp; Nurses.<br><em>At home, in Bangalore.</em></h1>
-        <p class="hero-sub">Tell us what you need on WhatsApp. We&rsquo;ll understand the situation, confirm availability and share clear, all-inclusive pricing &mdash; usually the same day.</p>
-        <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore." target="_blank" rel="noopener" class="btn-wa">
-          <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
-          Tell us what you need
-        </a>
-        <p class="hero-note">Average response time: under 15 minutes</p>
-      </div>
-
-      <div class="hero-media">
-        <img src="/photo-elder-care.jpg" alt="OutdoorSeniors caregiver supporting an elderly man as he walks at home in Bangalore" width="1586" height="992" fetchpriority="high" decoding="async">
-        <span class="hero-caption">Verified before placement</span>
-      </div>
-
+  <div class="hero-photo">
+    <img src="/hero-elder-care.jpg" alt="An OutdoorSeniors caregiver steadying an elderly man as he walks with a frame in his Bangalore home" width="1915" height="821" fetchpriority="high" decoding="async">
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge">Bangalore &middot; Elder care, nursing &amp; baby care</div>
+      <h1>Trusted Caretakers &amp; Nurses.<br><em>At home, in Bangalore.</em></h1>
+      <p class="hero-sub">Tell us what you need on WhatsApp. We&rsquo;ll understand the situation, confirm availability and share clear, all-inclusive pricing &mdash; usually the same day.</p>
+      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore." target="_blank" rel="noopener" class="btn-wa">
+        <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
+        Tell us what you need
+      </a>
+      <p class="hero-note">Average response time: under 15 minutes</p>
     </div>
   </div>
 </section>
