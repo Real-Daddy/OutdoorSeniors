@@ -1,67 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.outdoorseniors.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/bangalore/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/bangalore/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/bangalore/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/bangalore/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/bangalore/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/bangalore/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/bangalore/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/bangalore/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/haldwani/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/haldwani/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/haldwani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/haldwani/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/haldwani/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/haldwani/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/haldwani/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/haldwani/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/elder-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/elder-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/elder-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/elder-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/elder-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/elder-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/elder-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/elder-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/bedridden-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/bedridden-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/bedridden-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/bedridden-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/bedridden-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/bedridden-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/bedridden-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/bedridden-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/post-operative-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/post-operative-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/post-operative-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/post-operative-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/post-operative-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/post-operative-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/post-operative-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/post-operative-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/home-nursing/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/home-nursing/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/home-nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/home-nursing/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/home-nursing/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/home-nursing/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/home-nursing/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/home-nursing/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/japa-postnatal-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/japa-postnatal-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/japa-postnatal-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/japa-postnatal-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/japa-postnatal-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/japa-postnatal-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/japa-postnatal-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/japa-postnatal-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/baby-care-nanny/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/baby-care-nanny/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/baby-care-nanny/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/baby-care-nanny/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/baby-care-nanny/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/baby-care-nanny/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/baby-care-nanny/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/baby-care-nanny/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/dementia-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/dementia-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/dementia-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/dementia-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/dementia-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/dementia-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/dementia-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/dementia-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/night-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/night-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/night-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/night-care/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/night-care/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/night-care/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/night-care/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/night-care/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/physiotherapy-at-home/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/physiotherapy-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/physiotherapy-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/physiotherapy-at-home/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/physiotherapy-at-home/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/physiotherapy-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/physiotherapy-at-home/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/physiotherapy-at-home/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/hospital-attendant/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/hospital-attendant/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/hospital-attendant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/hospital-attendant/"/>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/hi/hospital-attendant/</loc>
+    <xhtml:link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/hospital-attendant/"/>
+    <xhtml:link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/hospital-attendant/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/hospital-attendant/"/>
     <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>

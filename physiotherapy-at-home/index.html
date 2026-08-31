@@ -159,6 +159,93 @@ nav {
 }
 .nav-cta:hover { background: var(--wa-dark); transform: translateY(-1px); }
 
+/* ---------- City switcher + language toggle ---------- */
+
+.nav-tools { display: flex; align-items: center; gap: 8px; }
+.city-wrap { position: relative; }
+
+.city-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: border-color 0.15s;
+}
+.city-chip:hover { border-color: #111; }
+.city-chip .pin { font-size: 13px; line-height: 1; }
+.city-chip .caret { color: var(--text-xs); font-size: 10px; }
+
+.city-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+  padding: 6px;
+  display: none;
+  z-index: 200;
+}
+.city-menu.open { display: block; }
+.city-menu a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  border-radius: 6px;
+  text-align: left;
+}
+.city-menu a:hover { background: var(--cream); color: #000; }
+.city-menu a.current { font-weight: 700; color: #111; background: var(--cream); }
+.city-menu .cm-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+  padding: 6px 12px 4px;
+  font-weight: 700;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+  background: #fff;
+}
+.lang-toggle a {
+  padding: 7px 11px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-light);
+  transition: background 0.15s, color 0.15s;
+}
+.lang-toggle a.active { background: #111; color: #fff; }
+.lang-toggle a:not(.active):hover { background: var(--cream); color: #111; }
+
+/* City badge used inside page copy */
+.city-inline { font-weight: 700; color: #111; }
+
+@media (max-width: 899px) {
+  .nav-cta { display: none; }      /* sticky WhatsApp button covers this on phones */
+  .city-chip { padding: 6px 10px; font-size: 12.5px; }
+  .lang-toggle a { padding: 6px 9px; font-size: 12px; }
+}
+
 /* ---------- Buttons ---------- */
 
 .btn-wa {
@@ -430,6 +517,10 @@ nav {
   margin-left: auto;
   margin-right: auto;
 }
+
+/* ---------- Areas served (city pages) ---------- */
+.areas { background: #fff; padding-bottom: 8px; }
+.areas .section-sub { max-width: 760px; }
 
 /* ---------- How it works / steps ---------- */
 
@@ -918,6 +1009,9 @@ footer a { color: var(--wa-green); }
   </style>
   <!-- seo:start -->
   <link rel="canonical" href="https://www.outdoorseniors.com/physiotherapy-at-home/">
+  <link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/physiotherapy-at-home/">
+  <link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/physiotherapy-at-home/">
+  <link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/physiotherapy-at-home/">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#111111">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -1124,6 +1218,22 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquir
       <a href="#enquire" class="nav-link">Contact</a>
     </div>
     <div class="nav-right">
+      <div class="nav-tools">
+        <div class="city-wrap">
+          <button type="button" class="city-chip" id="cityChip" aria-haspopup="true" aria-expanded="false" aria-label="Change city">
+            <span class="pin" aria-hidden="true">&#128205;</span><span class="city-name">Bangalore</span><span class="caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="city-menu" id="cityMenu">
+            <div class="cm-label">Choose your city</div>
+            <a href="/bangalore/" data-city="bangalore">Bangalore</a>
+            <a href="/haldwani/" data-city="haldwani">Haldwani</a>
+          </div>
+        </div>
+        <div class="lang-toggle">
+          <a href="/physiotherapy-at-home/" class="active">EN</a>
+          <a href="/hi/physiotherapy-at-home/">हिं</a>
+        </div>
+      </div>
       <a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Physiotherapy at Home." target="_blank" rel="noopener" class="nav-cta">
         <svg class="wa-svg wa-svg-sm" aria-hidden="true"><use href="#wa-icon"></use></svg>
         WhatsApp Us
@@ -1284,6 +1394,8 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
     <div class="footer-logo">OutdoorSeniors</div>
     <p>Caretakers and nurses at home, across Bangalore.</p>
     <div class="footer-links">
+      <a href="/bangalore/" class="footer-city">Bangalore</a>
+      <a href="/haldwani/" class="footer-city">Haldwani</a>
       <a href="/">Home</a>
       <a href="/careers/">Careers</a>
       <a href="/privacy-policy/">Privacy Policy</a>
@@ -1337,7 +1449,9 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
   /* Appends the campaign tag to the Ref line already at the end of each
      message, so the enquiry arrives self-identifying. */
   function withSource(message) {
-    return CAMPAIGN ? message + ' | ' + CAMPAIGN : message;
+    // prefix the Ref with the city so every enquiry is market-tagged
+    var out = message.replace('Ref: ', 'Ref: ' + CITY_CODE + '-');
+    return CAMPAIGN ? out + ' | ' + CAMPAIGN : out;
   }
 
   /* ---- Conversion events -------------------------------------------------
@@ -1388,6 +1502,62 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
     return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
   }
 
+  /* ---- City selection ------------------------------------------------------
+     The chip in the header is the switcher. The chosen city is remembered and
+     stamped onto every WhatsApp message, so an enquiry tells you which market
+     it came from without anyone having to type it. */
+
+  var CITY_KEY = 'os_city';
+  var LANG = (document.documentElement.getAttribute('lang') === 'hi') ? 'hi' : 'en';
+  var CITIES = {
+    bangalore: { en: 'Bangalore', hi: 'बैंगलोर', code: 'BAN' },
+    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' }
+  };
+
+  function currentCity() {
+    // a city page wins over a stored preference - the URL is the stronger signal
+    var m = location.pathname.match(new RegExp('/(bangalore|haldwani)/'));
+    if (m) { try { localStorage.setItem(CITY_KEY, m[1]); } catch (e) {} return m[1]; }
+    try {
+      var saved = localStorage.getItem(CITY_KEY);
+      if (saved && CITIES[saved]) { return saved; }
+    } catch (e) {}
+    return 'bangalore';
+  }
+
+  var CITY = currentCity();
+  var CITY_NAME = CITIES[CITY][LANG];
+  var CITY_CODE = CITIES[CITY].code;   // Ref codes stay ASCII in both languages
+
+  function initCityChip() {
+    var chip = document.getElementById('cityChip');
+    var menu = document.getElementById('cityMenu');
+    if (!chip || !menu) { return; }
+
+    var label = chip.querySelector('.city-name');
+    if (label) { label.textContent = CITY_NAME; }
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
+      if (a.getAttribute('data-city') === CITY) { a.className = 'current'; }
+      a.addEventListener('click', function () {
+        try { localStorage.setItem(CITY_KEY, a.getAttribute('data-city')); } catch (e) {}
+      });
+    });
+
+    chip.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () {
+      menu.classList.remove('open');
+      chip.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { menu.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
   /* ---- 2. Mobile nav ---- */
   var hamburger = document.getElementById('hamburger');
   var mobileMenu = document.getElementById('mobileMenu');
@@ -1409,6 +1579,8 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
       }
     });
   }
+
+  initCityChip();
 
   /* ---- 3. Simple WhatsApp links ----
      Any element with data-wa-text gets its href built from that text.
@@ -1458,14 +1630,21 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
           if (r) { refs.push(r); }
         }
 
-        var message = [
-          'Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
-          'Duration: ' + (labels.length ? labels.join(', ') : 'Not specified'),
-          'When I need it: ',
-          'Area in Bangalore: ',
-          '',
-          'Ref: ' + refs.join('-')
-        ].join('\n');
+        var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
+        var lines = (LANG === 'hi')
+          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+             'अवधि: ' + dur,
+             'कब चाहिए: ',
+             'इलाक़ा (' + CITY_NAME + '): ',
+             '',
+             'Ref: ' + refs.join('-')]
+          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+             'Duration: ' + dur,
+             'When I need it: ',
+             'Area in ' + CITY_NAME + ': ',
+             '',
+             'Ref: ' + refs.join('-')];
+        var message = lines.join(String.fromCharCode(10));
 
         var stamped = withSource(message);
         button.setAttribute('href', waHref(stamped));
@@ -1494,7 +1673,6 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
     })(blocks[b]);
   }
 })();
-
 </script>
 </body>
 </html>

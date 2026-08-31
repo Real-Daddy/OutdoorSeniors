@@ -1009,6 +1009,9 @@ footer a { color: var(--wa-green); }
   </style>
   <!-- seo:start -->
   <link rel="canonical" href="https://www.outdoorseniors.com/">
+  <link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/">
+  <link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/">
+  <link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <meta name="theme-color" content="#111111">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -1222,6 +1225,10 @@ footer a { color: var(--wa-green); }
             <a href="/bangalore/" data-city="bangalore">Bangalore</a>
             <a href="/haldwani/" data-city="haldwani">Haldwani</a>
           </div>
+        </div>
+        <div class="lang-toggle">
+          <a href="/" class="active">EN</a>
+          <a href="/hi/">हिं</a>
         </div>
       </div>
       <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore." target="_blank" rel="noopener" class="nav-cta">
@@ -1565,7 +1572,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
      message, so the enquiry arrives self-identifying. */
   function withSource(message) {
     // prefix the Ref with the city so every enquiry is market-tagged
-    var out = message.replace('Ref: ', 'Ref: ' + CITY_NAME.toUpperCase().slice(0, 3) + '-');
+    var out = message.replace('Ref: ', 'Ref: ' + CITY_CODE + '-');
     return CAMPAIGN ? out + ' | ' + CAMPAIGN : out;
   }
 
@@ -1623,7 +1630,11 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
      it came from without anyone having to type it. */
 
   var CITY_KEY = 'os_city';
-  var CITIES = { bangalore: 'Bangalore', haldwani: 'Haldwani' };
+  var LANG = (document.documentElement.getAttribute('lang') === 'hi') ? 'hi' : 'en';
+  var CITIES = {
+    bangalore: { en: 'Bangalore', hi: 'बैंगलोर', code: 'BAN' },
+    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' }
+  };
 
   function currentCity() {
     // a city page wins over a stored preference - the URL is the stronger signal
@@ -1637,7 +1648,8 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
   }
 
   var CITY = currentCity();
-  var CITY_NAME = CITIES[CITY];
+  var CITY_NAME = CITIES[CITY][LANG];
+  var CITY_CODE = CITIES[CITY].code;   // Ref codes stay ASCII in both languages
 
   function initCityChip() {
     var chip = document.getElementById('cityChip');
@@ -1740,14 +1752,21 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
           if (r) { refs.push(r); }
         }
 
-        var message = [
-          'Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
-          'Duration: ' + (labels.length ? labels.join(', ') : 'Not specified'),
-          'When I need it: ',
-          'Area in ' + CITY_NAME + ': ',
-          '',
-          'Ref: ' + refs.join('-')
-        ].join('\n');
+        var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
+        var lines = (LANG === 'hi')
+          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+             'अवधि: ' + dur,
+             'कब चाहिए: ',
+             'इलाक़ा (' + CITY_NAME + '): ',
+             '',
+             'Ref: ' + refs.join('-')]
+          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+             'Duration: ' + dur,
+             'When I need it: ',
+             'Area in ' + CITY_NAME + ': ',
+             '',
+             'Ref: ' + refs.join('-')];
+        var message = lines.join(String.fromCharCode(10));
 
         var stamped = withSource(message);
         button.setAttribute('href', waHref(stamped));

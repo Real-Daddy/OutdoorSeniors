@@ -130,6 +130,18 @@
   <div class="nav-inner">
     <a href="/" class="logo">OutdoorSeniors</a>
     <div class="nav-right">
+      <div class="nav-tools">
+        <div class="city-wrap">
+          <button type="button" class="city-chip" id="cityChip" aria-haspopup="true" aria-expanded="false" aria-label="Change city">
+            <span class="pin" aria-hidden="true">&#128205;</span><span class="city-name">Bangalore</span><span class="caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="city-menu" id="cityMenu">
+            <div class="cm-label">Choose your city</div>
+            <a href="/bangalore/" data-city="bangalore">Bangalore</a>
+            <a href="/haldwani/" data-city="haldwani">Haldwani</a>
+          </div>
+        </div>
+      </div>
       <a href="/" class="nav-back">&#8592; Back to Home</a>
       <a href="https://wa.me/919620384645?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Refund%20Policy." target="_blank" rel="noopener" class="btn-wa-sm">
         <svg class="wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -202,6 +214,8 @@
     <div class="footer-logo">OutdoorSeniors</div>
     <p>Verified caretakers for elder care, baby care &amp; post-operative nursing in Bangalore.</p>
     <div class="footer-links">
+      <a href="/bangalore/" class="footer-city">Bangalore</a>
+      <a href="/haldwani/" class="footer-city">Haldwani</a>
       <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.facebook.com/OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
       <a href="/careers/">Careers</a>
@@ -211,6 +225,276 @@
     <p style="margin-top:20px;font-size:12px;color:#444;">&copy; 2025 OutdoorSeniors. All rights reserved. Bangalore, India.</p>
   </div>
 </footer>
+
+<script>
+/* ==========================================================================
+   OutdoorSeniors — shared behaviour
+   1. Campaign tracking (UTM capture + conversion events)
+   2. Mobile nav toggle
+   3. WhatsApp link building (phone number lives here, once)
+   4. Duration selector on service pages
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ---- 1. Phone number: change it here and it changes everywhere ---- */
+  var WA_NUMBER = '919620384645';
+
+  /* ---- Campaign source capture ------------------------------------------
+     Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
+     So we capture where they came from on arrival, keep it for the session,
+     and stamp it into the WhatsApp message itself. That message is the only
+     record that survives the handoff — it is your ground truth for which ad
+     actually produced an enquiry. */
+
+  var SRC_KEY = 'os_src';
+
+  function readSource() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var src = q.get('utm_source') || (q.get('gclid') ? 'google' : (q.get('fbclid') ? 'meta' : ''));
+      var camp = q.get('utm_campaign') || '';
+      var content = q.get('utm_content') || '';
+      if (src) {
+        var tag = [src, camp, content].filter(Boolean).join('/');
+        sessionStorage.setItem(SRC_KEY, tag);
+        return tag;
+      }
+      return sessionStorage.getItem(SRC_KEY) || '';
+    } catch (e) { return ''; }
+  }
+
+  var CAMPAIGN = readSource();
+
+  /* Appends the campaign tag to the Ref line already at the end of each
+     message, so the enquiry arrives self-identifying. */
+  function withSource(message) {
+    // prefix the Ref with the city so every enquiry is market-tagged
+    var out = message.replace('Ref: ', 'Ref: ' + CITY_CODE + '-');
+    return CAMPAIGN ? out + ' | ' + CAMPAIGN : out;
+  }
+
+  /* ---- Conversion events -------------------------------------------------
+     Fired on WhatsApp click. Each platform is optional: nothing runs unless
+     you have filled in the matching ID in the analytics block in <head>. */
+
+  function trackEnquiry(label) {
+    var cfg = window.OS_TRACK || {};
+
+    // Meta Pixel
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', { content_name: label, content_category: 'enquiry' });
+    }
+
+    // GA4
+    if (typeof window.gtag === 'function' && cfg.ga4) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'whatsapp',
+        event_label: label,
+        campaign_source: CAMPAIGN || 'direct'
+      });
+    }
+
+    // Google Ads conversion
+    if (typeof window.gtag === 'function' && cfg.gads && cfg.gadsLabel) {
+      window.gtag('event', 'conversion', { send_to: cfg.gads + '/' + cfg.gadsLabel });
+    }
+  }
+
+  /* Attach to any WhatsApp link. The label is read from the link's CURRENT
+     href at click time, not captured on load — otherwise changing the duration
+     would update the message but keep reporting the original selection. */
+  function wireTracking(el) {
+    el.addEventListener('click', function () {
+      var href = el.getAttribute('href') || '';
+      var msg = '';
+      try { msg = decodeURIComponent(href.split('?text=')[1] || ''); } catch (e) { msg = ''; }
+      trackEnquiry(refOf(msg));
+    });
+  }
+
+  function refOf(message) {
+    var i = message.indexOf('Ref: ');
+    return i < 0 ? 'unknown' : message.slice(i + 5).split(String.fromCharCode(10))[0].trim();
+  }
+
+  function waHref(message) {
+    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  }
+
+  /* ---- City selection ------------------------------------------------------
+     The chip in the header is the switcher. The chosen city is remembered and
+     stamped onto every WhatsApp message, so an enquiry tells you which market
+     it came from without anyone having to type it. */
+
+  var CITY_KEY = 'os_city';
+  var LANG = (document.documentElement.getAttribute('lang') === 'hi') ? 'hi' : 'en';
+  var CITIES = {
+    bangalore: { en: 'Bangalore', hi: 'बैंगलोर', code: 'BAN' },
+    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' }
+  };
+
+  function currentCity() {
+    // a city page wins over a stored preference - the URL is the stronger signal
+    var m = location.pathname.match(new RegExp('/(bangalore|haldwani)/'));
+    if (m) { try { localStorage.setItem(CITY_KEY, m[1]); } catch (e) {} return m[1]; }
+    try {
+      var saved = localStorage.getItem(CITY_KEY);
+      if (saved && CITIES[saved]) { return saved; }
+    } catch (e) {}
+    return 'bangalore';
+  }
+
+  var CITY = currentCity();
+  var CITY_NAME = CITIES[CITY][LANG];
+  var CITY_CODE = CITIES[CITY].code;   // Ref codes stay ASCII in both languages
+
+  function initCityChip() {
+    var chip = document.getElementById('cityChip');
+    var menu = document.getElementById('cityMenu');
+    if (!chip || !menu) { return; }
+
+    var label = chip.querySelector('.city-name');
+    if (label) { label.textContent = CITY_NAME; }
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
+      if (a.getAttribute('data-city') === CITY) { a.className = 'current'; }
+      a.addEventListener('click', function () {
+        try { localStorage.setItem(CITY_KEY, a.getAttribute('data-city')); } catch (e) {}
+      });
+    });
+
+    chip.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () {
+      menu.classList.remove('open');
+      chip.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { menu.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
+  /* ---- 2. Mobile nav ---- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target.classList.contains('mobile-link')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  }
+
+  initCityChip();
+
+  /* ---- 3. Simple WhatsApp links ----
+     Any element with data-wa-text gets its href built from that text.
+     Keeps the phone number out of the markup entirely. */
+  var simpleLinks = document.querySelectorAll('[data-wa-text]');
+  for (var i = 0; i < simpleLinks.length; i++) {
+    (function (el) {
+      var msg = withSource(el.getAttribute('data-wa-text'));
+      el.setAttribute('href', waHref(msg));
+      wireTracking(el);
+    })(simpleLinks[i]);
+  }
+
+  /* ---- 4. Service enquiry block with duration options ----
+     Markup contract:
+       <div class="enquire" data-service="Elder Care at Home" data-ref="ELD">
+         <div class="duration-selector">                     <- one group
+           <button class="dur-opt dur-active" data-dur="12-hour day" data-ref="12H-DAY">…</button>
+         </div>
+         <a class="btn-book" data-enquire-btn>…</a>
+       </div>
+
+     A service can have more than one .duration-selector group — Japa needs
+     both a length (30/45/60 days) and a mode (day/live-in). Each group holds
+     its own selection; the labels and ref codes are joined in order, which is
+     what produces refs like JAPA-45D-LIVEIN. */
+  var blocks = document.querySelectorAll('[data-service]');
+
+  for (var b = 0; b < blocks.length; b++) {
+    (function (block) {
+      var service = block.getAttribute('data-service');
+      var baseRef = block.getAttribute('data-ref') || '';
+      var groups = block.querySelectorAll('.duration-selector');
+      var button = block.querySelector('[data-enquire-btn]');
+
+      if (!button || !groups.length) { return; }
+
+      function refresh() {
+        var labels = [];
+        var refs = [baseRef];
+
+        for (var g = 0; g < groups.length; g++) {
+          var active = groups[g].querySelector('.dur-opt.dur-active');
+          if (!active) { continue; }
+          labels.push(active.getAttribute('data-dur'));
+          var r = active.getAttribute('data-ref');
+          if (r) { refs.push(r); }
+        }
+
+        var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
+        var lines = (LANG === 'hi')
+          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+             'अवधि: ' + dur,
+             'कब चाहिए: ',
+             'इलाक़ा (' + CITY_NAME + '): ',
+             '',
+             'Ref: ' + refs.join('-')]
+          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+             'Duration: ' + dur,
+             'When I need it: ',
+             'Area in ' + CITY_NAME + ': ',
+             '',
+             'Ref: ' + refs.join('-')];
+        var message = lines.join(String.fromCharCode(10));
+
+        var stamped = withSource(message);
+        button.setAttribute('href', waHref(stamped));
+        if (!button._tracked) { button._tracked = true; wireTracking(button); }
+      }
+
+      /* Selection is exclusive within a group, independent across groups. */
+      for (var g2 = 0; g2 < groups.length; g2++) {
+        (function (group) {
+          var options = group.querySelectorAll('.dur-opt');
+          for (var o = 0; o < options.length; o++) {
+            options[o].addEventListener('click', function () {
+              for (var k = 0; k < options.length; k++) {
+                options[k].classList.remove('dur-active');
+                options[k].setAttribute('aria-pressed', 'false');
+              }
+              this.classList.add('dur-active');
+              this.setAttribute('aria-pressed', 'true');
+              refresh();
+            });
+          }
+        })(groups[g2]);
+      }
+
+      refresh();
+    })(blocks[b]);
+  }
+})();
+</script>
 
 </body>
 </html>
