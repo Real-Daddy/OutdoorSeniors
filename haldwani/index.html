@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors</title>
+  <meta name="description" content="Background-verified caretakers and nurses at home in Haldwani — elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   OutdoorSeniors — shared stylesheet
+   Mobile-first: base styles target small screens, min-width queries scale up.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+:root {
+  --green-dark: #111111;
+  --green-mid: #333333;
+  --green-light: #555555;
+  --amber: #111111;
+  --amber-bg: #F0F0F0;
+  --wa-green: #25D366;
+  --wa-dark: #128C7E;
+  --cream: #F7F7F7;
+  --border: #E0E0E0;
+  --text-light: #666;
+  --text-xs: #999;
+  --ok: #16794C;
+  --ok-bg: #E8F4EE;
+  --no: #C2413B;
+  --no-bg: #FBEDEC;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow-hover: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+:focus-visible {
+  outline: 3px solid var(--wa-dark);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 18px; }
+
+section { padding: 48px 0; scroll-margin-top: 64px; }
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.section-title {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+.section-sub {
+  font-size: 15px;
+  color: var(--text-light);
+  max-width: 580px;
+  margin-bottom: 32px;
+  line-height: 1.7;
+}
+
+/* ---------- Nav ---------- */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 0;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.logo { font-size: 17px; font-weight: 800; color: var(--green-dark); letter-spacing: -0.5px; flex-shrink: 0; }
+.logo span { color: var(--amber); }
+.nav-links { display: none; align-items: center; gap: 28px; }
+.nav-link { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.2px; transition: color 0.15s; white-space: nowrap; }
+.nav-link:hover { color: #000; }
+.nav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 7px 8px;
+  width: 38px;
+  height: 38px;
+}
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 18px;
+  background: #111;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu { display: none; border-top: 1px solid var(--border); background: #fff; }
+.mobile-menu.open { display: block; }
+.mobile-link {
+  display: block;
+  padding: 14px 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  border-bottom: 1px solid #F0F0F0;
+  transition: color 0.15s, padding-left 0.15s;
+}
+.mobile-link:last-child { border-bottom: none; }
+.mobile-link:hover { color: #000; padding-left: 4px; }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 9px 16px;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+/* ---------- City switcher + language toggle ---------- */
+
+.nav-tools { display: flex; align-items: center; gap: 8px; }
+.city-wrap { position: relative; }
+
+.city-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  font-family: inherit;
+  white-space: nowrap;
+  transition: border-color 0.15s;
+}
+.city-chip:hover { border-color: #111; }
+.city-chip .pin { font-size: 13px; line-height: 1; }
+.city-chip .caret { color: var(--text-xs); font-size: 10px; }
+
+.city-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+  padding: 6px;
+  display: none;
+  z-index: 200;
+}
+.city-menu.open { display: block; }
+.city-menu a {
+  display: block;
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  border-radius: 6px;
+  text-align: left;
+}
+.city-menu a:hover { background: var(--cream); color: #000; }
+.city-menu a.current { font-weight: 700; color: #111; background: var(--cream); }
+.city-menu .cm-label {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+  padding: 6px 12px 4px;
+  font-weight: 700;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  overflow: hidden;
+  background: #fff;
+}
+.lang-toggle a {
+  padding: 7px 11px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--text-light);
+  transition: background 0.15s, color 0.15s;
+}
+.lang-toggle a.active { background: #111; color: #fff; }
+.lang-toggle a:not(.active):hover { background: var(--cream); color: #111; }
+
+/* City badge used inside page copy */
+.city-inline { font-weight: 700; color: #111; }
+
+@media (max-width: 899px) {
+  .nav-cta { display: none; }      /* sticky WhatsApp button covers this on phones */
+  .city-chip { padding: 6px 10px; font-size: 12.5px; }
+  .lang-toggle a { padding: 6px 9px; font-size: 12px; }
+}
+
+/* ---------- Buttons ---------- */
+
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: 50px;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+  width: 100%;
+  text-align: center;
+}
+.btn-wa:hover {
+  background: var(--wa-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37,211,102,0.45);
+}
+
+.btn-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-book:hover { background: var(--wa-dark); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid #111;
+  color: #111;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 22px;
+  border-radius: 50px;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover { background: #111; color: #fff; }
+
+.wa-svg { width: 22px; height: 22px; fill: #fff; flex-shrink: 0; }
+.wa-svg-sm { width: 17px; height: 17px; }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  background: var(--cream);
+  padding: 44px 0 36px;
+  border-bottom: 1px solid var(--border);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #EDEDED;
+  color: var(--green-mid);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 32px;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #111;
+  margin-bottom: 18px;
+  letter-spacing: -0.8px;
+  max-width: 700px;
+}
+.hero h1 em { font-style: normal; color: var(--green-mid); }
+.hero-sub {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 28px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+.hero-note { font-size: 13px; color: #444; margin-top: 16px; }
+
+/* ---------------------------------------------------------------------------
+   Hero with full-bleed photograph.
+   The photo sits behind everything; a cream scrim runs left-to-right so the
+   headline always has an opaque ground under it and the image is only fully
+   visible on the right, where the subjects are.
+   --------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  background-color: var(--cream);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* keep the two men in frame when the box gets narrower than 21:9 */
+  object-position: 72% center;
+}
+
+/* The scrim. Mobile keeps it almost solid so type stays readable over a
+   heavily cropped image; wider screens let more of the photo through. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(247,247,247,0.985) 0%,
+    rgba(247,247,247,0.97) 58%,
+    rgba(247,247,247,0.92) 80%,
+    rgba(247,247,247,0.80) 100%
+  );
+}
+
+.hero-inner { position: relative; }
+.hero-copy { max-width: 620px; }
+
+/* ---------- Trust bar ---------- */
+
+.trust-bar { background: var(--green-dark); padding: 18px 0; }
+.trust-items { display: flex; flex-wrap: wrap; gap: 10px 20px; justify-content: center; align-items: center; }
+.trust-item { display: flex; align-items: center; gap: 8px; color: #fff; font-size: 13px; font-weight: 500; }
+
+/* ---------- Service categories + tiles (homepage) ---------- */
+
+.services { background: var(--cream); }
+
+.cat-block { margin-bottom: 32px; }
+.cat-block:last-of-type { margin-bottom: 0; }
+
+.cat-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #D8D8D8;
+}
+.cat-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #111;
+  letter-spacing: -0.2px;
+}
+.cat-count {
+  font-size: 11px;
+  color: var(--text-xs);
+  font-weight: 500;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.tile-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.tile {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.tile:hover {
+  border-color: #111;
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+
+/* Square art panel — swap the emoji span for an <img> when photos are ready */
+.tile-art {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+  line-height: 1;
+  background: var(--tint, #F0F0F0);
+  position: relative;
+}
+.tile-art img { width: 100%; height: 100%; object-fit: cover; }
+
+.tile-plus {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 7px rgba(0,0,0,0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wa-dark);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+.tile:hover .tile-plus { background: var(--wa-dark); color: #fff; }
+
+.tile-body { padding: 11px 12px 13px; }
+.tile-name {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+.tile-meta { font-size: 11px; color: var(--text-xs); line-height: 1.45; }
+
+/* Per-category tints on the art panel */
+.cat-elder   .tile-art { --tint: #F1EDE5; }
+.cat-nursing .tile-art { --tint: #E8EEF3; }
+.cat-baby    .tile-art { --tint: #F3EBED; }
+
+/* Catch-all strip under the grid */
+.catchall-strip {
+  margin-top: 28px;
+  border: 2px dashed #C8C8C8;
+  border-radius: var(--radius);
+  background: #FCFCFC;
+  padding: 22px 20px;
+  text-align: center;
+}
+.catchall-strip h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+.catchall-strip p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  max-width: 460px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Areas served (city pages) ---------- */
+.areas { background: #fff; padding-bottom: 8px; }
+.areas .section-sub { max-width: 760px; }
+
+/* ---------- How it works / steps ---------- */
+
+.how { background: #fff; }
+.steps { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.step { text-align: center; padding: 16px; }
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 21px;
+  font-weight: 800;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+}
+.step-title { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 8px; }
+.step-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+/* ---------- Why us ---------- */
+
+.why { background: var(--cream); }
+.why-grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.why-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 20px;
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.why-icon { font-size: 24px; flex-shrink: 0; line-height: 1.2; }
+.why-title { font-size: 15px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.why-desc { font-size: 13px; color: var(--text-light); line-height: 1.5; }
+
+/* ==========================================================================
+   SERVICE DETAIL PAGES
+   ========================================================================== */
+
+/* Breadcrumb */
+.crumb { padding: 14px 0 0; font-size: 13px; color: var(--text-xs); }
+.crumb a { color: var(--text-light); }
+.crumb a:hover { color: #111; text-decoration: underline; }
+.crumb .sep { margin: 0 6px; }
+
+/* Service hero */
+.svc-hero { background: var(--cream); padding: 24px 0 32px; border-bottom: 1px solid var(--border); }
+.svc-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.svc-hero h1 {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.7px;
+  color: #111;
+  margin-bottom: 14px;
+}
+.svc-headline {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--green-mid);
+  line-height: 1.45;
+  margin-bottom: 14px;
+  max-width: 560px;
+}
+.svc-intro { font-size: 15.5px; color: #444; line-height: 1.7; max-width: 620px; margin-bottom: 24px; }
+
+/* Service hero photo */
+.svc-photo {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #EDEDED;
+  margin-bottom: 22px;
+}
+.svc-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Includes / excludes */
+.inex { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.inex-col h3 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--border);
+}
+.inex-col.yes h3 { color: var(--ok); }
+.inex-col.no h3 { color: var(--no); }
+.inex-col ul { list-style: none; }
+.inex-col li {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  font-size: 14.5px;
+  color: #333;
+  line-height: 1.55;
+  padding: 8px 0;
+}
+.inex-col .mark {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+.inex-col.yes .mark { background: var(--ok-bg); color: var(--ok); }
+.inex-col.no .mark { background: var(--no-bg); color: var(--no); }
+
+/* How it's done */
+.howto { list-style: none; counter-reset: hstep; }
+.howto li {
+  counter-increment: hstep;
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 14px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  align-items: start;
+}
+.howto li:first-child { border-top: none; padding-top: 0; }
+.howto li::before {
+  content: counter(hstep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: #111;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 800;
+}
+.howto .h-title { font-size: 15.5px; font-weight: 700; color: #111; margin-bottom: 4px; }
+.howto .h-desc { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+/* Enquiry / duration selector card */
+.enquire {
+  border: 2px solid #111;
+  border-radius: var(--radius);
+  padding: 22px 18px;
+  background: #fff;
+}
+.enquire h3 { font-size: 19px; font-weight: 800; color: #111; margin-bottom: 6px; letter-spacing: -0.3px; }
+.enquire .eq-sub { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; }
+
+.dur-select-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+  margin-bottom: 10px;
+}
+.duration-selector { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.dur-opt {
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  user-select: none;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #444;
+  background: #fff;
+  font-family: inherit;
+}
+.dur-opt:hover { border-color: var(--green-mid); background: #F5F5F5; }
+.dur-opt.dur-active { border-color: #111; background: #111; color: #fff; }
+.dur-opt.dur-unsure { border-style: dashed; }
+
+.enquire-note { font-size: 12.5px; color: var(--text-xs); margin-top: 12px; text-align: center; line-height: 1.5; }
+
+/* FAQ */
+.faq-list { border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item summary {
+  padding: 16px 0;
+  cursor: pointer;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: #111;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--text-light);
+  transition: transform 0.2s;
+}
+.faq-item[open] summary::after { content: "\2212"; }
+.faq-item .faq-a {
+  font-size: 14.5px;
+  color: var(--text-light);
+  line-height: 1.7;
+  padding: 0 0 18px;
+  max-width: 660px;
+}
+
+/* Related / other services */
+.related-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.related-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #222;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: #111; transform: translateY(-2px); }
+.related-card .r-icon { font-size: 22px; flex-shrink: 0; }
+.related-card .r-arrow { margin-left: auto; color: var(--text-xs); }
+
+/* Not-listed callout */
+.notlisted {
+  border: 2px dashed #C8C8C8;
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  text-align: center;
+  background: #FCFCFC;
+}
+.notlisted h3 { font-size: 19px; font-weight: 800; color: #111; margin-bottom: 8px; letter-spacing: -0.3px; }
+.notlisted p { font-size: 14.5px; color: var(--text-light); line-height: 1.65; margin-bottom: 20px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* ==========================================================================
+   CAREERS
+   ========================================================================== */
+
+.paths-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+
+.path-card {
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px 20px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.path-card.featured { border-color: #111; background: var(--cream); }
+.path-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+.path-title {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #111;
+  letter-spacing: -0.6px;
+  margin-bottom: 12px;
+}
+.path-sub { font-size: 14.5px; color: var(--text-light); line-height: 1.7; margin-bottom: 20px; }
+.path-list { list-style: none; margin-bottom: 24px; }
+.path-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #333;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+}
+.path-list li:last-child { border-bottom: none; }
+.path-list .check { color: var(--ok); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+.path-card .btn-book { margin-top: auto; }
+
+.roles-note {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+  margin-top: 24px;
+}
+.roles-note h3 { font-size: 17px; font-weight: 700; color: #111; margin-bottom: 8px; }
+.roles-note p { font-size: 14.5px; color: var(--text-light); line-height: 1.7; }
+
+@media (min-width: 800px) {
+  .paths-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .path-card { padding: 34px 30px; }
+  .path-title { font-size: 30px; }
+  .roles-note { padding: 26px 28px; }
+}
+
+/* ---------- Final CTA ---------- */
+
+.final-cta { background: var(--green-dark); padding: 56px 0; text-align: center; }
+.final-cta h2 { font-size: 26px; font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -0.5px; }
+.final-cta .sub { font-size: 16px; color: rgba(255,255,255,0.72); margin-bottom: 28px; }
+.final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
+.final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
+
+/* ---------- Footer ---------- */
+
+footer { background: #111; color: #888; padding: 40px 0; text-align: center; }
+.footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
+footer p { font-size: 13px; margin-bottom: 6px; }
+footer a { color: var(--wa-green); }
+.footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; font-size: 13px; }
+
+/* ---------- Sticky WhatsApp button ---------- */
+
+.wa-sticky {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--wa-green);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.wa-sticky:hover { background: var(--wa-dark); transform: translateY(-3px); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+.wa-sticky .wa-label { display: none; }
+.wa-sticky .wa-svg { width: 26px; height: 26px; }
+
+/* ==========================================================================
+   BREAKPOINTS — scaling up from mobile
+   ========================================================================== */
+
+@media (min-width: 480px) {
+  .btn-wa { width: auto; }
+  .hero h1 { font-size: 36px; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 640px) {
+  .container { padding: 0 24px; }
+  section { padding: 64px 0; }
+
+  .section-title { font-size: 34px; }
+  .section-sub { font-size: 16px; margin-bottom: 40px; }
+
+  .hero { padding: 64px 0 52px; }
+  .hero::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(247,247,247,0.97) 0%,
+      rgba(247,247,247,0.92) 52%,
+      rgba(247,247,247,0.60) 74%,
+      rgba(247,247,247,0.40) 100%
+    );
+  }
+  .hero h1 { font-size: 44px; letter-spacing: -1px; }
+  .hero-sub { font-size: 17px; margin-bottom: 32px; }
+
+  .trust-item { font-size: 14px; }
+
+  .tile-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .tile-name { font-size: 14.5px; }
+  .tile-meta { font-size: 11.5px; }
+  .tile-body { padding: 13px 14px 15px; }
+  .cat-title { font-size: 18px; }
+  .cat-block { margin-bottom: 40px; }
+  .catchall-strip { padding: 28px 24px; }
+
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+
+  .svc-hero { padding: 28px 0 40px; }
+  .svc-hero h1 { font-size: 38px; letter-spacing: -1px; }
+  .svc-headline { font-size: 20px; }
+  .svc-intro { font-size: 16.5px; }
+
+  .inex { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  .enquire { padding: 28px 26px; }
+
+  .final-cta { padding: 72px 0; }
+  .final-cta h2 { font-size: 34px; }
+  .final-cta .sub { font-size: 18px; }
+
+  .wa-sticky {
+    width: auto;
+    height: auto;
+    padding: 14px 22px;
+    border-radius: 50px;
+    bottom: 28px;
+    right: 28px;
+  }
+  .wa-sticky .wa-label { display: inline; }
+  .wa-sticky .wa-svg { width: 22px; height: 22px; }
+}
+
+@media (min-width: 900px) {
+  .nav-links { display: flex; }
+  .hamburger { display: none; }
+  .mobile-menu { display: none !important; }
+
+  .logo { font-size: 20px; }
+  .nav-cta { font-size: 14px; padding: 10px 22px; }
+
+  section { padding: 80px 0; }
+
+  .section-title { font-size: 40px; }
+
+  .hero { padding: 80px 0 64px; }
+  .hero h1 { font-size: 50px; }
+  /* No flex here: it would make .container shrink-to-fit and centre itself,
+     dropping the copy on top of the subjects. Plain padding keeps .container
+     at its normal 1100px so the copy starts at the true left margin. */
+  .hero { padding: 104px 0 96px; }
+  .hero::before {
+    background: linear-gradient(
+      to right,
+      rgba(247,247,247,0.99) 0%,
+      rgba(247,247,247,0.98) 42%,
+      rgba(247,247,247,0.92) 54%,
+      rgba(247,247,247,0.45) 64%,
+      rgba(247,247,247,0.05) 74%,
+      rgba(247,247,247,0) 82%
+    );
+  }
+  .hero-photo img { object-position: center center; }
+  .hero-copy { max-width: 560px; }
+  .hero-sub { font-size: 18px; }
+
+  .tile-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .tile-name { font-size: 15px; }
+
+  .why-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+  .svc-hero h1 { font-size: 46px; }
+
+  .related-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .final-cta h2 { font-size: 42px; }
+}
+
+/* ---------- Motion preferences ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+  </style>
+  <!-- seo:start -->
+  <link rel="canonical" href="https://www.outdoorseniors.com/haldwani/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#111111">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="OutdoorSeniors">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:title" content="Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors">
+  <meta property="og:description" content="Background-verified caretakers and nurses at home in Haldwani — elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <meta property="og:url" content="https://www.outdoorseniors.com/haldwani/">
+  <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
+  <meta property="og:image:width" content="1586">
+  <meta property="og:image:height" content="992">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors">
+  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Haldwani — elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://www.outdoorseniors.com/haldwani/#business",
+        "name": "OutdoorSeniors",
+        "description": "Background-verified caretakers and nurses at home in Haldwani for elder care, bedridden care, post-operative care, home nursing, japa and postnatal care, baby care, dementia care and physiotherapy.",
+        "url": "https://www.outdoorseniors.com/",
+        "telephone": "+91-96203-84645",
+        "image": "https://www.outdoorseniors.com/photo-elder-care.jpg",
+        "priceRange": "INR",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Haldwani",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "areaServed": {
+          "@type": "City",
+            "name": "Haldwani"
+        },
+        "sameAs": [
+          "https://www.instagram.com/outdoorseniors/",
+          "https://www.facebook.com/OutdoorSeniors"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.outdoorseniors.com/#website",
+        "url": "https://www.outdoorseniors.com/",
+        "name": "OutdoorSeniors",
+        "publisher": {
+          "@id": "https://www.outdoorseniors.com/haldwani/#business"
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Home care services in Haldwani",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Elder Care at Home",
+            "url": "https://www.outdoorseniors.com/elder-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Bedridden Patient Care",
+            "url": "https://www.outdoorseniors.com/bedridden-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Post-Operative & Discharge Care",
+            "url": "https://www.outdoorseniors.com/post-operative-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Home Nursing",
+            "url": "https://www.outdoorseniors.com/home-nursing.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Japa & Postnatal Care",
+            "url": "https://www.outdoorseniors.com/japa-postnatal-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "name": "Baby Care & Nanny",
+            "url": "https://www.outdoorseniors.com/baby-care-nanny.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 7,
+            "name": "Dementia & Alzheimer's Care",
+            "url": "https://www.outdoorseniors.com/dementia-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 8,
+            "name": "Night Care",
+            "url": "https://www.outdoorseniors.com/night-care.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 9,
+            "name": "Physiotherapy at Home",
+            "url": "https://www.outdoorseniors.com/physiotherapy-at-home.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 10,
+            "name": "Hospital Attendant",
+            "url": "https://www.outdoorseniors.com/hospital-attendant.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <!-- seo:end -->
+  <!-- analytics:start -->
+  <script>
+    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+       ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
+       meta       : Meta Pixel ID                   e.g. 1234567890123456
+       gads       : Google Ads conversion ID        e.g. AW-123456789
+       gadsLabel  : Google Ads conversion label     e.g. AbC-D_efGh12
+       Leave any of them as '' to keep that platform switched off. */
+    window.OS_TRACK = {
+      ga4: 'G-J1F4D7SDFM',
+      meta: '1351887343782267',
+      gads: '',
+      gadsLabel: ''
+    };
+  </script>
+
+  <script>
+    (function () {
+      var c = window.OS_TRACK || {};
+
+      /* Google: GA4 and/or Google Ads share one gtag loader */
+      var gId = c.ga4 || c.gads;
+      if (gId) {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gId;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        if (c.ga4) { window.gtag('config', c.ga4); }
+        if (c.gads) { window.gtag('config', c.gads); }
+      }
+
+      /* Meta Pixel */
+      if (c.meta) {
+        !function (f, b, e, v, n, t, s) {
+          if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+          n.queue = []; t = b.createElement(e); t.async = !0;
+          t.src = v; s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', c.meta);
+        window.fbq('track', 'PageView');
+      }
+    })();
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1351887343782267&amp;ev=PageView&amp;noscript=1"></noscript>
+  <!-- analytics:end -->
+</head>
+<body>
+
+<!-- Shared WhatsApp icon -->
+<svg style="display:none" aria-hidden="true" focusable="false">
+  <symbol id="wa-icon" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </symbol>
+</svg>
+
+<!-- STICKY WHATSAPP BUTTON -->
+<a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Haldwani.
+
+When I need it:
+Area in Haldwani:
+
+Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire on WhatsApp">
+  <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
+  <span class="wa-label">Enquire on WhatsApp</span>
+</a>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container nav-inner">
+    <a href="/" class="logo">Outdoor<span>Seniors</span></a>
+    <div class="nav-links">
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#how-it-works" class="nav-link">How It Works</a>
+      <a href="#why-us" class="nav-link">Why Us</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="nav-tools">
+        <div class="city-wrap">
+          <button type="button" class="city-chip" id="cityChip" aria-haspopup="true" aria-expanded="false" aria-label="Change city">
+            <span class="pin" aria-hidden="true">&#128205;</span><span class="city-name">Haldwani</span><span class="caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="city-menu" id="cityMenu">
+            <div class="cm-label">Choose your city</div>
+            <a href="/bangalore/" data-city="bangalore">Bangalore</a>
+            <a href="/haldwani/" data-city="haldwani">Haldwani</a>
+          </div>
+        </div>
+      </div>
+      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Haldwani.
+
+When I need it:
+Area in Haldwani:
+
+Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
+        <svg class="wa-svg wa-svg-sm" aria-hidden="true"><use href="#wa-icon"></use></svg>
+        WhatsApp Us
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="container">
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#how-it-works" class="mobile-link">How It Works</a>
+      <a href="#why-us" class="mobile-link">Why Us</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-photo">
+    <img src="/hero-elder-care.jpg" alt="An OutdoorSeniors caregiver steadying an elderly man as he walks with a frame in his Haldwani home" width="1915" height="821" fetchpriority="high" decoding="async">
+  </div>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge">Haldwani &middot; Elder care, nursing &amp; baby care</div>
+      <h1>Trusted Caretakers &amp; Nurses.<br><em>At home, in Haldwani.</em></h1>
+      <p class="hero-sub">We are now placing caretakers and nurses with families in Haldwani. Good home care is hard to find outside the metros, and that is exactly why we came here. Tell us what you need on WhatsApp. We&rsquo;ll confirm availability and share clear, all-inclusive pricing &mdash; usually the same day.</p>
+      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Haldwani.
+
+When I need it:
+Area in Haldwani:
+
+Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
+        <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
+        Tell us what you need
+      </a>
+      <p class="hero-note">Average response time: under 15 minutes</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-items">
+      <div class="trust-item">✅ Verified before placement</div>
+      <div class="trust-item">💬 WhatsApp reply in minutes</div>
+      <div class="trust-item">🔄 Free replacement if it&rsquo;s not a fit</div>
+      <div class="trust-item">💰 Clear pricing, shared upfront</div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Care for Every Situation in Haldwani</h2>
+    <p class="section-sub">Every service below is available in Haldwani. Pick whatever is closest to your situation and tell us the details on WhatsApp.</p>
+
+    <div class="cat-block cat-elder">
+      <div class="cat-head">
+        <span class="cat-title">Elder Care</span>
+        <span class="cat-count">4 services</span>
+      </div>
+      <div class="tile-grid">
+
+        <a href="/elder-care/" class="tile">
+          <div class="tile-art"><img src="/photo-elder-care.jpg" alt="Elder Care at Home in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Elder Care at Home</div>
+            <div class="tile-meta">Hours &middot; Day &middot; Night &middot; Live-in</div>
+          </div>
+        </a>
+
+        <a href="/bedridden-care/" class="tile">
+          <div class="tile-art"><img src="/photo-bedridden-care.jpg" alt="Bedridden Patient Care in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Bedridden Patient Care</div>
+            <div class="tile-meta">Day &middot; Night &middot; Live-in</div>
+          </div>
+        </a>
+
+        <a href="/dementia-care/" class="tile">
+          <div class="tile-art"><img src="/photo-dementia-care.jpg" alt="Dementia  Alzheimers in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Dementia &amp; Alzheimer&rsquo;s</div>
+            <div class="tile-meta">Day &middot; Night &middot; Live-in</div>
+          </div>
+        </a>
+
+        <a href="/night-care/" class="tile">
+          <div class="tile-art"><img src="/photo-night-care.jpg" alt="Night Care in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Night Care</div>
+            <div class="tile-meta">A few nights &middot; Weekly &middot; Monthly</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="cat-block cat-nursing">
+      <div class="cat-head">
+        <span class="cat-title">Nursing &amp; Recovery</span>
+        <span class="cat-count">4 services</span>
+      </div>
+      <div class="tile-grid">
+
+        <a href="/home-nursing/" class="tile">
+          <div class="tile-art"><img src="/photo-home-nursing.jpg" alt="Home Nursing in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Home Nursing</div>
+            <div class="tile-meta">Visit &middot; Day &middot; Night &middot; 24-hour</div>
+          </div>
+        </a>
+
+        <a href="/post-operative-care/" class="tile">
+          <div class="tile-art"><img src="/photo-post-operative-care.jpg" alt="Post-Operative Care in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Post-Operative Care</div>
+            <div class="tile-meta">1 week &middot; 2 weeks &middot; 1 month</div>
+          </div>
+        </a>
+
+        <a href="/physiotherapy-at-home/" class="tile">
+          <div class="tile-art"><img src="/photo-physiotherapy-at-home.jpg" alt="Physiotherapy at Home in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Physiotherapy at Home</div>
+            <div class="tile-meta">1 &middot; 6 &middot; 12 sessions</div>
+          </div>
+        </a>
+
+        <a href="/hospital-attendant/" class="tile">
+          <div class="tile-art"><img src="/photo-hospital-attendant.jpg" alt="Hospital Attendant in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Hospital Attendant</div>
+            <div class="tile-meta">Day &middot; Night &middot; 24-hour</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="cat-block cat-baby">
+      <div class="cat-head">
+        <span class="cat-title">Mother &amp; Baby</span>
+        <span class="cat-count">2 services</span>
+      </div>
+      <div class="tile-grid">
+
+        <a href="/japa-postnatal-care/" class="tile">
+          <div class="tile-art"><img src="/photo-japa-postnatal-care.jpg" alt="Japa  Postnatal Care in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Japa &amp; Postnatal Care</div>
+            <div class="tile-meta">30 &middot; 45 &middot; 60 days</div>
+          </div>
+        </a>
+
+        <a href="/baby-care-nanny/" class="tile">
+          <div class="tile-art"><img src="/photo-baby-care-nanny.jpg" alt="Baby Care  Nanny in Haldwani" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
+          <div class="tile-body">
+            <div class="tile-name">Baby Care &amp; Nanny</div>
+            <div class="tile-meta">Hours &middot; Full day &middot; Live-in</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CATCH-ALL -->
+    <div class="catchall-strip">
+      <h3>Don&rsquo;t see what you need?</h3>
+      <p>Care needs rarely fit neatly into a list. Tell us the situation on WhatsApp and we&rsquo;ll tell you honestly whether we can help.</p>
+      <a data-wa-text="Hi OutdoorSeniors — I need care but I didn’t find my requirement listed on your website. Here’s my situation:
+
+When I need it:
+Area in Haldwani:
+
+Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on WhatsApp</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- AREAS SERVED -->
+<section class="areas">
+  <div class="container">
+    <p class="section-label">Coverage</p>
+    <h2 class="section-title">Where we work in Haldwani</h2>
+    <p class="section-sub">We place caretakers and nurses across Kathgodam, Rampur Road, Nainital Road, Mukhani, Kaladhungi Road, Tikonia, Bareilly Road, Gaula Par, Lalkuan and across Haldwani and Nainital district. If your area is not listed, ask anyway &mdash; we usually can.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how-it-works">
+  <div class="container">
+    <p class="section-label">The Process</p>
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">No forms, no call centre. It starts and ends on WhatsApp.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3 class="step-title">Tell Us the Situation</h3>
+        <p class="step-desc">Message us on WhatsApp with who needs care, what help is needed and roughly when. Takes two minutes.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3 class="step-title">We Understand the Need</h3>
+        <p class="step-desc">A short call to get the details right &mdash; mobility, medical conditions, language and daily routine &mdash; then clear pricing.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3 class="step-title">You Choose, We Place</h3>
+        <p class="step-desc">We share matched profiles for you to choose from, then confirm a start date that works for your family.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why-us">
+  <div class="container">
+    <p class="section-label">Why OutdoorSeniors</p>
+    <h2 class="section-title">Built by People Who Needed This Too</h2>
+    <p class="section-sub">We started OutdoorSeniors after struggling to find reliable care for our own parents. Here is what we do differently.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">🔍</div>
+        <div>
+          <p class="why-title">Verified Before Placement</p>
+          <p class="why-desc">Document checks, references and police verification happen before anyone enters your home. Nurses&rsquo; qualifications are verified against their registration.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">🎯</div>
+        <div>
+          <p class="why-title">Matched, Not Just Assigned</p>
+          <p class="why-desc">We match on the things that actually decide whether it works &mdash; language, temperament, and experience with your specific situation.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">🔄</div>
+        <div>
+          <p class="why-title">Free Replacement</p>
+          <p class="why-desc">If the match is not right, we replace at no extra cost. It usually happens in the first week if it happens at all, and it isn&rsquo;t a problem.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">💬</div>
+        <div>
+          <p class="why-title">Honest About Fit</p>
+          <p class="why-desc">If your situation needs a nurse rather than a caretaker, or a hospital rather than home care, we&rsquo;ll say so. Even when it costs us the booking.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">💰</div>
+        <div>
+          <p class="why-title">Clear Pricing, Upfront</p>
+          <p class="why-desc">Pricing depends on hours and level of care, so we share it once we understand what you need &mdash; all-inclusive, GST included, no surprises later.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon" aria-hidden="true">🤝</div>
+        <div>
+          <p class="why-title">A Real Person on WhatsApp</p>
+          <p class="why-desc">From your first message through to renewals, you&rsquo;re talking to someone who knows your case &mdash; not a ticket number.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <h2>Need Care at Home in Haldwani?</h2>
+    <p class="sub">Tell us the situation on WhatsApp &mdash; we&rsquo;ll help you work out what you actually need.</p>
+    <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Haldwani.
+
+When I need it:
+Area in Haldwani:
+
+Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
+      <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
+      Message us on WhatsApp
+    </a>
+    <p class="cta-note">Average response time: under 15 minutes &nbsp;&middot;&nbsp; Haldwani, India</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-logo">OutdoorSeniors</div>
+    <p>Caretakers and nurses at home, across Haldwani.</p>
+    <p><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Haldwani.
+
+When I need it:
+Area in Haldwani:
+
+Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></p>
+    <div class="footer-links">
+      <a href="/bangalore/" class="footer-city">Bangalore</a>
+      <a href="/haldwani/" class="footer-city">Haldwani</a>
+      <a href="/careers/">Careers</a>
+      <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/refund-policy/">Refund Policy</a>
+    </div>
+    <p style="margin-top:18px;font-size:12px;color:#666">&copy; 2026 OutdoorSeniors. All rights reserved. Haldwani, India.</p>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   OutdoorSeniors — shared behaviour
+   1. Campaign tracking (UTM capture + conversion events)
+   2. Mobile nav toggle
+   3. WhatsApp link building (phone number lives here, once)
+   4. Duration selector on service pages
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ---- 1. Phone number: change it here and it changes everywhere ---- */
+  var WA_NUMBER = '919620384645';
+
+  /* ---- Campaign source capture ------------------------------------------
+     Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
+     So we capture where they came from on arrival, keep it for the session,
+     and stamp it into the WhatsApp message itself. That message is the only
+     record that survives the handoff — it is your ground truth for which ad
+     actually produced an enquiry. */
+
+  var SRC_KEY = 'os_src';
+
+  function readSource() {
+    try {
+      var q = new URLSearchParams(location.search);
+      var src = q.get('utm_source') || (q.get('gclid') ? 'google' : (q.get('fbclid') ? 'meta' : ''));
+      var camp = q.get('utm_campaign') || '';
+      var content = q.get('utm_content') || '';
+      if (src) {
+        var tag = [src, camp, content].filter(Boolean).join('/');
+        sessionStorage.setItem(SRC_KEY, tag);
+        return tag;
+      }
+      return sessionStorage.getItem(SRC_KEY) || '';
+    } catch (e) { return ''; }
+  }
+
+  var CAMPAIGN = readSource();
+
+  /* Appends the campaign tag to the Ref line already at the end of each
+     message, so the enquiry arrives self-identifying. */
+  function withSource(message) {
+    // prefix the Ref with the city so every enquiry is market-tagged
+    var out = message.replace('Ref: ', 'Ref: ' + CITY_NAME.toUpperCase().slice(0, 3) + '-');
+    return CAMPAIGN ? out + ' | ' + CAMPAIGN : out;
+  }
+
+  /* ---- Conversion events -------------------------------------------------
+     Fired on WhatsApp click. Each platform is optional: nothing runs unless
+     you have filled in the matching ID in the analytics block in <head>. */
+
+  function trackEnquiry(label) {
+    var cfg = window.OS_TRACK || {};
+
+    // Meta Pixel
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead', { content_name: label, content_category: 'enquiry' });
+    }
+
+    // GA4
+    if (typeof window.gtag === 'function' && cfg.ga4) {
+      window.gtag('event', 'generate_lead', {
+        event_category: 'whatsapp',
+        event_label: label,
+        campaign_source: CAMPAIGN || 'direct'
+      });
+    }
+
+    // Google Ads conversion
+    if (typeof window.gtag === 'function' && cfg.gads && cfg.gadsLabel) {
+      window.gtag('event', 'conversion', { send_to: cfg.gads + '/' + cfg.gadsLabel });
+    }
+  }
+
+  /* Attach to any WhatsApp link. The label is read from the link's CURRENT
+     href at click time, not captured on load — otherwise changing the duration
+     would update the message but keep reporting the original selection. */
+  function wireTracking(el) {
+    el.addEventListener('click', function () {
+      var href = el.getAttribute('href') || '';
+      var msg = '';
+      try { msg = decodeURIComponent(href.split('?text=')[1] || ''); } catch (e) { msg = ''; }
+      trackEnquiry(refOf(msg));
+    });
+  }
+
+  function refOf(message) {
+    var i = message.indexOf('Ref: ');
+    return i < 0 ? 'unknown' : message.slice(i + 5).split(String.fromCharCode(10))[0].trim();
+  }
+
+  function waHref(message) {
+    return 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
+  }
+
+  /* ---- City selection ------------------------------------------------------
+     The chip in the header is the switcher. The chosen city is remembered and
+     stamped onto every WhatsApp message, so an enquiry tells you which market
+     it came from without anyone having to type it. */
+
+  var CITY_KEY = 'os_city';
+  var CITIES = { bangalore: 'Bangalore', haldwani: 'Haldwani' };
+
+  function currentCity() {
+    // a city page wins over a stored preference - the URL is the stronger signal
+    var m = location.pathname.match(new RegExp('/(bangalore|haldwani)/'));
+    if (m) { try { localStorage.setItem(CITY_KEY, m[1]); } catch (e) {} return m[1]; }
+    try {
+      var saved = localStorage.getItem(CITY_KEY);
+      if (saved && CITIES[saved]) { return saved; }
+    } catch (e) {}
+    return 'bangalore';
+  }
+
+  var CITY = currentCity();
+  var CITY_NAME = CITIES[CITY];
+
+  function initCityChip() {
+    var chip = document.getElementById('cityChip');
+    var menu = document.getElementById('cityMenu');
+    if (!chip || !menu) { return; }
+
+    var label = chip.querySelector('.city-name');
+    if (label) { label.textContent = CITY_NAME; }
+
+    Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
+      if (a.getAttribute('data-city') === CITY) { a.className = 'current'; }
+      a.addEventListener('click', function () {
+        try { localStorage.setItem(CITY_KEY, a.getAttribute('data-city')); } catch (e) {}
+      });
+    });
+
+    chip.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var open = menu.classList.toggle('open');
+      chip.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function () {
+      menu.classList.remove('open');
+      chip.setAttribute('aria-expanded', 'false');
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { menu.classList.remove('open'); chip.setAttribute('aria-expanded', 'false'); }
+    });
+  }
+
+  /* ---- 2. Mobile nav ---- */
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', function () {
+      var isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open', isOpen);
+      hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+
+    mobileMenu.addEventListener('click', function (e) {
+      if (e.target.classList.contains('mobile-link')) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open menu');
+      }
+    });
+  }
+
+  initCityChip();
+
+  /* ---- 3. Simple WhatsApp links ----
+     Any element with data-wa-text gets its href built from that text.
+     Keeps the phone number out of the markup entirely. */
+  var simpleLinks = document.querySelectorAll('[data-wa-text]');
+  for (var i = 0; i < simpleLinks.length; i++) {
+    (function (el) {
+      var msg = withSource(el.getAttribute('data-wa-text'));
+      el.setAttribute('href', waHref(msg));
+      wireTracking(el);
+    })(simpleLinks[i]);
+  }
+
+  /* ---- 4. Service enquiry block with duration options ----
+     Markup contract:
+       <div class="enquire" data-service="Elder Care at Home" data-ref="ELD">
+         <div class="duration-selector">                     <- one group
+           <button class="dur-opt dur-active" data-dur="12-hour day" data-ref="12H-DAY">…</button>
+         </div>
+         <a class="btn-book" data-enquire-btn>…</a>
+       </div>
+
+     A service can have more than one .duration-selector group — Japa needs
+     both a length (30/45/60 days) and a mode (day/live-in). Each group holds
+     its own selection; the labels and ref codes are joined in order, which is
+     what produces refs like JAPA-45D-LIVEIN. */
+  var blocks = document.querySelectorAll('[data-service]');
+
+  for (var b = 0; b < blocks.length; b++) {
+    (function (block) {
+      var service = block.getAttribute('data-service');
+      var baseRef = block.getAttribute('data-ref') || '';
+      var groups = block.querySelectorAll('.duration-selector');
+      var button = block.querySelector('[data-enquire-btn]');
+
+      if (!button || !groups.length) { return; }
+
+      function refresh() {
+        var labels = [];
+        var refs = [baseRef];
+
+        for (var g = 0; g < groups.length; g++) {
+          var active = groups[g].querySelector('.dur-opt.dur-active');
+          if (!active) { continue; }
+          labels.push(active.getAttribute('data-dur'));
+          var r = active.getAttribute('data-ref');
+          if (r) { refs.push(r); }
+        }
+
+        var message = [
+          'Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          'Duration: ' + (labels.length ? labels.join(', ') : 'Not specified'),
+          'When I need it: ',
+          'Area in ' + CITY_NAME + ': ',
+          '',
+          'Ref: ' + refs.join('-')
+        ].join('\n');
+
+        var stamped = withSource(message);
+        button.setAttribute('href', waHref(stamped));
+        if (!button._tracked) { button._tracked = true; wireTracking(button); }
+      }
+
+      /* Selection is exclusive within a group, independent across groups. */
+      for (var g2 = 0; g2 < groups.length; g2++) {
+        (function (group) {
+          var options = group.querySelectorAll('.dur-opt');
+          for (var o = 0; o < options.length; o++) {
+            options[o].addEventListener('click', function () {
+              for (var k = 0; k < options.length; k++) {
+                options[k].classList.remove('dur-active');
+                options[k].setAttribute('aria-pressed', 'false');
+              }
+              this.classList.add('dur-active');
+              this.setAttribute('aria-pressed', 'true');
+              refresh();
+            });
+          }
+        })(groups[g2]);
+      }
+
+      refresh();
+    })(blocks[b]);
+  }
+})();
+</script>
+</body>
+</html>
