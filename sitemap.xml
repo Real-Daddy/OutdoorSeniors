@@ -2,72 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.outdoorseniors.com/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.outdoorseniors.com/bangalore/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.outdoorseniors.com/haldwani/</loc>
+    <lastmod>2026-08-31</lastmod>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://www.outdoorseniors.com/elder-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/bedridden-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/post-operative-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/home-nursing/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/japa-postnatal-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/baby-care-nanny/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/dementia-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/night-care/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/physiotherapy-at-home/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/hospital-attendant/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/careers/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/privacy-policy/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.outdoorseniors.com/refund-policy/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
