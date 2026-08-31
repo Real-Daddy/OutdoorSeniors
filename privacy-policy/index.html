@@ -426,6 +426,22 @@
       .catch(function () { /* offline, blocked or rate-limited - stay on default */ });
   }
 
+  /* The language toggle is hidden from the bar on phones (no room), so put a
+     copy at the bottom of the mobile menu using the same per-page links. */
+  function initMobileLang() {
+    var toggle = document.querySelector('.nav-tools .lang-toggle');
+    var menu = document.querySelector('#mobileMenu .container');
+    if (!toggle || !menu || menu.querySelector('.mobile-lang')) { return; }
+    var wrap = document.createElement('div');
+    wrap.className = 'mobile-lang';
+    var label = document.createElement('span');
+    label.className = 'ml-label';
+    label.textContent = (LANG === 'hi') ? 'भाषा' : 'Language';
+    wrap.appendChild(label);
+    wrap.appendChild(toggle.cloneNode(true));
+    menu.appendChild(wrap);
+  }
+
   function initCityChip() {
     var chip = document.getElementById('cityChip');
     var menu = document.getElementById('cityMenu');
@@ -478,6 +494,7 @@
   }
 
   initCityChip();
+  initMobileLang();
   detectCity();
 
   /* ---- 3. Simple WhatsApp links ----

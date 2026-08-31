@@ -244,6 +244,29 @@ nav {
   .nav-cta { display: none; }      /* sticky WhatsApp button covers this on phones */
   .city-chip { padding: 6px 10px; font-size: 12.5px; }
   .lang-toggle a { padding: 6px 9px; font-size: 12px; }
+
+  /* Logo + chip + language toggle + hamburger overflow a 375px screen by
+     ~29px. The city chip earns its place in the bar; language switching is
+     rarer, so it moves into the mobile menu instead. */
+  .nav-tools > .lang-toggle { display: none; }
+  .logo { font-size: 16px; }
+}
+
+/* Cloned copy of the toggle, shown only inside the mobile menu */
+.mobile-lang {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 0 4px;
+  border-top: 1px solid #F0F0F0;
+  margin-top: 4px;
+}
+.mobile-lang .ml-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-xs);
 }
 
 /* ---------- Buttons ---------- */
@@ -1594,6 +1617,22 @@ Ref: DEM" target="_blank" rel="noopener" class="btn-wa">
       .catch(function () { /* offline, blocked or rate-limited - stay on default */ });
   }
 
+  /* The language toggle is hidden from the bar on phones (no room), so put a
+     copy at the bottom of the mobile menu using the same per-page links. */
+  function initMobileLang() {
+    var toggle = document.querySelector('.nav-tools .lang-toggle');
+    var menu = document.querySelector('#mobileMenu .container');
+    if (!toggle || !menu || menu.querySelector('.mobile-lang')) { return; }
+    var wrap = document.createElement('div');
+    wrap.className = 'mobile-lang';
+    var label = document.createElement('span');
+    label.className = 'ml-label';
+    label.textContent = (LANG === 'hi') ? 'भाषा' : 'Language';
+    wrap.appendChild(label);
+    wrap.appendChild(toggle.cloneNode(true));
+    menu.appendChild(wrap);
+  }
+
   function initCityChip() {
     var chip = document.getElementById('cityChip');
     var menu = document.getElementById('cityMenu');
@@ -1646,6 +1685,7 @@ Ref: DEM" target="_blank" rel="noopener" class="btn-wa">
   }
 
   initCityChip();
+  initMobileLang();
   detectCity();
 
   /* ---- 3. Simple WhatsApp links ----
