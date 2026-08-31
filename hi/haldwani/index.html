@@ -1653,6 +1653,70 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
   var CITY_NAME = CITIES[CITY][LANG];
   var CITY_CODE = CITIES[CITY].code;   // Ref codes stay ASCII in both languages
 
+  /* Rebuilds every WhatsApp link on the page. Called on load, and again if
+     geo detection changes the city after the fact. */
+  var WA_REBUILDERS = [];
+  function refreshAllWaLinks() {
+    for (var i = 0; i < WA_REBUILDERS.length; i++) { WA_REBUILDERS[i](); }
+  }
+
+  /* ---- Silent city detection ----------------------------------------------
+     Looks up the visitor's rough location by IP and pre-selects the nearer
+     city. Deliberately NOT a redirect: Googlebot crawls from US addresses, so
+     redirecting on location would send the crawler to the wrong page and can
+     stop the city pages indexing. It only moves the chip, which the visitor
+     can still change.
+
+     Runs once per browser, never on a city page (the URL already said which),
+     and fails silently to the default if the lookup is slow, blocked or
+     rate-limited. */
+
+  var GEO_KEY = 'os_geo_done';
+
+  function applyCity(key) {
+    if (!CITIES[key] || key === CITY) { return; }
+    CITY = key;
+    CITY_NAME = CITIES[key][LANG];
+    CITY_CODE = CITIES[key].code;
+    try { localStorage.setItem(CITY_KEY, key); } catch (e) {}
+    var label = document.querySelector('#cityChip .city-name');
+    if (label) { label.textContent = CITY_NAME; }
+    var menu = document.getElementById('cityMenu');
+    if (menu) {
+      Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
+        a.className = (a.getAttribute('data-city') === key) ? 'current' : '';
+      });
+    }
+    refreshAllWaLinks();
+  }
+
+  function detectCity() {
+    // a city page, a stored choice, or a previous lookup all win over guessing
+    if (new RegExp('/(bangalore|haldwani)/').test(location.pathname)) { return; }
+    try {
+      if (localStorage.getItem(CITY_KEY) || localStorage.getItem(GEO_KEY)) { return; }
+    } catch (e) { return; }
+
+    var done = false;
+    var timer = setTimeout(function () { done = true; }, 2500);   // never block the page
+
+    fetch('https://ipwho.is/?fields=success,city,region', { mode: 'cors' })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (done || !d || d.success === false) { return; }
+        clearTimeout(timer);
+        try { localStorage.setItem(GEO_KEY, '1'); } catch (e) {}
+        var where = ((d.city || '') + ' ' + (d.region || '')).toLowerCase();
+        if (/haldwani|nainital|uttarakhand|kathgodam|rudrapur|kashipur/.test(where)) {
+          applyCity('haldwani');
+        } else if (/bengaluru|bangalore|karnataka/.test(where)) {
+          applyCity('bangalore');
+        }
+        // anywhere else: leave the default alone
+      })
+      .catch(function () { /* offline, blocked or rate-limited - stay on default */ });
+  }
+
   function initCityChip() {
     var chip = document.getElementById('cityChip');
     var menu = document.getElementById('cityMenu');
@@ -1705,6 +1769,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
   }
 
   initCityChip();
+  detectCity();
 
   /* ---- 3. Simple WhatsApp links ----
      Any element with data-wa-text gets its href built from that text.
@@ -1712,8 +1777,11 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
   var simpleLinks = document.querySelectorAll('[data-wa-text]');
   for (var i = 0; i < simpleLinks.length; i++) {
     (function (el) {
-      var msg = withSource(el.getAttribute('data-wa-text'));
-      el.setAttribute('href', waHref(msg));
+      function build() {
+        el.setAttribute('href', waHref(withSource(el.getAttribute('data-wa-text'))));
+      }
+      build();
+      WA_REBUILDERS.push(build);
       wireTracking(el);
     })(simpleLinks[i]);
   }
@@ -1794,6 +1862,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
       }
 
       refresh();
+      WA_REBUILDERS.push(refresh);
     })(blocks[b]);
   }
 })();
