@@ -159,6 +159,11 @@
 
   <div class="policy-body">
 
+    <div class="policy-section" id="who-we-are">
+      <h2>Who We Are</h2>
+      <p>OutdoorSeniors is operated by <strong>OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP</strong>, with its registered office at NO. 103, 1ST FLOOR, PROVIDENT HARMONY, Jakkur, Sampigehalli Police Station, Bangalore North, Bangalore - 560064, Karnataka, India. In this policy, &ldquo;OutdoorSeniors&rdquo;, &ldquo;we&rdquo; and &ldquo;us&rdquo; mean OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP.</p>
+    </div>
+
     <div class="policy-section">
       <h2>Overview</h2>
       <p>At OutdoorSeniors, we take your privacy seriously. This policy explains what information we collect, how we use it, and how we protect it. We keep things simple: your data is yours, and we treat it with care.</p>
@@ -224,7 +229,7 @@
 <footer>
   <div class="container" style="max-width:1100px;">
     <div class="footer-logo">OutdoorSeniors</div>
-    <p>Verified caretakers for elder care, baby care &amp; post-operative nursing in Bangalore.</p>
+    <p>Verified caretakers and nurses at home, in Bangalore and Haldwani.</p>
     <div class="footer-links">
       <a href="/bangalore/" class="footer-city">Bangalore</a>
       <a href="/haldwani/" class="footer-city">Haldwani</a>
@@ -234,7 +239,8 @@
       <a href="/refund-policy/">Refund Policy</a>
       <a href="/privacy-policy/">Privacy Policy</a>
     </div>
-    <p style="margin-top:20px;font-size:12px;color:#444;">&copy; 2025 OutdoorSeniors. All rights reserved. Bangalore, India.</p>
+    <p class="footer-legal" style="margin-top:18px;font-size:12px;color:#999">&copy; 2026 OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP. All rights reserved.</p>
+    <address class="footer-address" style="font-style:normal;font-size:12px;color:#999;line-height:1.6;margin-top:6px;max-width:640px;margin-left:auto;margin-right:auto">Registered office: NO. 103, 1ST FLOOR, PROVIDENT HARMONY, Jakkur, Sampigehalli Police Station, Bangalore North, Bangalore - 560064, Karnataka, India</address>
   </div>
 </footer>
 
@@ -273,8 +279,52 @@
         sessionStorage.setItem(SRC_KEY, tag);
         return tag;
       }
-      return sessionStorage.getItem(SRC_KEY) || '';
+
+      // No campaign tag. Keep whatever the landing page already decided...
+      var kept = sessionStorage.getItem(SRC_KEY);
+      if (kept) { return kept; }
+
+      // ...otherwise this is the landing page: fall back to the referring site,
+      // so organic Google, Instagram, AI assistants and the like still show up.
+      var fromRef = referrerSource();
+      sessionStorage.setItem(SRC_KEY, fromRef);
+      return fromRef;
     } catch (e) { return ''; }
+  }
+
+  /* Names the site that sent the visitor. UTM tags are only present when a
+     link was deliberately tagged (our ads, or ChatGPT, which adds
+     utm_source=chatgpt.com on its own); everything else arrives with only a
+     referrer. An empty referrer means typed-in, a bookmark, or an app that
+     strips it, which WhatsApp's in-app browser usually does. */
+  function referrerSource() {
+    var ref = document.referrer;
+    if (!ref) { return 'direct'; }
+    var host;
+    try { host = new URL(ref).hostname.replace(/^www\./, '').toLowerCase(); }
+    catch (e) { return 'direct'; }
+    if (host === location.hostname.replace(/^www\./, '').toLowerCase()) { return 'direct'; }
+
+    // first match wins, so gemini (which lives on google.com) comes before google
+    var known = [
+      ['gemini', /gemini\.google\.com$/],
+      ['google-search', /(^|\.)google\./],
+      ['bing', /(^|\.)bing\.com$/],
+      ['duckduckgo', /duckduckgo\.com$/],
+      ['yahoo', /(^|\.)yahoo\./],
+      ['instagram', /instagram\.com$/],
+      ['facebook', /(^|\.)(facebook\.com|fb\.com|fb\.me)$/],
+      ['whatsapp', /(whatsapp\.com|wa\.me)$/],
+      ['youtube', /(youtube\.com|youtu\.be)$/],
+      ['linkedin', /(linkedin\.com|lnkd\.in)$/],
+      ['x', /(^|\.)(t\.co|x\.com|twitter\.com)$/],
+      ['chatgpt.com', /(chatgpt\.com|chat\.openai\.com)$/],
+      ['perplexity', /perplexity\.ai$/]
+    ];
+    for (var i = 0; i < known.length; i++) {
+      if (known[i][1].test(host)) { return known[i][0]; }
+    }
+    return host;   // an unlisted site: report it as-is so nothing is lost
   }
 
   var CAMPAIGN = readSource();
