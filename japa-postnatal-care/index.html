@@ -99,6 +99,8 @@ nav {
 .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .logo { font-size: 17px; font-weight: 800; color: var(--green-dark); letter-spacing: -0.5px; flex-shrink: 0; }
 .logo span { color: var(--amber); }
+.logo { display: flex; align-items: center; }
+.logo img { display: block; height: 36px; width: auto; }
 .nav-links { display: none; align-items: center; gap: 28px; }
 .nav-link { font-size: 13px; font-weight: 500; color: #555; letter-spacing: 0.2px; transition: color 0.15s; white-space: nowrap; }
 .nav-link:hover { color: #000; }
@@ -250,6 +252,7 @@ nav {
      rarer, so it moves into the mobile menu instead. */
   .nav-tools > .lang-toggle { display: none; }
   .logo { font-size: 16px; }
+  .logo img { height: 32px; }
 }
 
 /* Cloned copy of the toggle, shown only inside the mobile menu */
@@ -974,12 +977,21 @@ footer a { color: var(--wa-green); }
   .wa-sticky .wa-svg { width: 22px; height: 22px; }
 }
 
+/* Smallest phones (320px): the image logo is wider than the old text logo */
+@media (max-width: 359px) {
+  .logo img { height: 25px; }
+  .nav-inner { gap: 6px; }
+  .nav-right, .nav-tools { gap: 6px; }
+  .city-chip { padding: 6px 8px; gap: 4px; }
+}
+
 @media (min-width: 900px) {
   .nav-links { display: flex; }
   .hamburger { display: none; }
   .mobile-menu { display: none !important; }
 
   .logo { font-size: 20px; }
+  .logo img { height: 44px; }
   .nav-cta { font-size: 14px; padding: 10px 22px; }
 
   section { padding: 80px 0; }
@@ -1035,7 +1047,10 @@ footer a { color: var(--wa-green); }
   <link rel="alternate" hreflang="en-IN" href="https://www.outdoorseniors.com/japa-postnatal-care/">
   <link rel="alternate" hreflang="hi-IN" href="https://www.outdoorseniors.com/hi/japa-postnatal-care/">
   <link rel="alternate" hreflang="x-default" href="https://www.outdoorseniors.com/japa-postnatal-care/">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#111111">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
@@ -1241,7 +1256,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
 
 <nav id="mainNav">
   <div class="container nav-inner">
-    <a href="/" class="logo">Outdoor<span>Seniors</span></a>
+    <a href="/" class="logo"><img src="/logo.webp" alt="OutdoorSeniors" width="228" height="44"></a>
     <div class="nav-links">
       <a href="/#services" class="nav-link">Services</a>
       <a href="/#how-it-works" class="nav-link">How It Works</a>

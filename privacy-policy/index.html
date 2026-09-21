@@ -16,6 +16,8 @@
     nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #E0E0E0; padding: 14px 0; }
     .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
     .logo { font-size: 20px; font-weight: 800; color: #111; letter-spacing: -0.5px; }
+    .logo { display: flex; align-items: center; }
+    .logo img { display: block; height: 44px; width: auto; }
     .nav-right { display: flex; align-items: center; gap: 16px; }
     .nav-back { font-size: 13px; font-weight: 500; color: #666; transition: color 0.15s; }
     .nav-back:hover { color: #000; }
@@ -83,14 +85,14 @@
     /* policy-mobile-nav: the logo already links home, so drop the back link on phones */
     @media (max-width: 599px) {
       .nav-inner { padding: 0 16px; }
-      .logo { font-size: 18px; }
+      .logo img { height: 32px; }
       .nav-right { gap: 8px; }
       .nav-back { display: none; }
       .btn-wa-sm { padding: 9px; gap: 0; font-size: 0; }
       .btn-wa-sm .wa-svg { width: 18px; height: 18px; }
     }
     @media (max-width: 359px) {
-      .logo { font-size: 16px; }
+      .logo img { height: 24px; }
       .nav-right { gap: 6px; }
     }
 
@@ -124,7 +126,10 @@
   </style>
   <!-- seo:start -->
   <link rel="canonical" href="https://www.outdoorseniors.com/privacy-policy/">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#111111">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta property="og:type" content="website">
@@ -199,7 +204,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="/" class="logo">OutdoorSeniors</a>
+    <a href="/" class="logo"><img src="/logo.webp" alt="OutdoorSeniors" width="228" height="44"></a>
     <div class="nav-right">
       <div class="nav-tools">
         <div class="city-wrap">
