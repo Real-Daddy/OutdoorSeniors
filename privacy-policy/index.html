@@ -22,6 +22,77 @@
     .btn-wa-sm { display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; font-size: 13px; font-weight: 700; padding: 9px 18px; border-radius: 50px; transition: background 0.2s; }
     .btn-wa-sm:hover { background: #128C7E; }
     .wa-svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
+    /* policy-city-menu: city switcher styles copied from master.css */
+    .nav-tools { display: flex; align-items: center; gap: 8px; }
+    .city-wrap { position: relative; }
+    
+    .city-chip {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid #E0E0E0;
+      border-radius: 50px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #222;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: border-color 0.15s;
+    }
+    .city-chip:hover { border-color: #111; }
+    .city-chip .pin { font-size: 13px; line-height: 1; }
+    .city-chip .caret { color: #999; font-size: 10px; }
+    
+    .city-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 180px;
+      background: #fff;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.14);
+      padding: 6px;
+      display: none;
+      z-index: 200;
+    }
+    .city-menu.open { display: block; }
+    .city-menu a {
+      display: block;
+      padding: 9px 12px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #333;
+      border-radius: 6px;
+      text-align: left;
+    }
+    .city-menu a:hover { background: #F7F7F7; color: #000; }
+    .city-menu a.current { font-weight: 700; color: #111; background: #F7F7F7; }
+    .city-menu .cm-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #999;
+      padding: 6px 12px 4px;
+      font-weight: 700;
+    }
+    /* policy-mobile-nav: the logo already links home, so drop the back link on phones */
+    @media (max-width: 599px) {
+      .nav-inner { padding: 0 16px; }
+      .logo { font-size: 18px; }
+      .nav-right { gap: 8px; }
+      .nav-back { display: none; }
+      .btn-wa-sm { padding: 9px; gap: 0; font-size: 0; }
+      .btn-wa-sm .wa-svg { width: 18px; height: 18px; }
+    }
+    @media (max-width: 359px) {
+      .logo { font-size: 16px; }
+      .nav-right { gap: 6px; }
+    }
 
     .page-header { padding: 56px 0 40px; border-bottom: 1px solid #E0E0E0; }
     .page-header h1 { font-size: 36px; font-weight: 800; color: #111; margin-bottom: 8px; }
@@ -143,7 +214,7 @@
         </div>
       </div>
       <a href="/" class="nav-back">&#8592; Back to Home</a>
-      <a href="https://wa.me/919620384645?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Privacy%20Policy." target="_blank" rel="noopener" class="btn-wa-sm">
+      <a href="https://wa.me/919620384645?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Privacy%20Policy." target="_blank" rel="noopener" class="btn-wa-sm" aria-label="Ask us on WhatsApp">
         <svg class="wa-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         Ask Us
       </a>
@@ -154,7 +225,7 @@
 <div class="container">
   <div class="page-header">
     <h1>Privacy Policy</h1>
-    <p>Last updated: May 2025</p>
+    <p>Last updated: September 2026</p>
   </div>
 
   <div class="policy-body">
@@ -178,6 +249,7 @@
         <li><span class="dot">&#10003;</span> Preferences shared during caregiver matching</li>
         <li><span class="dot">&#10003;</span> Feedback and service history</li>
       </ul>
+      <p>When you browse our website, we also collect some technical information automatically: the pages you view, your device and browser type, your approximate location based on your internet (IP) address, and which website or ad brought you to us. This is collected through cookies and similar technologies, and it does not include your name or phone number.</p>
     </div>
 
     <div class="policy-section">
@@ -188,25 +260,43 @@
         <li><span class="dot">&#10003;</span> To manage your booking and placement</li>
         <li><span class="dot">&#10003;</span> To follow up on service quality and satisfaction</li>
         <li><span class="dot">&#10003;</span> To improve our matching and service offerings over time</li>
+        <li><span class="dot">&#10003;</span> To understand which of our pages and ads bring enquiries, so we can improve them</li>
       </ul>
     </div>
 
     <div class="policy-section">
-      <h2>We Do Not Share Your Data</h2>
+      <h2>Your Contact Details Stay With Us</h2>
       <div class="highlight-box">
-        We do not sell, rent, or share your personal information with any third parties. Ever.
+        We never sell, rent or share your name, phone number, address or care details with anyone so that they can market to you or contact you. Ever.
       </div>
-      <p>All data you share with OutdoorSeniors is stored securely within our internal systems. It is never passed to advertising platforms, data brokers, or any external organisations.</p>
+      <p>The only people who see them are our own team and the caretaker or nurse we place with you. That person receives only what they need to do the job, such as your address, the care required and the relevant medical details. Nothing you share with us is given to advertisers, data brokers or marketing companies.</p>
+      <p>The one exception is if the law requires us to share information, for example in response to a lawful request from the authorities.</p>
     </div>
 
     <div class="policy-section">
-      <h2>Data Storage</h2>
-      <p>Your information is stored internally within OutdoorSeniors' systems and is accessible only to authorised team members who need it to service your request. We do not use third-party CRM platforms that sell or share your data.</p>
+      <h2>Website Analytics and Advertising</h2>
+      <p>Our website uses <strong>Google Analytics</strong> and the <strong>Meta (Facebook) Pixel</strong>. When you browse our site, these tools receive the technical information described above: which pages and services you looked at, your device and browser, your approximate location, and whether you tapped a WhatsApp button. We use this to measure how well our website and ads work.</p>
+      <p>These tools do not receive your name, phone number, address or anything you write to us on WhatsApp. Google and Meta handle this information under their own privacy policies. You can limit it by blocking cookies in your browser, or by adjusting your ad settings in your Google and Facebook accounts.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Choosing Your City</h2>
+      <p>To show you the right city, our website looks up your approximate location from your IP address using a location service (ipwho.is). We use the result only to pre-select Bangalore or Haldwani. The only thing we keep is that city choice, stored in your own browser, and you can change it at any time from the menu at the top of the page.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>WhatsApp</h2>
+      <p>Most conversations with us happen on WhatsApp, which is run by Meta. Messages you send us travel through WhatsApp and are handled under WhatsApp&rsquo;s own privacy policy. The enquiry message our website prepares for you includes a short reference code showing which service you chose and which website or ad you came from, so that we can help you faster.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Where Your Data Is Stored</h2>
+      <p>Your enquiries and bookings are stored in our own systems, which are hosted on Google Cloud (Firebase). Only authorised members of our team who need the information to help you can access it. Google stores this data for us as a hosting provider.</p>
     </div>
 
     <div class="policy-section">
       <h2>Your Rights</h2>
-      <p>You have the right to request access to the information we hold about you, or to ask us to delete it. To make such a request, simply contact us on WhatsApp.</p>
+      <p>You have the right to request access to the information we hold about you, to ask us to correct it, or to ask us to delete it. To make such a request, simply contact us on WhatsApp.</p>
     </div>
 
     <div class="policy-section">
