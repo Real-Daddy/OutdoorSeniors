@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OutdoorSeniors | Caretakers &amp; Nurses at Home in Bangalore &amp; Haldwani</title>
-  <meta name="description" content="Background-verified caretakers and nurses at home in Bangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
+  <meta name="description" content="Background-verified caretakers and nurses at home in Bangalore, Mangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -244,15 +244,18 @@ nav {
 
 @media (max-width: 899px) {
   .nav-cta { display: none; }      /* sticky WhatsApp button covers this on phones */
-  .city-chip { padding: 6px 10px; font-size: 12.5px; }
+  .city-chip { padding: 6px 9px; font-size: 12.5px; }
   .lang-toggle a { padding: 6px 9px; font-size: 12px; }
+  /* the bar has to fit the longest city name, so keep the gaps tight */
+  .nav-inner { gap: 8px; }
+  .nav-right { gap: 7px; }
 
   /* Logo + chip + language toggle + hamburger overflow a 375px screen by
      ~29px. The city chip earns its place in the bar; language switching is
      rarer, so it moves into the mobile menu instead. */
   .nav-tools > .lang-toggle { display: none; }
   .logo { font-size: 16px; }
-  .logo img { height: 32px; }
+  .logo img { height: 30px; }
 }
 
 /* Cloned copy of the toggle, shown only inside the mobile menu */
@@ -636,7 +639,7 @@ nav {
 .svc-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* Includes / excludes */
-.inex { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.inex { display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
 .inex-col h3 {
   font-size: 13px;
   font-weight: 700;
@@ -649,8 +652,11 @@ nav {
 .inex-col.yes h3 { color: var(--ok); }
 .inex-col.no h3 { color: var(--no); }
 .inex-col ul { list-style: none; }
+.inex-col { min-width: 0; }
 .inex-col li {
   display: flex;
+  min-width: 0;
+  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -1009,10 +1015,11 @@ footer a:hover { color: var(--wa-green); }
 
 /* Smallest phones (320px): the image logo is wider than the old text logo */
 @media (max-width: 359px) {
-  .logo img { height: 25px; }
+  .logo img { height: 23px; }
   .nav-inner { gap: 6px; }
   .nav-right, .nav-tools { gap: 6px; }
-  .city-chip { padding: 6px 8px; gap: 4px; }
+  .city-chip { padding: 5px 7px; gap: 3px; font-size: 11.5px; }
+  .city-chip .pin { font-size: 11px; }
 }
 
 @media (min-width: 900px) {
@@ -1087,14 +1094,14 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="OutdoorSeniors | Caretakers &amp; Nurses at Home in Bangalore &amp; Haldwani">
-  <meta property="og:description" content="Background-verified caretakers and nurses at home in Bangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
+  <meta property="og:description" content="Background-verified caretakers and nurses at home in Bangalore, Mangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
   <meta property="og:url" content="https://www.outdoorseniors.com/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="OutdoorSeniors | Caretakers &amp; Nurses at Home in Bangalore &amp; Haldwani">
-  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Bangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
+  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Bangalore, Mangalore and Haldwani — elder care, home nursing, japa, baby care, dementia care and physiotherapy.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <script type="application/ld+json">
   {
@@ -1105,7 +1112,7 @@ footer a:hover { color: var(--wa-green); }
         "logo": "https://www.outdoorseniors.com/icon-512.png",
         "@id": "https://www.outdoorseniors.com/#business",
         "name": "OutdoorSeniors",
-        "description": "Background-verified caretakers and nurses at home in Bangalore and Haldwani for elder care, bedridden care, post-operative care, home nursing, japa and postnatal care, baby care, dementia care and physiotherapy.",
+        "description": "Background-verified caretakers and nurses at home in Bangalore, Mangalore and Haldwani for elder care, bedridden care, post-operative care, home nursing, japa and postnatal care, baby care, dementia care and physiotherapy.",
         "url": "https://www.outdoorseniors.com/",
         "telephone": "+91-96203-84645",
         "email": "support@outdoorseniors.com",
@@ -1123,6 +1130,10 @@ footer a:hover { color: var(--wa-green); }
           {
             "@type": "City",
             "name": "Bengaluru"
+          },
+          {
+            "@type": "City",
+            "name": "Mangaluru"
           },
           {
             "@type": "City",
@@ -1146,7 +1157,7 @@ footer a:hover { color: var(--wa-green); }
       },
       {
         "@type": "ItemList",
-        "name": "Home care services in Bangalore and Haldwani",
+        "name": "Home care services in Bangalore, Mangalore and Haldwani",
         "itemListElement": [
           {
             "@type": "ListItem",
@@ -1280,7 +1291,7 @@ footer a:hover { color: var(--wa-green); }
 <!-- STICKY WHATSAPP BUTTON -->
 <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -1309,6 +1320,7 @@ Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
             <div class="cm-label">Choose your city</div>
             <a href="/bangalore/" data-city="bangalore">Bangalore</a>
             <a href="/haldwani/" data-city="haldwani">Haldwani</a>
+            <a href="/mangalore/" data-city="mangalore">Mangalore</a>
           </div>
         </div>
         <div class="lang-toggle">
@@ -1318,7 +1330,7 @@ Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
       </div>
       <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -1348,12 +1360,12 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <div class="hero-badge">Bangalore &amp; Haldwani &middot; Elder care, nursing &amp; baby care</div>
+      <div class="hero-badge">Bangalore, Mangalore &amp; Haldwani &middot; Elder care, nursing &amp; baby care</div>
       <h1>Trusted Caretakers &amp; Nurses.<br><em>At home, where you are.</em></h1>
-      <p class="hero-sub">Now serving <a href="/bangalore/" class="city-inline">Bangalore</a> and <a href="/haldwani/" class="city-inline">Haldwani</a>. Tell us what you need on WhatsApp — we&rsquo;ll confirm availability and share clear, all-inclusive pricing, usually the same day.</p>
+      <p class="hero-sub">Now serving <a href="/bangalore/" class="city-inline">Bangalore</a>, <a href="/mangalore/" class="city-inline">Mangalore</a> and <a href="/haldwani/" class="city-inline">Haldwani</a>. Tell us what you need on WhatsApp — we&rsquo;ll confirm availability and share clear, all-inclusive pricing, usually the same day.</p>
       <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -1599,7 +1611,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
     <p class="sub">Tell us the situation on WhatsApp &mdash; we&rsquo;ll help you work out what you actually need.</p>
     <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -1607,7 +1619,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
       <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
       Message us on WhatsApp
     </a>
-    <p class="cta-note">Average response time: under 15 minutes &nbsp;&middot;&nbsp; Bangalore &amp; Haldwani</p>
+    <p class="cta-note">Average response time: under 15 minutes &nbsp;&middot;&nbsp; Bangalore, Mangalore &amp; Haldwani</p>
   </div>
 </section>
 
@@ -1618,7 +1630,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
 
       <div class="footer-brand">
         <img class="footer-logo-img" src="/logo-white.webp" alt="OutdoorSeniors" width="200" height="39">
-        <p>Verified caretakers and nurses at home, in Bangalore and Haldwani.</p>
+        <p>Verified caretakers and nurses at home, in Bangalore, Mangalore and Haldwani.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.facebook.com/0OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
@@ -1646,6 +1658,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
         <ul>
           <li><a href="/bangalore/">Bangalore</a></li>
           <li><a href="/haldwani/">Haldwani</a></li>
+          <li><a href="/mangalore/">Mangalore</a></li>
           <li><a href="/careers/">Careers</a></li>
           <li><a href="/hi/">हिन्दी में देखें</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
@@ -1658,7 +1671,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
         <ul>
           <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -1827,12 +1840,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   var LANG = (document.documentElement.getAttribute('lang') === 'hi') ? 'hi' : 'en';
   var CITIES = {
     bangalore: { en: 'Bangalore', hi: 'बैंगलोर', code: 'BAN' },
-    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' }
+    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' },
+    mangalore: { en: 'Mangalore', hi: 'मंगलुरु', code: 'MNG' }
   };
 
   function currentCity() {
     // a city page wins over a stored preference - the URL is the stronger signal
-    var m = location.pathname.match(new RegExp('/(bangalore|haldwani)/'));
+    var m = location.pathname.match(new RegExp('/(bangalore|haldwani|mangalore)/'));
     if (m) { try { localStorage.setItem(CITY_KEY, m[1]); } catch (e) {} return m[1]; }
     try {
       var saved = localStorage.getItem(CITY_KEY);
@@ -1884,7 +1898,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
   function detectCity() {
     // a city page, a stored choice, or a previous lookup all win over guessing
-    if (new RegExp('/(bangalore|haldwani)/').test(location.pathname)) { return; }
+    if (new RegExp('/(bangalore|haldwani|mangalore)/').test(location.pathname)) { return; }
     try {
       if (localStorage.getItem(CITY_KEY) || localStorage.getItem(GEO_KEY)) { return; }
     } catch (e) { return; }
@@ -1901,6 +1915,8 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
         var where = ((d.city || '') + ' ' + (d.region || '')).toLowerCase();
         if (/haldwani|nainital|uttarakhand|kathgodam|rudrapur|kashipur/.test(where)) {
           applyCity('haldwani');
+        } else if (/mangalore|mangaluru|udupi|dakshina kannada|puttur|manipal/.test(where)) {
+          applyCity('mangalore');
         } else if (/bengaluru|bangalore|karnataka/.test(where)) {
           applyCity('bangalore');
         }

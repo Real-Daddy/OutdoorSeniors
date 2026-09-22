@@ -278,7 +278,7 @@
 
       <div class="footer-brand">
         <img class="footer-logo-img" src="/logo-white.webp" alt="OutdoorSeniors" width="200" height="39">
-        <p>Verified caretakers and nurses at home, in Bangalore and Haldwani.</p>
+        <p>Verified caretakers and nurses at home, in Bangalore, Mangalore and Haldwani.</p>
         <div class="footer-social">
           <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.facebook.com/0OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
@@ -306,6 +306,7 @@
         <ul>
           <li><a href="/bangalore/">Bangalore</a></li>
           <li><a href="/haldwani/">Haldwani</a></li>
+          <li><a href="/mangalore/">Mangalore</a></li>
           <li><a href="/careers/">Careers</a></li>
           <li><a href="/hi/">हिन्दी में देखें</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
@@ -318,7 +319,7 @@
         <ul>
           <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
 
-City (Bangalore / Haldwani):
+City (Bangalore / Mangalore / Haldwani):
 When I need it:
 Area:
 
@@ -487,12 +488,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   var LANG = (document.documentElement.getAttribute('lang') === 'hi') ? 'hi' : 'en';
   var CITIES = {
     bangalore: { en: 'Bangalore', hi: 'बैंगलोर', code: 'BAN' },
-    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' }
+    haldwani:  { en: 'Haldwani',  hi: 'हल्द्वानी', code: 'HAL' },
+    mangalore: { en: 'Mangalore', hi: 'मंगलुरु', code: 'MNG' }
   };
 
   function currentCity() {
     // a city page wins over a stored preference - the URL is the stronger signal
-    var m = location.pathname.match(new RegExp('/(bangalore|haldwani)/'));
+    var m = location.pathname.match(new RegExp('/(bangalore|haldwani|mangalore)/'));
     if (m) { try { localStorage.setItem(CITY_KEY, m[1]); } catch (e) {} return m[1]; }
     try {
       var saved = localStorage.getItem(CITY_KEY);
@@ -544,7 +546,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
   function detectCity() {
     // a city page, a stored choice, or a previous lookup all win over guessing
-    if (new RegExp('/(bangalore|haldwani)/').test(location.pathname)) { return; }
+    if (new RegExp('/(bangalore|haldwani|mangalore)/').test(location.pathname)) { return; }
     try {
       if (localStorage.getItem(CITY_KEY) || localStorage.getItem(GEO_KEY)) { return; }
     } catch (e) { return; }
@@ -561,6 +563,8 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
         var where = ((d.city || '') + ' ' + (d.region || '')).toLowerCase();
         if (/haldwani|nainital|uttarakhand|kathgodam|rudrapur|kashipur/.test(where)) {
           applyCity('haldwani');
+        } else if (/mangalore|mangaluru|udupi|dakshina kannada|puttur|manipal/.test(where)) {
+          applyCity('mangalore');
         } else if (/bengaluru|bangalore|karnataka/.test(where)) {
           applyCity('bangalore');
         }
