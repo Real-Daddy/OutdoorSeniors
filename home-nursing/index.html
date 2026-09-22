@@ -877,12 +877,41 @@ nav {
 
 /* ---------- Footer ---------- */
 
-footer { background: #111; color: #888; padding: 40px 0; text-align: center; }
-.footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 10px; }
-footer p { font-size: 13px; margin-bottom: 6px; }
-.footer-email a { color: var(--wa-green); }
-footer a { color: var(--wa-green); }
-.footer-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px; font-size: 13px; }
+footer { background: #111; color: #9a9a9a; padding: 56px 0 28px; text-align: left; }
+.footer-grid { display: grid; grid-template-columns: 1fr; gap: 34px; }
+.footer-brand p { font-size: 13px; line-height: 1.7; max-width: 320px; margin: 14px 0 0; }
+.footer-logo-img { display: block; height: 34px; width: auto; }
+.footer-social { display: flex; gap: 18px; margin-top: 16px; font-size: 13px; }
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 8px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--wa-green);
+  display: inline-block;
+}
+.footer-col ul { list-style: none; margin: 8px 0 0; padding: 0; }
+.footer-col li { margin-bottom: 9px; font-size: 13px; line-height: 1.5; }
+.footer-note { font-size: 12px; line-height: 1.6; margin-top: 14px; max-width: 260px; }
+
+footer a { color: #d6d6d6; transition: color 0.15s; }
+footer a:hover { color: var(--wa-green); }
+.footer-col:last-child a, .footer-email a { color: var(--wa-green); }
+
+.footer-bottom { border-top: 1px solid #262626; margin-top: 40px; padding-top: 22px; text-align: center; }
+.footer-bottom .footer-legal { margin-top: 0 !important; }
+
+@media (min-width: 620px) {
+  .footer-grid { grid-template-columns: repeat(2, 1fr); gap: 34px 28px; }
+}
+@media (min-width: 900px) {
+  footer { padding: 64px 0 28px; }
+  .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 40px 32px; }
+}
 
 /* ---------- Sticky WhatsApp button ---------- */
 
@@ -1431,19 +1460,66 @@ Ref: NUR" target="_blank" rel="noopener" class="btn-wa">
 
 <footer>
   <div class="container">
-    <div class="footer-logo">OutdoorSeniors</div>
-    <p>Caretakers and nurses at home, across Bangalore.</p>
-    <p class="footer-email"><a href="mailto:support@outdoorseniors.com">support@outdoorseniors.com</a></p>
-    <div class="footer-links">
-      <a href="/bangalore/" class="footer-city">Bangalore</a>
-      <a href="/haldwani/" class="footer-city">Haldwani</a>
-      <a href="/">Home</a>
-      <a href="/careers/">Careers</a>
-      <a href="/privacy-policy/">Privacy Policy</a>
-      <a href="/refund-policy/">Refund Policy</a>
+    <div class="footer-grid">
+
+      <div class="footer-brand">
+        <img class="footer-logo-img" src="/logo-white.webp" alt="OutdoorSeniors" width="200" height="39">
+        <p>Verified caretakers and nurses at home, in Bangalore and Haldwani.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/outdoorseniors/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/0OutdoorSeniors" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/elder-care/">Elder Care at Home</a></li>
+          <li><a href="/home-nursing/">Home Nursing</a></li>
+          <li><a href="/bedridden-care/">Bedridden Patient Care</a></li>
+          <li><a href="/dementia-care/">Dementia &amp; Alzheimer&rsquo;s Care</a></li>
+          <li><a href="/post-operative-care/">Post-Operative Care</a></li>
+          <li><a href="/hospital-attendant/">Hospital Attendant</a></li>
+          <li><a href="/night-care/">Night Care</a></li>
+          <li><a href="/physiotherapy-at-home/">Physiotherapy at Home</a></li>
+          <li><a href="/japa-postnatal-care/">Japa &amp; Postnatal Care</a></li>
+          <li><a href="/baby-care-nanny/">Baby Care &amp; Nanny</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/bangalore/">Bangalore</a></li>
+          <li><a href="/haldwani/">Haldwani</a></li>
+          <li><a href="/careers/">Careers</a></li>
+          <li><a href="/hi/">हिन्दी में देखें</a></li>
+          <li><a href="/privacy-policy/">Privacy Policy</a></li>
+          <li><a href="/refund-policy/">Refund Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
+
+City (Bangalore / Haldwani):
+When I need it:
+Area:
+
+Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
+          <li><a href="mailto:support@outdoorseniors.com">support@outdoorseniors.com</a></li>
+        </ul>
+        <p class="footer-note">We reply on WhatsApp within minutes, 8am&ndash;8pm.</p>
+      </div>
+
     </div>
-    <p class="footer-legal" style="margin-top:18px;font-size:12px;color:#999">&copy; 2026 OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP. All rights reserved.</p>
+
+    <div class="footer-bottom">
+      <p class="footer-legal" style="margin-top:18px;font-size:12px;color:#999">&copy; 2026 OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP. All rights reserved.</p>
     <address class="footer-address" style="font-style:normal;font-size:12px;color:#999;line-height:1.6;margin-top:6px;max-width:640px;margin-left:auto;margin-right:auto">Registered office: NO. 103, 1ST FLOOR, PROVIDENT HARMONY, Jakkur, Sampigehalli Police Station, Bangalore North, Bangalore - 560064, Karnataka, India</address>
+    </div>
   </div>
 </footer>
 
