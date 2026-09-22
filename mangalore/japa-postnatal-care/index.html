@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Japa Maid &amp; Postnatal Care in Mangalore | OutdoorSeniors</title>
-  <meta name="description" content="Experienced japa maids for mother and newborn at home in Mangalore &mdash; massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
+  <meta name="description" content="Experienced japa maids for mother and newborn at home in Mangalore: massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1093,14 +1144,14 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="Japa Maid &amp; Postnatal Care in Mangalore | OutdoorSeniors">
-  <meta property="og:description" content="Experienced japa maids for mother and newborn at home in Mangalore &mdash; massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
+  <meta property="og:description" content="Experienced japa maids for mother and newborn at home in Mangalore: massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
   <meta property="og:url" content="https://www.outdoorseniors.com/mangalore/japa-postnatal-care/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-japa-postnatal-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Japa Maid &amp; Postnatal Care in Mangalore | OutdoorSeniors">
-  <meta name="twitter:description" content="Experienced japa maids for mother and newborn at home in Mangalore &mdash; massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
+  <meta name="twitter:description" content="Experienced japa maids for mother and newborn at home in Mangalore: massage, bathing, feeding support and night settling. Kannada, Tulu and Konkani speaking.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-japa-postnatal-care.jpg">
   <script type="application/ld+json">
   {
@@ -1153,7 +1204,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "Can the caregiver speak Kannada, Tulu or Konkani?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes — tell us which language the household speaks and we match for it. Our Mangalore caregivers between them speak English, Kannada, Tulu, Konkani and Malayalam, and language is usually the difference between a placement that settles in and one that does not."
+              "text": "Yes, tell us which language the household speaks and we match for it. Our Mangalore caregivers between them speak English, Kannada, Tulu, Konkani and Malayalam, and language is usually the difference between a placement that settles in and one that does not."
             }
           },
           {
@@ -1182,7 +1233,7 @@ footer a:hover { color: var(--wa-green); }
           },
           {
             "@type": "Question",
-            "name": "Day or live-in — which do we need?",
+            "name": "Day or live-in, which do we need?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Live-in if you want night support, which is most of the value for a first baby. Day is enough if family is at home overnight."
@@ -1193,7 +1244,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "Can she cook the mother’s food?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Postnatal meals for the mother, yes. Cooking for the whole family, no — but tell us if you need that and we’ll structure it differently."
+              "text": "Postnatal meals for the mother, yes. Cooking for the whole family, no, but tell us if you need that and we’ll structure it differently."
             }
           },
           {
@@ -1217,7 +1268,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "How does pricing work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we’ll share exact pricing — all-inclusive, GST included, no hidden costs."
+              "text": "It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we’ll share exact pricing: all-inclusive, GST included, no hidden costs."
             }
           },
           {
@@ -1225,7 +1276,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "What if the person isn’t the right fit?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Tell us and we’ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn’t a problem — getting the match right matters more than getting it right first time."
+              "text": "Tell us and we’ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn’t a problem, getting the match right matters more than getting it right first time."
             }
           },
           {
@@ -1244,7 +1295,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1304,7 +1355,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Japa & Postnatal Care.
+<a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Japa & Postnatal Care.
 
 When I need it:
 Area in Mangalore:
@@ -1341,7 +1392,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
           <a href="/hi/japa-postnatal-care/">हिं</a>
         </div>
       </div>
-      <a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Japa & Postnatal Care." target="_blank" rel="noopener" class="nav-cta">
+      <a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Japa & Postnatal Care." target="_blank" rel="noopener" class="nav-cta">
         <svg class="wa-svg wa-svg-sm" aria-hidden="true"><use href="#wa-icon"></use></svg>
         WhatsApp Us
       </a>
@@ -1370,7 +1421,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <h1>Japa &amp; Postnatal Care in Mangalore</h1>
     <p class="svc-headline">Someone who has done this before, in the house with you.</p>
     <div class="svc-photo"><img src="/photo-japa-postnatal-care.jpg" alt="Japa carer holding a swaddled newborn while the mother rests" width="1586" height="992" fetchpriority="high" decoding="async"></div>
-    <p class="svc-intro">Traditional japa care for mother and newborn in Mangalore &mdash; feeding, bathing, massage, night settling, and the practical knowledge that makes the first six weeks survivable. Booked before the delivery, or the same week you come home.</p>
+    <p class="svc-intro">Traditional japa care for mother and newborn in Mangalore: feeding, bathing, massage, night settling, and the practical knowledge that makes the first six weeks survivable. Booked before the delivery, or the same week you come home.</p>
   </div>
 </section>
 
@@ -1423,10 +1474,10 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
         <h3>Does not include</h3>
         <ul>
           <li><span class="mark" aria-hidden="true">✕</span>Clinical or medical care for mother or baby</li>
-          <li><span class="mark" aria-hidden="true">✕</span>Lactation consultation &mdash; a specialist, if feeding isn&rsquo;t working</li>
+          <li><span class="mark" aria-hidden="true">✕</span>Lactation consultation, a specialist, if feeding isn&rsquo;t working</li>
           <li><span class="mark" aria-hidden="true">✕</span>Cooking for the wider family</li>
           <li><span class="mark" aria-hidden="true">✕</span>Household cleaning beyond the baby&rsquo;s things</li>
-          <li><span class="mark" aria-hidden="true">✕</span>Food and stay for live-in japas &mdash; the family provides these</li>
+          <li><span class="mark" aria-hidden="true">✕</span>Food and stay for live-in japas, the family provides these</li>
         </ul>
       </div>
     </div>
@@ -1437,8 +1488,8 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
   <div class="container">
     <p class="section-label">In Mangalore</p>
     <h2 class="section-title">Japa care in Mangalore, and who asks for it</h2>
-    <p class="section-sub" style="margin-bottom:14px">The old arrangement was that the mother or mother-in-law moved in for the first few months. In Mangalore that is getting harder &mdash; the grandparents are older, or the couple has come back from Bangalore or the Gulf for the delivery and the family is spread out. A japa maid fills that gap without taking it over.</p>
-    <p class="section-sub" style="margin-bottom:14px">We place experienced japa maids who know the routine families here expect &mdash; the oil massage and bath for mother and baby, feeding support, swaddling, and the nights &mdash; and who speak the language of the house. Between them our Mangalore caregivers cover English, Kannada, Tulu, Konkani and Malayalam.</p>
+    <p class="section-sub" style="margin-bottom:14px">The old arrangement was that the mother or mother-in-law moved in for the first few months. In Mangalore that is getting harder: the grandparents are older, or the couple has come back from Bangalore or the Gulf for the delivery and the family is spread out. A japa maid fills that gap without taking it over.</p>
+    <p class="section-sub" style="margin-bottom:14px">We place experienced japa maids who know the routine families here expect: the oil massage and bath for mother and baby, feeding support, swaddling, and the nights. They speak the language of the house too. Between them our Mangalore caregivers cover English, Kannada, Tulu, Konkani and Malayalam.</p>
     <p class="section-sub" style="margin-bottom:14px">Most families book us before the delivery date and we start the day you are discharged from Father Muller, KMC, A.J. Hospital or Yenepoya. Booking late is fine too; we just have less choice of person. We place across Kadri, Bejai, Kankanady, Falnir, Bendoorwell, Ballalbagh, Kodialbail, Urwa, Attavar, Mangaladevi, Surathkal, Deralakatte, Ullal, Mulki and Moodbidri.</p>
   </div>
 </section>
@@ -1448,7 +1499,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <p class="section-label">The Process</p>
     <h2 class="section-title">How it works</h2>
     <ol class="howto">
-      <li><div><p class="h-title">Tell us your due date</p><p class="h-desc">Book before delivery if you can &mdash; the experienced japas get booked weeks ahead.</p></div></li>
+      <li><div><p class="h-title">Tell us your due date</p><p class="h-desc">Book before delivery if you can, the experienced japas get booked weeks ahead.</p></div></li>
       <li><div><p class="h-title">We understand your preferences</p><p class="h-desc">Language, dietary customs, C-section or normal delivery, twins, first baby or not.</p></div></li>
       <li><div><p class="h-title">Profiles shared</p><p class="h-desc">Experienced japas with references. Most families do a video call before confirming.</p></div></li>
       <li><div><p class="h-title">Starts when you come home</p><p class="h-desc">From hospital discharge, for as long as you&rsquo;ve booked.</p></div></li>
@@ -1461,16 +1512,16 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <p class="section-label">Good to know</p>
     <h2 class="section-title">Questions families ask</h2>
     <div class="faq-list">
-      <details class="faq-item"><summary>Can the caregiver speak Kannada, Tulu or Konkani?</summary><p class="faq-a">Yes &mdash; tell us which language the household speaks and we match for it. Our Mangalore caregivers between them speak English, Kannada, Tulu, Konkani and Malayalam, and language is usually the difference between a placement that settles in and one that does not.</p></details>
+      <details class="faq-item"><summary>Can the caregiver speak Kannada, Tulu or Konkani?</summary><p class="faq-a">Yes, tell us which language the household speaks and we match for it. Our Mangalore caregivers between them speak English, Kannada, Tulu, Konkani and Malayalam, and language is usually the difference between a placement that settles in and one that does not.</p></details>
       <details class="faq-item"><summary>How early should I book a japa maid in Mangalore?</summary><p class="faq-a">A month before the due date gives you a proper choice of person. We can also place at a few days&rsquo; notice, including straight after a discharge, but the selection is narrower.</p></details>
       <details class="faq-item"><summary>I live in the Gulf. Can I arrange this for my family in Mangalore?</summary><p class="faq-a">Most of our Mangalore enquiries come from sons and daughters working in Bangalore or the Gulf. You can arrange everything over WhatsApp from wherever you are, we send you the daily update, and we deal with your family locally. You do not have to fly down to set it up.</p></details>
       <details class="faq-item"><summary>When should we book?</summary><p class="faq-a">Ideally in the third trimester. Good japas are booked out weeks ahead, and availability tightens around festival seasons.</p></details>
-      <details class="faq-item"><summary>Day or live-in &mdash; which do we need?</summary><p class="faq-a">Live-in if you want night support, which is most of the value for a first baby. Day is enough if family is at home overnight.</p></details>
-      <details class="faq-item"><summary>Can she cook the mother&rsquo;s food?</summary><p class="faq-a">Postnatal meals for the mother, yes. Cooking for the whole family, no &mdash; but tell us if you need that and we&rsquo;ll structure it differently.</p></details>
+      <details class="faq-item"><summary>Day or live-in, which do we need?</summary><p class="faq-a">Live-in if you want night support, which is most of the value for a first baby. Day is enough if family is at home overnight.</p></details>
+      <details class="faq-item"><summary>Can she cook the mother&rsquo;s food?</summary><p class="faq-a">Postnatal meals for the mother, yes. Cooking for the whole family, no, but tell us if you need that and we&rsquo;ll structure it differently.</p></details>
       <details class="faq-item"><summary>What if it was a C-section?</summary><p class="faq-a">Say so when you enquire. C-section recovery needs more physical support for the mother and we&rsquo;ll match for it specifically.</p></details>
       <details class="faq-item"><summary>How do you verify your caretakers and nurses?</summary><p class="faq-a">Everyone we place goes through document verification, reference checks and police verification before they are placed with you. For nurses we additionally verify the qualification against their nursing registration.</p></details>
-      <details class="faq-item"><summary>How does pricing work?</summary><p class="faq-a">It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we&rsquo;ll share exact pricing &mdash; all-inclusive, GST included, no hidden costs.</p></details>
-      <details class="faq-item"><summary>What if the person isn&rsquo;t the right fit?</summary><p class="faq-a">Tell us and we&rsquo;ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn&rsquo;t a problem &mdash; getting the match right matters more than getting it right first time.</p></details>
+      <details class="faq-item"><summary>How does pricing work?</summary><p class="faq-a">It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we&rsquo;ll share exact pricing: all-inclusive, GST included, no hidden costs.</p></details>
+      <details class="faq-item"><summary>What if the person isn&rsquo;t the right fit?</summary><p class="faq-a">Tell us and we&rsquo;ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn&rsquo;t a problem: getting the match right matters more than getting it right first time.</p></details>
       <details class="faq-item"><summary>How do I reach you?</summary><p class="faq-a">WhatsApp is fastest and we reply within minutes. You can also call the same number: +91 96203 84645.</p></details>
     </div>
   </div>
@@ -1490,7 +1541,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <div class="notlisted" style="margin-top:32px">
       <h3>Not quite what you need?</h3>
       <p>Care needs rarely fit neatly into a list. Tell us the situation on WhatsApp and we&rsquo;ll tell you honestly whether we can help.</p>
-      <a data-wa-text="Hi OutdoorSeniors — I need care but I didn’t find my exact requirement listed. Here’s my situation:
+      <a data-wa-text="Hi OutdoorSeniors. I need care but I didn’t find my exact requirement listed. Here’s my situation:
 
 When I need it:
 Area in Mangalore:
@@ -1503,8 +1554,8 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
 <section class="final-cta">
   <div class="container">
     <h2>Expecting? Let&rsquo;s Talk Early.</h2>
-    <p class="sub">Tell us the situation &mdash; we&rsquo;ll help you work out what you actually need.</p>
-    <a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Japa & Postnatal Care.
+    <p class="sub">Tell us the situation. We&rsquo;ll help you work out what you actually need.</p>
+    <a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Japa & Postnatal Care.
 
 When I need it:
 Area in Mangalore:
@@ -1562,7 +1613,7 @@ Ref: JAPA" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
+          <li><a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services.
 
 City (Bangalore / Mangalore / Haldwani):
 When I need it:
@@ -1585,7 +1636,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1602,7 +1653,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1704,7 +1755,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1913,7 +1964,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -1942,13 +1993,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

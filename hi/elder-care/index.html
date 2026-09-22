@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>बैंगलोर और हल्द्वानी में बुज़ुर्गों की घर पर देखभाल | OutdoorSeniors</title>
-  <meta name="description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर — नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
+  <meta name="description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर: नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1095,12 +1146,12 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:locale" content="hi_IN">
   <meta property="og:locale:alternate" content="en_IN">
   <meta property="og:title" content="बैंगलोर और हल्द्वानी में बुज़ुर्गों की घर पर देखभाल | OutdoorSeniors">
-  <meta property="og:description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर — नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
+  <meta property="og:description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर: नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
   <meta property="og:url" content="https://www.outdoorseniors.com/hi/elder-care/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="बैंगलोर और हल्द्वानी में बुज़ुर्गों की घर पर देखभाल | OutdoorSeniors">
-  <meta name="twitter:description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर — नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
+  <meta name="twitter:description" content="बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर: नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1109,7 +1160,7 @@ footer a:hover { color: var(--wa-green); }
           "@type": "Service",
           "@id": "https://www.outdoorseniors.com/hi/elder-care/#service",
           "name": "बुज़ुर्गों की घर पर देखभाल",
-          "description": "बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर — नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।",
+          "description": "बुज़ुर्ग माता-पिता के लिए घर पर प्रशिक्षित केयरटेकर: नहलाना, दवा, खाना, चलना-फिरना और साथ। कुछ घंटे, दिन, रात या लिव-इन।",
           "serviceType": "बुज़ुर्गों की घर पर देखभाल",
           "inLanguage": "hi-IN",
           "provider": {
@@ -1175,7 +1226,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "क्या हर दिन वही केयरटेकर आएगा?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "हाँ। महीने की व्यवस्था में आपके लिए एक ही नामित व्यक्ति तय होता है — निरंतरता ही असली फ़ायदा है।"
+                "text": "हाँ। महीने की व्यवस्था में आपके लिए एक ही नामित व्यक्ति तय होता है, निरंतरता ही असली फ़ायदा है।"
               }
             },
             {
@@ -1191,7 +1242,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "कीमत कैसे तय होती है?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे — GST सहित, कोई छिपा हुआ खर्च नहीं।"
+                "text": "यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे. GST सहित, कोई छिपा हुआ खर्च नहीं।"
               }
             },
             {
@@ -1199,7 +1250,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "अगर व्यक्ति सही नहीं लगा तो?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है — सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।"
+                "text": "हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है, सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।"
               }
             },
             {
@@ -1218,7 +1269,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1278,7 +1329,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
+<a data-wa-text="Hi OutdoorSeniors, मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1315,7 +1366,7 @@ Ref: ELD" target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp 
       <a href="/hi/#contact" class="nav-link">संपर्क</a>
     </div>
     <div class="nav-right">
-      <a data-wa-text="Hi OutdoorSeniors — मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
+      <a data-wa-text="Hi OutdoorSeniors, मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1357,7 +1408,7 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
   <div class="container">
     <div class="enquire" data-service="बुज़ुर्गों की घर पर देखभाल" data-ref="ELD">
       <h3>हमें बताइए आपको क्या चाहिए</h3>
-      <p class="eq-sub">जो व्यवस्था आपके मन में है उसके सबसे करीब वाला चुनिए — बाद में बदल सकते हैं। हम WhatsApp पर उपलब्धता और कीमत बता देंगे।</p>
+      <p class="eq-sub">जो व्यवस्था आपके मन में है उसके सबसे करीब वाला चुनिए, बाद में बदल सकते हैं। हम WhatsApp पर उपलब्धता और कीमत बता देंगे।</p>
 
       <p class="dur-select-label">आपको कितनी मदद चाहिए?</p>
       <div class="duration-selector">
@@ -1386,7 +1437,7 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
           <li><span class="mark" aria-hidden="true">✓</span>नहलाना, तैयार करना, कपड़े पहनाना और शौच में मदद</li>
           <li><span class="mark" aria-hidden="true">✓</span>दवा की याद दिलाना और नियमितता पर नज़र</li>
           <li><span class="mark" aria-hidden="true">✓</span>खाना परोसना और खिलाने में मदद</li>
-          <li><span class="mark" aria-hidden="true">✓</span>चलने-फिरने में सहारा — टहलना, उठाना-बिठाना, हल्के व्यायाम</li>
+          <li><span class="mark" aria-hidden="true">✓</span>चलने-फिरने में सहारा: टहलना, उठाना-बिठाना, हल्के व्यायाम</li>
           <li><span class="mark" aria-hidden="true">✓</span>साथ, बातचीत और रोज़ की गतिविधियाँ</li>
           <li><span class="mark" aria-hidden="true">✓</span>डॉक्टर के पास और छोटी बाहर की यात्राओं में साथ</li>
           <li><span class="mark" aria-hidden="true">✓</span>परिवार को रोज़ की जानकारी</li>
@@ -1395,11 +1446,11 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
       <div class="inex-col no">
         <h3>इसमें शामिल नहीं है</h3>
         <ul>
-          <li><span class="mark" aria-hidden="true">✕</span>इंजेक्शन, ड्रेसिंग या कोई भी चिकित्सकीय काम — <a href="/hi/home-nursing/" style="text-decoration:underline">होम नर्सिंग</a> देखें</li>
+          <li><span class="mark" aria-hidden="true">✕</span>इंजेक्शन, ड्रेसिंग या कोई भी चिकित्सकीय काम, <a href="/hi/home-nursing/" style="text-decoration:underline">होम नर्सिंग</a> देखें</li>
           <li><span class="mark" aria-hidden="true">✕</span>पूरे घर के लिए खाना बनाना या सफ़ाई</li>
-          <li><span class="mark" aria-hidden="true">✕</span>पूरी रात जागकर निगरानी — <a href="/hi/night-care/" style="text-decoration:underline">रात की देखभाल</a> देखें</li>
+          <li><span class="mark" aria-hidden="true">✕</span>पूरी रात जागकर निगरानी, <a href="/hi/night-care/" style="text-decoration:underline">रात की देखभाल</a> देखें</li>
           <li><span class="mark" aria-hidden="true">✕</span>फिजियोथेरेपिस्ट की योजना के बिना व्यायाम कराना</li>
-          <li><span class="mark" aria-hidden="true">✕</span>लिव-इन केयरटेकर के लिए खाना और रहने की जगह — यह परिवार को देनी होती है</li>
+          <li><span class="mark" aria-hidden="true">✕</span>लिव-इन केयरटेकर के लिए खाना और रहने की जगह, यह परिवार को देनी होती है</li>
         </ul>
       </div>
     </div>
@@ -1412,7 +1463,7 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
     <h2 class="section-title">यह कैसे काम करता है</h2>
     <ol class="howto">
       <li><div><p class="h-title">हमें स्थिति बताइए</p><p class="h-desc">WhatsApp पर बताइए किसे देखभाल चाहिए, क्या मदद चाहिए और लगभग कब।</p></div></li>
-      <li><div><p class="h-title">हम ज़रूरत समझते हैं</p><p class="h-desc">एक छोटी कॉल में प्रोफ़ाइल बनती है — चलना-फिरना, बीमारियाँ, भाषा, रोज़ की दिनचर्या।</p></div></li>
+      <li><div><p class="h-title">हम ज़रूरत समझते हैं</p><p class="h-desc">एक छोटी कॉल में प्रोफ़ाइल बनती है: चलना-फिरना, बीमारियाँ, भाषा, रोज़ की दिनचर्या।</p></div></li>
       <li><div><p class="h-title">हम प्रोफ़ाइल भेजते हैं</p><p class="h-desc">अनुभव, भाषा और सत्यापन के विवरण सहित मेल खाते केयरटेकर। आप चुनते हैं।</p></div></li>
       <li><div><p class="h-title">नियुक्ति और जाँच</p><p class="h-desc">केयरटेकर शुरू करता है, और पहले हफ़्ते हम जाँचते रहते हैं कि मेल सही बैठा या नहीं।</p></div></li>
     </ol>
@@ -1426,10 +1477,10 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
     <div class="faq-list">
       <details class="faq-item"><summary>क्या हम महिला केयरटेकर माँग सकते हैं?</summary><p class="faq-a">हाँ। व्यक्तिगत देखभाल के लिए हम डिफ़ॉल्ट रूप से समान लिंग की नियुक्ति करते हैं, जब तक आप कुछ और न कहें।</p></details>
       <details class="faq-item"><summary>अगर मेरे माता-पिता मदद लेने से मना करें तो?</summary><p class="faq-a">यह बहुत आम है, और आमतौर पर बात केयरटेकर की नहीं बल्कि आत्मसम्मान की होती है। हम कम दखल से शुरू करके धीरे-धीरे बढ़ाते हैं, और स्वभाव न मिलने पर व्यक्ति बदल देते हैं।</p></details>
-      <details class="faq-item"><summary>क्या हर दिन वही केयरटेकर आएगा?</summary><p class="faq-a">हाँ। महीने की व्यवस्था में आपके लिए एक ही नामित व्यक्ति तय होता है — निरंतरता ही असली फ़ायदा है।</p></details>
+      <details class="faq-item"><summary>क्या हर दिन वही केयरटेकर आएगा?</summary><p class="faq-a">हाँ। महीने की व्यवस्था में आपके लिए एक ही नामित व्यक्ति तय होता है, निरंतरता ही असली फ़ायदा है।</p></details>
       <details class="faq-item"><summary>आप अपने केयरटेकर और नर्स की जाँच कैसे करते हैं?</summary><p class="faq-a">हम जिस भी व्यक्ति को भेजते हैं, उसके दस्तावेज़ों की जाँच, रेफरेंस चेक और पुलिस वेरिफिकेशन नियुक्ति से पहले किया जाता है। नर्स के मामले में उनकी नर्सिंग रजिस्ट्रेशन से योग्यता की पुष्टि भी की जाती है।</p></details>
-      <details class="faq-item"><summary>कीमत कैसे तय होती है?</summary><p class="faq-a">यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे — GST सहित, कोई छिपा हुआ खर्च नहीं।</p></details>
-      <details class="faq-item"><summary>अगर व्यक्ति सही नहीं लगा तो?</summary><p class="faq-a">हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है — सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।</p></details>
+      <details class="faq-item"><summary>कीमत कैसे तय होती है?</summary><p class="faq-a">यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे. GST सहित, कोई छिपा हुआ खर्च नहीं।</p></details>
+      <details class="faq-item"><summary>अगर व्यक्ति सही नहीं लगा तो?</summary><p class="faq-a">हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है, सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।</p></details>
       <details class="faq-item"><summary>आपसे कैसे संपर्क करें?</summary><p class="faq-a">WhatsApp सबसे तेज़ है, हम मिनटों में जवाब देते हैं। आप इसी नंबर पर कॉल भी कर सकते हैं: +91 96203 84645।</p></details>
     </div>
   </div>
@@ -1449,7 +1500,7 @@ Ref: ELD" target="_blank" rel="noopener" class="nav-cta">
     <div class="notlisted" style="margin-top:32px">
       <h3>जो चाहिए वह यहाँ नहीं दिखा?</h3>
       <p>देखभाल की ज़रूरतें अक्सर किसी सूची में पूरी तरह फिट नहीं होतीं। WhatsApp पर अपनी स्थिति बताइए और हम ईमानदारी से बताएंगे कि हम मदद कर सकते हैं या नहीं।</p>
-      <a data-wa-text="Hi OutdoorSeniors — मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
+      <a data-wa-text="Hi OutdoorSeniors, मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
 
 कब चाहिए:
 इलाक़ा:
@@ -1463,7 +1514,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
   <div class="container">
     <h2>बुज़ुर्गों की देखभाल चाहिए?</h2>
     <p class="sub">देखभाल की ज़रूरतें अक्सर किसी सूची में पूरी तरह फिट नहीं होतीं।</p>
-    <a data-wa-text="Hi OutdoorSeniors — मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
+    <a data-wa-text="Hi OutdoorSeniors, मुझे बुज़ुर्गों की घर पर देखभाल के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1521,7 +1572,7 @@ Ref: ELD" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>संपर्क</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+          <li><a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 शहर (बैंगलोर / मंगलुरु / हल्द्वानी):
 कब चाहिए:
@@ -1544,7 +1595,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1561,7 +1612,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1663,7 +1714,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1872,7 +1923,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -1901,13 +1952,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

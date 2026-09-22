@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>बैंगलोर और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors</title>
-  <meta name="description" content="घर पर सत्यापित केयरटेकर और नर्स — बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर और हल्द्वानी में उपलब्ध।">
+  <title>बैंगलोर, मंगलुरु और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors</title>
+  <meta name="description" content="घर पर सत्यापित केयरटेकर और नर्स: बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर, मंगलुरु और हल्द्वानी में उपलब्ध।">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1094,13 +1145,13 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="hi_IN">
   <meta property="og:locale:alternate" content="en_IN">
-  <meta property="og:title" content="बैंगलोर और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors">
-  <meta property="og:description" content="घर पर सत्यापित केयरटेकर और नर्स — बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर और हल्द्वानी में उपलब्ध।">
+  <meta property="og:title" content="बैंगलोर, मंगलुरु और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors">
+  <meta property="og:description" content="घर पर सत्यापित केयरटेकर और नर्स: बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर, मंगलुरु और हल्द्वानी में उपलब्ध।">
   <meta property="og:url" content="https://www.outdoorseniors.com/hi/">
   <meta property="og:image" content="https://www.outdoorseniors.com/hero-elder-care.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="बैंगलोर और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors">
-  <meta name="twitter:description" content="घर पर सत्यापित केयरटेकर और नर्स — बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर और हल्द्वानी में उपलब्ध।">
+  <meta name="twitter:title" content="बैंगलोर, मंगलुरु और हल्द्वानी में घर पर केयरटेकर और नर्स | OutdoorSeniors">
+  <meta name="twitter:description" content="घर पर सत्यापित केयरटेकर और नर्स: बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर, मंगलुरु और हल्द्वानी में उपलब्ध।">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1110,7 +1161,7 @@ footer a:hover { color: var(--wa-green); }
           "logo": "https://www.outdoorseniors.com/icon-512.png",
           "@id": "https://www.outdoorseniors.com/hi/#business",
           "name": "OutdoorSeniors",
-          "description": "घर पर सत्यापित केयरटेकर और नर्स — बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर और हल्द्वानी में उपलब्ध।",
+          "description": "घर पर सत्यापित केयरटेकर और नर्स: बुज़ुर्गों की देखभाल, होम नर्सिंग, जापा, शिशु देखभाल, डिमेंशिया केयर और फिजियोथेरेपी। बैंगलोर, मंगलुरु और हल्द्वानी में उपलब्ध।",
           "url": "https://www.outdoorseniors.com/hi/",
           "telephone": "+91-96203-84645",
           "email": "support@outdoorseniors.com",
@@ -1207,7 +1258,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1267,7 +1318,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+<a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 कब चाहिए:
 शहर और इलाक़ा:
@@ -1304,7 +1355,7 @@ Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp
       <a href="/hi/#contact" class="nav-link">संपर्क</a>
     </div>
     <div class="nav-right">
-      <a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+      <a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 कब चाहिए:
 शहर और इलाक़ा:
@@ -1334,10 +1385,15 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <div class="hero-badge">बैंगलोर, मंगलुरु और हल्द्वानी · बुज़ुर्ग, नर्सिंग और शिशु देखभाल</div>
+      <div class="city-strip">
+        <span class="cs-label">सेवा उपलब्ध</span>
+        <a href="/hi/bangalore/" class="cs-city"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2.5c1.6 0 2.9 1.2 3.1 2.8H7.9C8.1 3.7 9.4 2.5 11 2.5Z"/><path d="M5.5 5.3h11"/><path d="M7 8v7M11 8v7M15 8v7"/><path d="M4.5 8h13"/><path d="M3 18.5h16"/><path d="M3 15h16"/></svg><span>बैंगलोर</span></a>
+        <a href="/mangalore/" class="cs-city"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M11.5 20.5c-.4-4 0-7.2 1.2-9.6"/><path d="M12.7 10.9c-2.9-.6-5.1.8-6.1 2.9M12.7 10.9c2.9-.6 5.1.8 6.1 2.9"/><path d="M12.7 10.9c-1.7-2.1-4.1-2.7-6.4-1.7M12.7 10.9c1.7-2.1 4.1-2.7 6.4-1.7"/><path d="M3 20.5h16"/></svg><span>मंगलुरु</span></a>
+        <a href="/hi/haldwani/" class="cs-city"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M2 17.5 8 7l4 6.5"/><path d="M10 17.5 14.5 9l5.5 8.5z"/><path d="M2 17.5h18"/><path d="M6.4 9.8h3.2M12.8 11.6h3.4"/></svg><span>हल्द्वानी</span></a>
+      </div>
       <h1>भरोसेमंद केयरटेकर और नर्स।<br><em>आपके घर पर।</em></h1>
-      <p class="hero-sub">WhatsApp पर हमें बताइए कि आपको क्या चाहिए। हम स्थिति समझेंगे, उपलब्धता की पुष्टि करेंगे और स्पष्ट, सब कुछ शामिल कीमत भेजेंगे — आमतौर पर उसी दिन।</p>
-      <a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+      <p class="hero-sub">घर पर सत्यापित केयरटेकर और नर्स। WhatsApp पर बताइए आपको क्या चाहिए।</p>
+      <a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 कब चाहिए:
 शहर और इलाक़ा:
@@ -1481,7 +1537,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
     <div class="catchall-strip">
       <h3>जो चाहिए वह यहाँ नहीं दिखा?</h3>
       <p>देखभाल की ज़रूरतें अक्सर किसी सूची में पूरी तरह फिट नहीं होतीं। WhatsApp पर अपनी स्थिति बताइए और हम ईमानदारी से बताएंगे कि हम मदद कर सकते हैं या नहीं।</p>
-      <a data-wa-text="Hi OutdoorSeniors — मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
+      <a data-wa-text="Hi OutdoorSeniors, मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
 
 कब चाहिए:
 इलाक़ा:
@@ -1506,7 +1562,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
       <div class="step">
         <div class="step-num">2</div>
         <h3 class="step-title">हम ज़रूरत समझते हैं</h3>
-        <p class="step-desc">एक छोटी कॉल में विवरण साफ़ करते हैं — चलना-फिरना, बीमारियाँ, भाषा और रोज़ की दिनचर्या — फिर स्पष्ट कीमत।</p>
+        <p class="step-desc">एक छोटी कॉल में विवरण साफ़ करते हैं, चलना-फिरना, बीमारियाँ, भाषा और रोज़ की दिनचर्या, फिर स्पष्ट कीमत।</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -1527,14 +1583,14 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
         <div class="why-icon" aria-hidden="true">&#128269;</div>
         <div>
           <p class="why-title">नियुक्ति से पहले सत्यापन</p>
-          <p class="why-desc">दस्तावेज़ जाँच, रेफरेंस और पुलिस वेरिफिकेशन — किसी के भी आपके घर आने से पहले। नर्स की योग्यता उनकी रजिस्ट्रेशन से जाँची जाती है।</p>
+          <p class="why-desc">दस्तावेज़ जाँच, रेफरेंस और पुलिस वेरिफिकेशन, किसी के भी आपके घर आने से पहले। नर्स की योग्यता उनकी रजिस्ट्रेशन से जाँची जाती है।</p>
         </div>
       </div>
       <div class="why-card">
         <div class="why-icon" aria-hidden="true">&#127919;</div>
         <div>
           <p class="why-title">सिर्फ़ भेजा नहीं, मिलाया गया</p>
-          <p class="why-desc">हम उन बातों पर मेल बिठाते हैं जो असल में मायने रखती हैं — भाषा, स्वभाव, और आपकी स्थिति का अनुभव।</p>
+          <p class="why-desc">हम उन बातों पर मेल बिठाते हैं जो असल में मायने रखती हैं: भाषा, स्वभाव, और आपकी स्थिति का अनुभव।</p>
         </div>
       </div>
       <div class="why-card">
@@ -1548,21 +1604,21 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
         <div class="why-icon" aria-hidden="true">&#128172;</div>
         <div>
           <p class="why-title">फ़िट के बारे में ईमानदार</p>
-          <p class="why-desc">अगर आपकी स्थिति में केयरटेकर नहीं बल्कि नर्स चाहिए, या घर की देखभाल नहीं बल्कि अस्पताल — हम साफ़ कह देंगे। भले ही बुकिंग हाथ से निकल जाए।</p>
+          <p class="why-desc">अगर आपकी स्थिति में केयरटेकर नहीं बल्कि नर्स चाहिए, या घर की देखभाल नहीं बल्कि अस्पताल, हम साफ़ कह देंगे। भले ही बुकिंग हाथ से निकल जाए।</p>
         </div>
       </div>
       <div class="why-card">
         <div class="why-icon" aria-hidden="true">&#128176;</div>
         <div>
           <p class="why-title">स्पष्ट कीमत, पहले ही</p>
-          <p class="why-desc">कीमत घंटों और देखभाल के स्तर पर निर्भर करती है, इसलिए ज़रूरत समझने के बाद बताते हैं — GST सहित, बाद में कोई हैरानी नहीं।</p>
+          <p class="why-desc">कीमत घंटों और देखभाल के स्तर पर निर्भर करती है, इसलिए ज़रूरत समझने के बाद बताते हैं. GST सहित, बाद में कोई हैरानी नहीं।</p>
         </div>
       </div>
       <div class="why-card">
         <div class="why-icon" aria-hidden="true">&#129309;</div>
         <div>
           <p class="why-title">WhatsApp पर असली इंसान</p>
-          <p class="why-desc">पहले संदेश से लेकर रिन्यूअल तक, आप उसी व्यक्ति से बात करते हैं जो आपका मामला जानता है — किसी टिकट नंबर से नहीं।</p>
+          <p class="why-desc">पहले संदेश से लेकर रिन्यूअल तक, आप उसी व्यक्ति से बात करते हैं जो आपका मामला जानता है, किसी टिकट नंबर से नहीं।</p>
         </div>
       </div>
     </div>
@@ -1572,8 +1628,8 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
 <section class="final-cta" id="contact">
   <div class="container">
     <h2>घर पर देखभाल चाहिए?</h2>
-    <p class="sub">WhatsApp पर स्थिति बताइए — हम मिलकर तय करेंगे कि आपको असल में क्या चाहिए।</p>
-    <a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+    <p class="sub">WhatsApp पर स्थिति बताइए, हम मिलकर तय करेंगे कि आपको असल में क्या चाहिए।</p>
+    <a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 कब चाहिए:
 शहर और इलाक़ा:
@@ -1631,7 +1687,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>संपर्क</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+          <li><a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 शहर (बैंगलोर / मंगलुरु / हल्द्वानी):
 कब चाहिए:
@@ -1654,7 +1710,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1671,7 +1727,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1773,7 +1829,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1982,7 +2038,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -2011,13 +2067,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post-Operative Care at Home Bangalore | OutdoorSeniors</title>
-  <meta name="description" content="Support at home after surgery or hospital discharge in Bangalore — medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
+  <meta name="description" content="Support at home after surgery or hospital discharge in Bangalore: medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1094,14 +1145,14 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="Post-Operative Care at Home Bangalore | OutdoorSeniors">
-  <meta property="og:description" content="Support at home after surgery or hospital discharge in Bangalore — medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
+  <meta property="og:description" content="Support at home after surgery or hospital discharge in Bangalore: medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
   <meta property="og:url" content="https://www.outdoorseniors.com/post-operative-care/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-post-operative-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Post-Operative Care at Home Bangalore | OutdoorSeniors">
-  <meta name="twitter:description" content="Support at home after surgery or hospital discharge in Bangalore — medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
+  <meta name="twitter:description" content="Support at home after surgery or hospital discharge in Bangalore: medication management, mobility, hygiene and wound watching. One week, two weeks or a month.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-post-operative-care.jpg">
   <script type="application/ld+json">
   {
@@ -1111,7 +1162,7 @@ footer a:hover { color: var(--wa-green); }
         "@type": "Service",
         "@id": "https://www.outdoorseniors.com/post-operative-care/#service",
         "name": "Post-Operative & Discharge Care",
-        "description": "Support at home after surgery or hospital discharge in Bangalore — medication management, mobility, hygiene and wound watching. One week, two weeks or a month.",
+        "description": "Support at home after surgery or hospital discharge in Bangalore: medication management, mobility, hygiene and wound watching. One week, two weeks or a month.",
         "serviceType": "Post-Operative & Discharge Care",
         "provider": {
           "@id": "https://www.outdoorseniors.com/#business"
@@ -1186,7 +1237,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "How does pricing work?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we’ll share exact pricing — all-inclusive, GST included, no hidden costs."
+              "text": "It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we’ll share exact pricing: all-inclusive, GST included, no hidden costs."
             }
           },
           {
@@ -1194,7 +1245,7 @@ footer a:hover { color: var(--wa-green); }
             "name": "What if the person isn’t the right fit?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Tell us and we’ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn’t a problem — getting the match right matters more than getting it right first time."
+              "text": "Tell us and we’ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn’t a problem, getting the match right matters more than getting it right first time."
             }
           },
           {
@@ -1213,7 +1264,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1273,7 +1324,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Post-Operative & Discharge Care.
+<a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Post-Operative & Discharge Care.
 
 When I need it:
 Area in Bangalore:
@@ -1310,7 +1361,7 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
           <a href="/hi/post-operative-care/">हिं</a>
         </div>
       </div>
-      <a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Post-Operative & Discharge Care." target="_blank" rel="noopener" class="nav-cta">
+      <a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Post-Operative & Discharge Care." target="_blank" rel="noopener" class="nav-cta">
         <svg class="wa-svg wa-svg-sm" aria-hidden="true"><use href="#wa-icon"></use></svg>
         WhatsApp Us
       </a>
@@ -1339,7 +1390,7 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <h1>Post-Operative &amp; Discharge Care</h1>
     <p class="svc-headline">The first two weeks after discharge are the ones that matter.</p>
     <div class="svc-photo"><img src="/photo-post-operative-care.jpg" alt="Caregiver bringing water to a man recovering at home after surgery" width="1586" height="992" fetchpriority="high" decoding="async"></div>
-    <p class="svc-intro">Most readmissions come from what goes wrong at home &mdash; a missed medication, a wound nobody watched, a fall on the way to the bathroom. This is structured support through the recovery window, and then it ends.</p>
+    <p class="svc-intro">Most readmissions come from what goes wrong at home: a missed medication, a wound nobody watched, a fall on the way to the bathroom. This is structured support through the recovery window, and then it ends.</p>
   </div>
 </section>
 
@@ -1347,7 +1398,7 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
   <div class="container">
     <div class="enquire" data-service="Post-Operative & Discharge Care" data-ref="POST">
       <h3>Tell us what you need</h3>
-      <p class="eq-sub">Send us the discharge summary on WhatsApp along with this &mdash; it tells us whether you need a caretaker, a nurse, or both.</p>
+      <p class="eq-sub">Send us the discharge summary on WhatsApp along with this: it tells us whether you need a caretaker, a nurse, or both.</p>
 
       <p class="dur-select-label">How long do you need cover?</p>
       <div class="duration-selector">
@@ -1384,9 +1435,9 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
       <div class="inex-col no">
         <h3>Does not include</h3>
         <ul>
-          <li><span class="mark" aria-hidden="true">✕</span>Suture removal, drain removal or dressing changes &mdash; <a href="/home-nursing/" style="text-decoration:underline">nursing tasks</a>, arranged separately</li>
+          <li><span class="mark" aria-hidden="true">✕</span>Suture removal, drain removal or dressing changes, <a href="/home-nursing/" style="text-decoration:underline">nursing tasks</a>, arranged separately</li>
           <li><span class="mark" aria-hidden="true">✕</span>Injections or IV medication</li>
-          <li><span class="mark" aria-hidden="true">✕</span>Physiotherapy &mdash; <a href="/physiotherapy-at-home/" style="text-decoration:underline">book alongside</a> if the surgeon has prescribed it</li>
+          <li><span class="mark" aria-hidden="true">✕</span>Physiotherapy, <a href="/physiotherapy-at-home/" style="text-decoration:underline">book alongside</a> if the surgeon has prescribed it</li>
           <li><span class="mark" aria-hidden="true">✕</span>Any medical decision or change to prescribed doses</li>
         </ul>
       </div>
@@ -1416,8 +1467,8 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
       <details class="faq-item"><summary>Do we need a nurse or a caretaker?</summary><p class="faq-a">It depends on the surgery. Wound and drain care needs a nurse; mobility, hygiene and medication support is a caretaker. Send the summary and we&rsquo;ll tell you which.</p></details>
       <details class="faq-item"><summary>What if we need to extend?</summary><p class="faq-a">Just tell us. Recovery is unpredictable and extensions are completely normal.</p></details>
       <details class="faq-item"><summary>How do you verify your caretakers and nurses?</summary><p class="faq-a">Everyone we place goes through document verification, reference checks and police verification before they are placed with you. For nurses we additionally verify the qualification against their nursing registration.</p></details>
-      <details class="faq-item"><summary>How does pricing work?</summary><p class="faq-a">It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we&rsquo;ll share exact pricing &mdash; all-inclusive, GST included, no hidden costs.</p></details>
-      <details class="faq-item"><summary>What if the person isn&rsquo;t the right fit?</summary><p class="faq-a">Tell us and we&rsquo;ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn&rsquo;t a problem &mdash; getting the match right matters more than getting it right first time.</p></details>
+      <details class="faq-item"><summary>How does pricing work?</summary><p class="faq-a">It depends on the hours, the level of care, and whether the role needs a nurse or a caretaker. Tell us what you need on WhatsApp and we&rsquo;ll share exact pricing: all-inclusive, GST included, no hidden costs.</p></details>
+      <details class="faq-item"><summary>What if the person isn&rsquo;t the right fit?</summary><p class="faq-a">Tell us and we&rsquo;ll replace them at no extra cost. It usually happens in the first week if it happens at all, and it isn&rsquo;t a problem: getting the match right matters more than getting it right first time.</p></details>
       <details class="faq-item"><summary>How do I reach you?</summary><p class="faq-a">WhatsApp is fastest and we reply within minutes. You can also call the same number: +91 96203 84645.</p></details>
     </div>
   </div>
@@ -1437,7 +1488,7 @@ Ref: POST" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
     <div class="notlisted" style="margin-top:32px">
       <h3>Not quite what you need?</h3>
       <p>Care needs rarely fit neatly into a list. Tell us the situation on WhatsApp and we&rsquo;ll tell you honestly whether we can help.</p>
-      <a data-wa-text="Hi OutdoorSeniors — I need care but I didn’t find my exact requirement listed. Here’s my situation:
+      <a data-wa-text="Hi OutdoorSeniors. I need care but I didn’t find my exact requirement listed. Here’s my situation:
 
 When I need it:
 Area in Bangalore:
@@ -1450,8 +1501,8 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
 <section class="final-cta">
   <div class="container">
     <h2>Coming Home After Surgery?</h2>
-    <p class="sub">Tell us the situation &mdash; we&rsquo;ll help you work out what you actually need.</p>
-    <a data-wa-text="Hi OutdoorSeniors — I’d like to enquire about Post-Operative & Discharge Care.
+    <p class="sub">Tell us the situation. We&rsquo;ll help you work out what you actually need.</p>
+    <a data-wa-text="Hi OutdoorSeniors. I’d like to enquire about Post-Operative & Discharge Care.
 
 When I need it:
 Area in Bangalore:
@@ -1509,7 +1560,7 @@ Ref: POST" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
+          <li><a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services.
 
 City (Bangalore / Mangalore / Haldwani):
 When I need it:
@@ -1532,7 +1583,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1549,7 +1600,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1651,7 +1702,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1860,7 +1911,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -1889,13 +1940,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

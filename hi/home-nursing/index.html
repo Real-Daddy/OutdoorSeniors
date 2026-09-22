@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>घर पर नर्स | ANM और GNM | OutdoorSeniors</title>
-  <meta name="description" content="घर पर योग्य ANM और GNM नर्स — इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
+  <meta name="description" content="घर पर योग्य ANM और GNM नर्स: इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1095,12 +1146,12 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:locale" content="hi_IN">
   <meta property="og:locale:alternate" content="en_IN">
   <meta property="og:title" content="घर पर नर्स | ANM और GNM | OutdoorSeniors">
-  <meta property="og:description" content="घर पर योग्य ANM और GNM नर्स — इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
+  <meta property="og:description" content="घर पर योग्य ANM और GNM नर्स: इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
   <meta property="og:url" content="https://www.outdoorseniors.com/hi/home-nursing/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-home-nursing.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="घर पर नर्स | ANM और GNM | OutdoorSeniors">
-  <meta name="twitter:description" content="घर पर योग्य ANM और GNM नर्स — इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
+  <meta name="twitter:description" content="घर पर योग्य ANM और GNM नर्स: इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -1109,7 +1160,7 @@ footer a:hover { color: var(--wa-green); }
           "@type": "Service",
           "@id": "https://www.outdoorseniors.com/hi/home-nursing/#service",
           "name": "होम नर्सिंग",
-          "description": "घर पर योग्य ANM और GNM नर्स — इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।",
+          "description": "घर पर योग्य ANM और GNM नर्स: इंजेक्शन, घाव की ड्रेसिंग, कैथेटर देखभाल और फीडिंग ट्यूब। एक विज़िट, शिफ़्ट या 24 घंटे।",
           "serviceType": "होम नर्सिंग",
           "inLanguage": "hi-IN",
           "provider": {
@@ -1159,7 +1210,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "ANM और GNM में क्या फ़र्क़ है?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "ANM निगरानी, इंजेक्शन और सामान्य ड्रेसिंग संभालती है। GNM कैथेटर, फीडिंग ट्यूब, जटिल घाव और IV का काम करती है। आपको यह तय नहीं करना — स्थिति बताइए, हम बता देंगे कि क्या चाहिए।"
+                "text": "ANM निगरानी, इंजेक्शन और सामान्य ड्रेसिंग संभालती है। GNM कैथेटर, फीडिंग ट्यूब, जटिल घाव और IV का काम करती है। आपको यह तय नहीं करना, स्थिति बताइए, हम बता देंगे कि क्या चाहिए।"
               }
             },
             {
@@ -1191,7 +1242,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "कीमत कैसे तय होती है?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे — GST सहित, कोई छिपा हुआ खर्च नहीं।"
+                "text": "यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे. GST सहित, कोई छिपा हुआ खर्च नहीं।"
               }
             },
             {
@@ -1199,7 +1250,7 @@ footer a:hover { color: var(--wa-green); }
               "name": "अगर व्यक्ति सही नहीं लगा तो?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है — सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।"
+                "text": "हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है, सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।"
               }
             },
             {
@@ -1218,7 +1269,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1278,7 +1329,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
+<a data-wa-text="Hi OutdoorSeniors, मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1315,7 +1366,7 @@ Ref: NUR" target="_blank" rel="noopener" class="wa-sticky" aria-label="WhatsApp 
       <a href="/hi/#contact" class="nav-link">संपर्क</a>
     </div>
     <div class="nav-right">
-      <a data-wa-text="Hi OutdoorSeniors — मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
+      <a data-wa-text="Hi OutdoorSeniors, मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1349,7 +1400,7 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
     <h1>होम नर्सिंग</h1>
     <p class="svc-headline">जहाँ नर्स ही चाहिए, वहाँ घर पर योग्य नर्स।</p>
     <div class="svc-photo"><img src="/photo-home-nursing.jpg" alt="होम नर्सिंग" width="1586" height="992" fetchpriority="high" decoding="async"></div>
-    <p class="svc-intro">कुछ काम क़ानूनन और सुरक्षा की दृष्टि से लाइसेंस प्राप्त नर्स ही कर सकती है — इंजेक्शन, घाव की ड्रेसिंग, कैथेटर की देखभाल, फीडिंग ट्यूब। हमारी नर्सें ANM या GNM योग्य हैं और आपके इलाज कर रहे डॉक्टर की योजना के अनुसार काम करती हैं, उससे हटकर नहीं।</p>
+    <p class="svc-intro">कुछ काम क़ानूनन और सुरक्षा की दृष्टि से लाइसेंस प्राप्त नर्स ही कर सकती है: इंजेक्शन, घाव की ड्रेसिंग, कैथेटर की देखभाल, फीडिंग ट्यूब। हमारी नर्सें ANM या GNM योग्य हैं और आपके इलाज कर रहे डॉक्टर की योजना के अनुसार काम करती हैं, उससे हटकर नहीं।</p>
   </div>
 </section>
 
@@ -1357,7 +1408,7 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
   <div class="container">
     <div class="enquire" data-service="होम नर्सिंग" data-ref="NUR">
       <h3>हमें बताइए आपको क्या चाहिए</h3>
-      <p class="eq-sub">कृपया पर्चा या डिस्चार्ज समरी तैयार रखें — हम WhatsApp पर माँगेंगे। इसके बिना कोई भी चिकित्सकीय काम तय नहीं होता।</p>
+      <p class="eq-sub">कृपया पर्चा या डिस्चार्ज समरी तैयार रखें, हम WhatsApp पर माँगेंगे। इसके बिना कोई भी चिकित्सकीय काम तय नहीं होता।</p>
 
       <p class="dur-select-label">आपको कितनी मदद चाहिए?</p>
       <div class="duration-selector">
@@ -1385,7 +1436,7 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
         <ul>
           <li><span class="mark" aria-hidden="true">✓</span>इंजेक्शन और डॉक्टर की लिखी दवा देना</li>
           <li><span class="mark" aria-hidden="true">✓</span>घाव की ड्रेसिंग और ऑपरेशन वाली जगह की देखभाल</li>
-          <li><span class="mark" aria-hidden="true">✓</span>वाइटल्स की निगरानी — BP, नाड़ी, SpO₂, तापमान, शुगर</li>
+          <li><span class="mark" aria-hidden="true">✓</span>वाइटल्स की निगरानी. BP, नाड़ी, SpO₂, तापमान, शुगर</li>
           <li><span class="mark" aria-hidden="true">✓</span>कैथेटर की देखभाल और मूत्र प्रबंधन</li>
           <li><span class="mark" aria-hidden="true">✓</span>राइल्स ट्यूब और PEG से खाना देना, साथ ही परिवार को सिखाना</li>
           <li><span class="mark" aria-hidden="true">✓</span>नेबुलाइज़ेशन और छाती की बुनियादी देखभाल</li>
@@ -1395,9 +1446,9 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
       <div class="inex-col no">
         <h3>इसमें शामिल नहीं है</h3>
         <ul>
-          <li><span class="mark" aria-hidden="true">✕</span>वैध पर्चे के बिना कुछ भी — विज़िट से पहले हमें वह चाहिए</li>
+          <li><span class="mark" aria-hidden="true">✕</span>वैध पर्चे के बिना कुछ भी, विज़िट से पहले हमें वह चाहिए</li>
           <li><span class="mark" aria-hidden="true">✕</span>रोग की पहचान, दवा लिखना, या मात्रा बदलना</li>
-          <li><span class="mark" aria-hidden="true">✕</span>आपातकालीन सेवा — अगर आपात स्थिति है तो 108 पर कॉल करें</li>
+          <li><span class="mark" aria-hidden="true">✕</span>आपातकालीन सेवा, अगर आपात स्थिति है तो 108 पर कॉल करें</li>
           <li><span class="mark" aria-hidden="true">✕</span>घर पर कीमोथेरेपी या ख़ून चढ़ाना</li>
           <li><span class="mark" aria-hidden="true">✕</span>नियंत्रित या नशीली दवाएँ</li>
         </ul>
@@ -1424,12 +1475,12 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
     <p class="section-label">जानने योग्य</p>
     <h2 class="section-title">परिवार अक्सर यह पूछते हैं</h2>
     <div class="faq-list">
-      <details class="faq-item"><summary>ANM और GNM में क्या फ़र्क़ है?</summary><p class="faq-a">ANM निगरानी, इंजेक्शन और सामान्य ड्रेसिंग संभालती है। GNM कैथेटर, फीडिंग ट्यूब, जटिल घाव और IV का काम करती है। आपको यह तय नहीं करना — स्थिति बताइए, हम बता देंगे कि क्या चाहिए।</p></details>
+      <details class="faq-item"><summary>ANM और GNM में क्या फ़र्क़ है?</summary><p class="faq-a">ANM निगरानी, इंजेक्शन और सामान्य ड्रेसिंग संभालती है। GNM कैथेटर, फीडिंग ट्यूब, जटिल घाव और IV का काम करती है। आपको यह तय नहीं करना, स्थिति बताइए, हम बता देंगे कि क्या चाहिए।</p></details>
       <details class="faq-item"><summary>पर्चा क्यों ज़रूरी है?</summary><p class="faq-a">बिना पर्चे के कुछ भी देना नर्स के लाइसेंस के दायरे से बाहर है, और घर पर दवा की मात्रा की ग़लती सबसे आम गंभीर घटना है। यह आपके और हमारे दोनों के परिवार की सुरक्षा है।</p></details>
       <details class="faq-item"><summary>क्या केयरटेकर इंजेक्शन लगा सकता है?</summary><p class="faq-a">नहीं। यह ग़ैरक़ानूनी है और सचमुच ख़तरनाक। अगर कोई आपको यह पेशकश करे, तो उसे उनके पूरे काम-काज के बारे में चेतावनी समझिए।</p></details>
       <details class="faq-item"><summary>आप अपने केयरटेकर और नर्स की जाँच कैसे करते हैं?</summary><p class="faq-a">हम जिस भी व्यक्ति को भेजते हैं, उसके दस्तावेज़ों की जाँच, रेफरेंस चेक और पुलिस वेरिफिकेशन नियुक्ति से पहले किया जाता है। नर्स के मामले में उनकी नर्सिंग रजिस्ट्रेशन से योग्यता की पुष्टि भी की जाती है।</p></details>
-      <details class="faq-item"><summary>कीमत कैसे तय होती है?</summary><p class="faq-a">यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे — GST सहित, कोई छिपा हुआ खर्च नहीं।</p></details>
-      <details class="faq-item"><summary>अगर व्यक्ति सही नहीं लगा तो?</summary><p class="faq-a">हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है — सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।</p></details>
+      <details class="faq-item"><summary>कीमत कैसे तय होती है?</summary><p class="faq-a">यह घंटों, देखभाल के स्तर, और इस बात पर निर्भर करता है कि नर्स चाहिए या केयरटेकर। WhatsApp पर अपनी ज़रूरत बताइए और हम सटीक कीमत भेज देंगे. GST सहित, कोई छिपा हुआ खर्च नहीं।</p></details>
+      <details class="faq-item"><summary>अगर व्यक्ति सही नहीं लगा तो?</summary><p class="faq-a">हमें बताइए, हम बिना किसी अतिरिक्त शुल्क के बदल देंगे। ऐसा आमतौर पर पहले हफ़्ते में होता है और यह कोई समस्या नहीं है, सही मेल होना पहली बार में सही होने से ज़्यादा ज़रूरी है।</p></details>
       <details class="faq-item"><summary>आपसे कैसे संपर्क करें?</summary><p class="faq-a">WhatsApp सबसे तेज़ है, हम मिनटों में जवाब देते हैं। आप इसी नंबर पर कॉल भी कर सकते हैं: +91 96203 84645।</p></details>
     </div>
   </div>
@@ -1449,7 +1500,7 @@ Ref: NUR" target="_blank" rel="noopener" class="nav-cta">
     <div class="notlisted" style="margin-top:32px">
       <h3>जो चाहिए वह यहाँ नहीं दिखा?</h3>
       <p>देखभाल की ज़रूरतें अक्सर किसी सूची में पूरी तरह फिट नहीं होतीं। WhatsApp पर अपनी स्थिति बताइए और हम ईमानदारी से बताएंगे कि हम मदद कर सकते हैं या नहीं।</p>
-      <a data-wa-text="Hi OutdoorSeniors — मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
+      <a data-wa-text="Hi OutdoorSeniors, मुझे देखभाल चाहिए लेकिन मेरी ज़रूरत आपकी सूची में नहीं मिली। मेरी स्थिति:
 
 कब चाहिए:
 इलाक़ा:
@@ -1463,7 +1514,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
   <div class="container">
     <h2>घर पर नर्स चाहिए?</h2>
     <p class="sub">देखभाल की ज़रूरतें अक्सर किसी सूची में पूरी तरह फिट नहीं होतीं।</p>
-    <a data-wa-text="Hi OutdoorSeniors — मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
+    <a data-wa-text="Hi OutdoorSeniors, मुझे होम नर्सिंग के बारे में जानकारी चाहिए।
 
 कब चाहिए:
 इलाक़ा:
@@ -1521,7 +1572,7 @@ Ref: NUR" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>संपर्क</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
+          <li><a data-wa-text="Hi OutdoorSeniors, मुझे आपकी केयरटेकर और नर्सिंग सेवाओं के बारे में जानना है।
 
 शहर (बैंगलोर / मंगलुरु / हल्द्वानी):
 कब चाहिए:
@@ -1544,7 +1595,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1561,7 +1612,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1663,7 +1714,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1872,7 +1923,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -1901,13 +1952,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

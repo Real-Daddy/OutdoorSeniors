@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1103,7 +1154,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1163,7 +1214,7 @@ footer a:hover { color: var(--wa-green); }
   </symbol>
 </svg>
 
-<a data-wa-text="Hi OutdoorSeniors — I’d like to know more about opportunities with your team.
+<a data-wa-text="Hi OutdoorSeniors. I’d like to know more about opportunities with your team.
 
 Ref: CAREERS" target="_blank" rel="noopener" class="wa-sticky" aria-label="Message us on WhatsApp">
   <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
@@ -1193,7 +1244,7 @@ Ref: CAREERS" target="_blank" rel="noopener" class="wa-sticky" aria-label="Messa
           </div>
         </div>
       </div>
-      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about opportunities with your team.
+      <a data-wa-text="Hi OutdoorSeniors. I’d like to know more about opportunities with your team.
 
 Ref: CAREERS" target="_blank" rel="noopener" class="nav-cta">
         <svg class="wa-svg wa-svg-sm" aria-hidden="true"><use href="#wa-icon"></use></svg>
@@ -1223,7 +1274,7 @@ Ref: CAREERS" target="_blank" rel="noopener" class="nav-cta">
     <p class="svc-eyebrow">Careers</p>
     <h1>Work With OutdoorSeniors</h1>
     <p class="svc-headline">We&rsquo;re building India&rsquo;s best care delivery company. Two paths, one purpose.</p>
-    <p class="svc-intro">We&rsquo;re on a mission to create economic opportunities for people who want to deliver care with dignity &mdash; and to build the systems that let them do it well.</p>
+    <p class="svc-intro">We&rsquo;re on a mission to create economic opportunities for people who want to deliver care with dignity, and to build the systems that let them do it well.</p>
   </div>
 </section>
 
@@ -1236,14 +1287,14 @@ Ref: CAREERS" target="_blank" rel="noopener" class="nav-cta">
         <h2 class="path-title">Deliver Care.<br>Earn a Living.</h2>
         <p class="path-sub">Join caregivers and nurses across Bangalore providing elder care, bedridden care, baby care, postnatal support and home nursing to families who need you.</p>
         <ul class="path-list">
-          <li><span class="check">&#10003;</span> Flexible working hours &mdash; part-time, shifts or live-in</li>
+          <li><span class="check">&#10003;</span> Flexible working hours, part-time, shifts or live-in</li>
           <li><span class="check">&#10003;</span> Consistent placements and steady income</li>
           <li><span class="check">&#10003;</span> Training and ongoing support from our team</li>
           <li><span class="check">&#10003;</span> Safe, verified family placements</li>
           <li><span class="check">&#10003;</span> ANM and GNM nurses especially welcome</li>
           <li><span class="check">&#10003;</span> Be part of a growing network of care professionals</li>
         </ul>
-        <a data-wa-text="Hi OutdoorSeniors — I’d like to register as a caregiver or nurse.
+        <a data-wa-text="Hi OutdoorSeniors. I’d like to register as a caregiver or nurse.
 
 My role (caretaker / ANM / GNM / physiotherapist):
 Years of experience:
@@ -1259,7 +1310,7 @@ Ref: CAREERS-CAREGIVER" target="_blank" rel="noopener" class="btn-book">
       <div class="path-card">
         <p class="path-tag">For Professionals</p>
         <h2 class="path-title">Build Something<br>That Matters.</h2>
-        <p class="path-sub">Join the small, focused team building India&rsquo;s best care delivery company. We work on hard problems that affect real families every day. If you care deeply about people and love building &mdash; talk to us.</p>
+        <p class="path-sub">Join the small, focused team building India&rsquo;s best care delivery company. We work on hard problems that affect real families every day. If you care deeply about people and love building, come talk to us.</p>
         <ul class="path-list">
           <li><span class="check">&#10003;</span> Operations &amp; logistics</li>
           <li><span class="check">&#10003;</span> Technology &amp; product</li>
@@ -1267,7 +1318,7 @@ Ref: CAREERS-CAREGIVER" target="_blank" rel="noopener" class="btn-book">
           <li><span class="check">&#10003;</span> Customer success &amp; care management</li>
           <li><span class="check">&#10003;</span> Marketing &amp; growth</li>
         </ul>
-        <a data-wa-text="Hi OutdoorSeniors — I’m interested in a role on your core team (non-caregiver).
+        <a data-wa-text="Hi OutdoorSeniors. I’m interested in a role on your core team (non-caregiver).
 
 Area of interest:
 Current role:
@@ -1282,7 +1333,7 @@ Ref: CAREERS-PROFESSIONAL" target="_blank" rel="noopener" class="btn-book">
 
     <div class="roles-note">
       <h3>What happens after you message us</h3>
-      <p>For caregivers and nurses: we&rsquo;ll ask about your experience, the areas you can travel to, and the kind of work you prefer. Verification comes next &mdash; documents, references and police verification &mdash; and for nurses we verify the qualification against your registration. We&rsquo;ll be straight with you about how much work we can offer and when.</p>
+      <p>For caregivers and nurses: we&rsquo;ll ask about your experience, the areas you can travel to, and the kind of work you prefer. Verification comes next: documents, references and police verification. For nurses we verify the qualification against your registration. We&rsquo;ll be straight with you about how much work we can offer and when.</p>
     </div>
   </div>
 </section>
@@ -1290,8 +1341,8 @@ Ref: CAREERS-PROFESSIONAL" target="_blank" rel="noopener" class="btn-book">
 <section class="final-cta">
   <div class="container">
     <h2>Want to Work in Care?</h2>
-    <p class="sub">Tell us about yourself on WhatsApp &mdash; it takes two minutes.</p>
-    <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about opportunities with your team.
+    <p class="sub">Tell us about yourself on WhatsApp, it takes two minutes.</p>
+    <a data-wa-text="Hi OutdoorSeniors. I’d like to know more about opportunities with your team.
 
 Ref: CAREERS" target="_blank" rel="noopener" class="btn-wa">
       <svg class="wa-svg" aria-hidden="true"><use href="#wa-icon"></use></svg>
@@ -1346,7 +1397,7 @@ Ref: CAREERS" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
+          <li><a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services.
 
 City (Bangalore / Mangalore / Haldwani):
 When I need it:
@@ -1369,7 +1420,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1386,7 +1437,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1488,7 +1539,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -1697,7 +1748,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -1726,13 +1777,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',

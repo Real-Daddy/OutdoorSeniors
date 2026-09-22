@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caretakers &amp; Nurses at Home in Bangalore | OutdoorSeniors</title>
-  <meta name="description" content="Background-verified caretakers and nurses at home in Bangalore — elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
+  <meta name="description" content="Background-verified caretakers and nurses at home in Bangalore: elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
 /* ==========================================================================
-   OutdoorSeniors — shared stylesheet
+   OutdoorSeniors, shared stylesheet
    Mobile-first: base styles target small screens, min-width queries scale up.
    ========================================================================== */
 
@@ -356,6 +356,57 @@ nav {
   border-radius: 50px;
   margin-bottom: 20px;
 }
+/* City strip: where we operate, shown in the hero above the headline */
+.city-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-bottom: 18px;
+}
+.cs-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-xs);
+}
+.cs-city {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  padding: 5px 4px;
+  transition: color 0.15s;
+}
+.cs-city + .cs-city { border-left: 1px solid var(--border); padding-left: 12px; }
+.cs-city:hover { color: #000; }
+.cs-current { color: #111; font-weight: 700; }
+.cs-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+/* phones: the label costs more room than it earns, so the three cities fit on one line */
+@media (max-width: 599px) {
+  .city-strip { gap: 4px 6px; flex-wrap: nowrap; }
+  .cs-label { display: none; }
+  .cs-city { font-size: 12.5px; gap: 5px; padding: 4px 2px; }
+  .cs-city + .cs-city { padding-left: 9px; }
+  .cs-icon { width: 18px; height: 18px; }
+}
+@media (max-width: 359px) {
+  .cs-city { font-size: 12px; gap: 0; }
+  .cs-icon { display: none; }
+}
+
 .hero h1 {
   font-size: 32px;
   font-weight: 800;
@@ -473,7 +524,7 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Square art panel — swap the emoji span for an <img> when photos are ready */
+/* Square art panel, swap the emoji span for an <img> when photos are ready */
 .tile-art {
   aspect-ratio: 1 / 1;
   display: flex;
@@ -656,7 +707,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy — link" refused to wrap on 320px screens */
+  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -946,7 +997,7 @@ footer a:hover { color: var(--wa-green); }
 .wa-sticky .wa-svg { width: 26px; height: 26px; }
 
 /* ==========================================================================
-   BREAKPOINTS — scaling up from mobile
+   BREAKPOINTS, scaling up from mobile
    ========================================================================== */
 
 @media (min-width: 480px) {
@@ -1094,14 +1145,14 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="Caretakers &amp; Nurses at Home in Bangalore | OutdoorSeniors">
-  <meta property="og:description" content="Background-verified caretakers and nurses at home in Bangalore — elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
+  <meta property="og:description" content="Background-verified caretakers and nurses at home in Bangalore: elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
   <meta property="og:url" content="https://www.outdoorseniors.com/bangalore/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Caretakers &amp; Nurses at Home in Bangalore | OutdoorSeniors">
-  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Bangalore — elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
+  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Bangalore: elder care, home nursing, japa, baby care, dementia care and physiotherapy across the city.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <script type="application/ld+json">
   {
@@ -1217,7 +1268,7 @@ footer a:hover { color: var(--wa-green); }
   <!-- seo:end -->
   <!-- analytics:start -->
   <script>
-    /* ====== PASTE YOUR IDs HERE — that is the only edit needed ======
+    /* ====== PASTE YOUR IDs HERE, that is the only edit needed ======
        ga4        : GA4 Measurement ID              e.g. G-ABC1234XYZ
        meta       : Meta Pixel ID                   e.g. 1234567890123456
        gads       : Google Ads conversion ID        e.g. AW-123456789
@@ -1279,7 +1330,7 @@ footer a:hover { color: var(--wa-green); }
 </svg>
 
 <!-- STICKY WHATSAPP BUTTON -->
-<a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore.
+<a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services in Bangalore.
 
 When I need it:
 Area in Bangalore:
@@ -1317,7 +1368,7 @@ Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
           <a href="/hi/bangalore/">हिं</a>
         </div>
       </div>
-      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore.
+      <a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services in Bangalore.
 
 When I need it:
 Area in Bangalore:
@@ -1348,10 +1399,15 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
   <div class="container hero-inner">
     <div class="hero-copy">
-      <div class="hero-badge">Bangalore &middot; Elder care, nursing &amp; baby care</div>
+      <div class="city-strip">
+        <span class="cs-label">Live in</span>
+        <a href="/bangalore/" class="cs-city cs-current"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2.5c1.6 0 2.9 1.2 3.1 2.8H7.9C8.1 3.7 9.4 2.5 11 2.5Z"/><path d="M5.5 5.3h11"/><path d="M7 8v7M11 8v7M15 8v7"/><path d="M4.5 8h13"/><path d="M3 18.5h16"/><path d="M3 15h16"/></svg><span>Bangalore</span></a>
+        <a href="/mangalore/" class="cs-city"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M11.5 20.5c-.4-4 0-7.2 1.2-9.6"/><path d="M12.7 10.9c-2.9-.6-5.1.8-6.1 2.9M12.7 10.9c2.9-.6 5.1.8 6.1 2.9"/><path d="M12.7 10.9c-1.7-2.1-4.1-2.7-6.4-1.7M12.7 10.9c1.7-2.1 4.1-2.7 6.4-1.7"/><path d="M3 20.5h16"/></svg><span>Mangalore</span></a>
+        <a href="/haldwani/" class="cs-city"><svg class="cs-icon" viewBox="0 0 22 22" aria-hidden="true"><path d="M2 17.5 8 7l4 6.5"/><path d="M10 17.5 14.5 9l5.5 8.5z"/><path d="M2 17.5h18"/><path d="M6.4 9.8h3.2M12.8 11.6h3.4"/></svg><span>Haldwani</span></a>
+      </div>
       <h1>Trusted Caretakers &amp; Nurses.<br><em>At home, in Bangalore.</em></h1>
-      <p class="hero-sub">We have been placing caretakers and nurses with families across Bengaluru since we started. Whether you are in Koramangala or Yelahanka, tell us the situation on WhatsApp and we will find the right person. We&rsquo;ll confirm availability and share clear, all-inclusive pricing &mdash; usually the same day.</p>
-      <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore.
+      <p class="hero-sub">Verified caretakers and nurses, placed with families across Bengaluru. Tell us what you need on WhatsApp.</p>
+      <a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services in Bangalore.
 
 When I need it:
 Area in Bangalore:
@@ -1498,7 +1554,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
     <div class="catchall-strip">
       <h3>Don&rsquo;t see what you need?</h3>
       <p>Care needs rarely fit neatly into a list. Tell us the situation on WhatsApp and we&rsquo;ll tell you honestly whether we can help.</p>
-      <a data-wa-text="Hi OutdoorSeniors — I need care but I didn’t find my requirement listed on your website. Here’s my situation:
+      <a data-wa-text="Hi OutdoorSeniors. I need care but I didn’t find my requirement listed on your website. Here’s my situation:
 
 When I need it:
 Area in Bangalore:
@@ -1514,7 +1570,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
   <div class="container">
     <p class="section-label">Coverage</p>
     <h2 class="section-title">Where we work in Bangalore</h2>
-    <p class="section-sub">We place caretakers and nurses across Koramangala, Indiranagar, HSR Layout, Whitefield, Jayanagar, JP Nagar, Marathahalli, Hebbal, Yelahanka, Electronic City, Banashankari, Rajajinagar, BTM Layout, Sarjapur Road and across Bengaluru. If your area is not listed, ask anyway &mdash; we usually can.</p>
+    <p class="section-sub">We place caretakers and nurses across Koramangala, Indiranagar, HSR Layout, Whitefield, Jayanagar, JP Nagar, Marathahalli, Hebbal, Yelahanka, Electronic City, Banashankari, Rajajinagar, BTM Layout, Sarjapur Road and across Bengaluru. If your area is not listed, ask anyway. We usually can.</p>
   </div>
 </section>
 
@@ -1533,7 +1589,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
       <div class="step">
         <div class="step-num">2</div>
         <h3 class="step-title">We Understand the Need</h3>
-        <p class="step-desc">A short call to get the details right &mdash; mobility, medical conditions, language and daily routine &mdash; then clear pricing.</p>
+        <p class="step-desc">A short call to get the details right, mobility, medical conditions, language and daily routine, then clear pricing.</p>
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -1562,7 +1618,7 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
         <div class="why-icon" aria-hidden="true">🎯</div>
         <div>
           <p class="why-title">Matched, Not Just Assigned</p>
-          <p class="why-desc">We match on the things that actually decide whether it works &mdash; language, temperament, and experience with your specific situation.</p>
+          <p class="why-desc">We match on the things that actually decide whether it works: language, temperament, and experience with your specific situation.</p>
         </div>
       </div>
       <div class="why-card">
@@ -1583,14 +1639,14 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
         <div class="why-icon" aria-hidden="true">💰</div>
         <div>
           <p class="why-title">Clear Pricing, Upfront</p>
-          <p class="why-desc">Pricing depends on hours and level of care, so we share it once we understand what you need &mdash; all-inclusive, GST included, no surprises later.</p>
+          <p class="why-desc">Pricing depends on hours and level of care, so we share it once we understand what you need: all-inclusive, GST included, no surprises later.</p>
         </div>
       </div>
       <div class="why-card">
         <div class="why-icon" aria-hidden="true">🤝</div>
         <div>
           <p class="why-title">A Real Person on WhatsApp</p>
-          <p class="why-desc">From your first message through to renewals, you&rsquo;re talking to someone who knows your case &mdash; not a ticket number.</p>
+          <p class="why-desc">From your first message through to renewals, you&rsquo;re talking to someone who knows your case: not a ticket number.</p>
         </div>
       </div>
     </div>
@@ -1601,8 +1657,8 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
 <section class="final-cta" id="contact">
   <div class="container">
     <h2>Need Care at Home in Bangalore?</h2>
-    <p class="sub">Tell us the situation on WhatsApp &mdash; we&rsquo;ll help you work out what you actually need.</p>
-    <a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services in Bangalore.
+    <p class="sub">Tell us the situation on WhatsApp. We&rsquo;ll help you work out what you actually need.</p>
+    <a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services in Bangalore.
 
 When I need it:
 Area in Bangalore:
@@ -1661,7 +1717,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors — I’d like to know more about your caretaker and nursing services.
+          <li><a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services.
 
 City (Bangalore / Mangalore / Haldwani):
 When I need it:
@@ -1684,7 +1740,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
 <script>
 /* ==========================================================================
-   OutdoorSeniors — shared behaviour
+   OutdoorSeniors, shared behaviour
    1. Campaign tracking (UTM capture + conversion events)
    2. Mobile nav toggle
    3. WhatsApp link building (phone number lives here, once)
@@ -1701,7 +1757,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
      Ad platforms stop seeing the visitor the moment they leave for WhatsApp.
      So we capture where they came from on arrival, keep it for the session,
      and stamp it into the WhatsApp message itself. That message is the only
-     record that survives the handoff — it is your ground truth for which ad
+     record that survives the handoff, it is your ground truth for which ad
      actually produced an enquiry. */
 
   var SRC_KEY = 'os_src';
@@ -1803,7 +1859,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 
   /* Attach to any WhatsApp link. The label is read from the link's CURRENT
-     href at click time, not captured on load — otherwise changing the duration
+     href at click time, not captured on load, otherwise changing the duration
      would update the message but keep reporting the original selection. */
   function wireTracking(el) {
     el.addEventListener('click', function () {
@@ -2012,7 +2068,7 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
          <a class="btn-book" data-enquire-btn>…</a>
        </div>
 
-     A service can have more than one .duration-selector group — Japa needs
+     A service can have more than one .duration-selector group. Japa needs
      both a length (30/45/60 days) and a mode (day/live-in). Each group holds
      its own selection; the labels and ref codes are joined in order, which is
      what produces refs like JAPA-45D-LIVEIN. */
@@ -2041,13 +2097,13 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
         var dur = labels.length ? labels.join(', ') : (LANG === 'hi' ? 'तय नहीं' : 'Not specified');
         var lines = (LANG === 'hi')
-          ? ['Hi OutdoorSeniors — मुझे ' + service + ' के बारे में जानकारी चाहिए।',
+          ? ['Hi OutdoorSeniors, मुझे ' + service + ' के बारे में जानकारी चाहिए।',
              'अवधि: ' + dur,
              'कब चाहिए: ',
              'इलाक़ा (' + CITY_NAME + '): ',
              '',
              'Ref: ' + refs.join('-')]
-          : ['Hi OutdoorSeniors — I’d like to enquire about ' + service + '.',
+          : ['Hi OutdoorSeniors. I’d like to enquire about ' + service + '.',
              'Duration: ' + dur,
              'When I need it: ',
              'Area in ' + CITY_NAME + ': ',
