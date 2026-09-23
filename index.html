@@ -1025,6 +1025,16 @@ nav {
   padding: 6px 13px;
   line-height: 1.3;
 }
+.zone-name a { color: inherit; }
+.zone-name a:hover { color: var(--wa-dark); }
+.zone-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--wa-dark);
+}
+.zone-more:hover { text-decoration: underline; }
 .zone-tail { font-size: 14px; color: var(--green-light); margin-top: 26px; }
 
 @media (min-width: 620px) {
@@ -1032,6 +1042,7 @@ nav {
 }
 @media (min-width: 900px) {
   .zone-grid { grid-template-columns: repeat(4, 1fr); gap: 30px 24px; }
+  .zone-grid-3 { grid-template-columns: repeat(3, 1fr); gap: 34px 28px; }
   .areas .zone-grid { align-items: start; }
 }
 
@@ -1690,6 +1701,57 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
 </section>
 
 <!-- HOW IT WORKS -->
+<section class="areas" id="coverage">
+  <div class="container">
+    <p class="section-label">Coverage</p>
+    <h2 class="section-title">Where we work</h2>
+    <p class="section-sub">Three cities, 56 areas, and growing. Tap a city for the full list.</p>
+
+    <div class="zone-grid zone-grid-3">
+      <div class="zone">
+        <h3 class="zone-name"><a href="/bangalore/">Bangalore</a><span class="zone-count">25</span></h3>
+        <ul class="chips">
+          <li class="chip">Koramangala</li>
+          <li class="chip">Indiranagar</li>
+          <li class="chip">HSR Layout</li>
+          <li class="chip">Whitefield</li>
+          <li class="chip">Jayanagar</li>
+          <li class="chip">Hebbal</li>
+          <li class="chip">Yelahanka</li>
+          <li class="chip">Marathahalli</li>
+        </ul>
+        <a href="/bangalore/" class="zone-more">+ 17 more areas in Bangalore &rarr;</a>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name"><a href="/mangalore/">Mangalore</a><span class="zone-count">20</span></h3>
+        <ul class="chips">
+          <li class="chip">Kadri</li>
+          <li class="chip">Bejai</li>
+          <li class="chip">Kankanady</li>
+          <li class="chip">Falnir</li>
+          <li class="chip">Derebail</li>
+          <li class="chip">Kulshekar</li>
+          <li class="chip">Surathkal</li>
+          <li class="chip">Bajpe</li>
+        </ul>
+        <a href="/mangalore/" class="zone-more">+ 12 more areas in Mangalore &rarr;</a>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name"><a href="/haldwani/">Haldwani</a><span class="zone-count">11</span></h3>
+        <ul class="chips">
+          <li class="chip">Kathgodam</li>
+          <li class="chip">Mukhani</li>
+          <li class="chip">Rampur Road</li>
+          <li class="chip">Nainital Road</li>
+          <li class="chip">Tikonia</li>
+          <li class="chip">Lalkuan</li>
+        </ul>
+        <a href="/haldwani/" class="zone-more">+ 5 more areas in Haldwani &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="how" id="how-it-works">
   <div class="container">
     <p class="section-label">The Process</p>
