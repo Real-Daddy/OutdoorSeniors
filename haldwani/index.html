@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors</title>
-  <meta name="description" content="Background-verified caretakers and nurses at home in Haldwani: elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <meta name="description" content="Verified caretakers and nurses at home in Haldwani and Nainital district. Elder care, nursing, bedridden and baby care. Ask on WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -994,6 +994,47 @@ nav {
 .final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
 .final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
 
+/* ---------- Coverage zones ---------- */
+.zone-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 26px; }
+.zone-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--wa-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.zone-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-xs);
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; }
+.chip {
+  font-size: 13px;
+  color: #444;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 13px;
+  line-height: 1.3;
+}
+.zone-tail { font-size: 14px; color: var(--green-light); margin-top: 26px; }
+
+@media (min-width: 620px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+}
+@media (min-width: 900px) {
+  .zone-grid { grid-template-columns: repeat(4, 1fr); gap: 30px 24px; }
+  .areas .zone-grid { align-items: start; }
+}
+
 /* ---------- Footer ---------- */
 
 footer { background: #111; color: #9a9a9a; padding: 56px 0 28px; text-align: left; }
@@ -1207,14 +1248,14 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
   <meta property="og:title" content="Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors">
-  <meta property="og:description" content="Background-verified caretakers and nurses at home in Haldwani: elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <meta property="og:description" content="Verified caretakers and nurses at home in Haldwani and Nainital district. Elder care, nursing, bedridden and baby care. Ask on WhatsApp.">
   <meta property="og:url" content="https://www.outdoorseniors.com/haldwani/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Caretakers &amp; Nurses at Home in Haldwani | OutdoorSeniors">
-  <meta name="twitter:description" content="Background-verified caretakers and nurses at home in Haldwani: elder care, home nursing, bedridden care, baby care and post-operative support across Haldwani and Nainital district.">
+  <meta name="twitter:description" content="Verified caretakers and nurses at home in Haldwani and Nainital district. Elder care, nursing, bedridden and baby care. Ask on WhatsApp.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <script type="application/ld+json">
   {
@@ -1246,6 +1287,23 @@ footer a:hover { color: var(--wa-green); }
           "https://www.facebook.com/0OutdoorSeniors"
         ],
         "legalName": "OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.outdoorseniors.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Haldwani",
+            "item": "https://www.outdoorseniors.com/haldwani/"
+          }
+        ]
       },
       {
         "@type": "WebSite",
@@ -1455,6 +1513,10 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
 </nav>
 
+<div class="container">
+  <p class="crumb"><a href="/">Home</a><span class="sep">/</span>Haldwani</p>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-photo">
@@ -1631,11 +1693,42 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">Message us on Wha
 </section>
 
 <!-- AREAS SERVED -->
-<section class="areas">
+<section class="areas" id="areas">
   <div class="container">
     <p class="section-label">Coverage</p>
     <h2 class="section-title">Where we work in Haldwani</h2>
-    <p class="section-sub">We place caretakers and nurses across Kathgodam, Rampur Road, Nainital Road, Mukhani, Kaladhungi Road, Tikonia, Bareilly Road, Gaula Par, Lalkuan and across Haldwani and Nainital district. If your area is not listed, ask anyway. We usually can.</p>
+    <p class="section-sub">We place caretakers and nurses across Haldwani and the wider Nainital district:</p>
+
+    <div class="zone-grid">
+      <div class="zone">
+        <h3 class="zone-name">Haldwani town<span class="zone-count">5</span></h3>
+        <ul class="chips">
+          <li class="chip">Mukhani</li>
+          <li class="chip">Tikonia</li>
+          <li class="chip">Rampur Road</li>
+          <li class="chip">Bareilly Road</li>
+          <li class="chip">Nainital Road</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">Kathgodam side<span class="zone-count">3</span></h3>
+        <ul class="chips">
+          <li class="chip">Kathgodam</li>
+          <li class="chip">Kaladhungi Road</li>
+          <li class="chip">Gaula Par</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">Nainital district<span class="zone-count">3</span></h3>
+        <ul class="chips">
+          <li class="chip">Lalkuan</li>
+          <li class="chip">Bindukhatta</li>
+          <li class="chip">Nainital</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="zone-tail">If your area is not listed, ask anyway. We usually can.</p>
   </div>
 </section>
 

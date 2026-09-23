@@ -994,6 +994,47 @@ nav {
 .final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
 .final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
 
+/* ---------- Coverage zones ---------- */
+.zone-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 26px; }
+.zone-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--wa-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.zone-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-xs);
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; }
+.chip {
+  font-size: 13px;
+  color: #444;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 13px;
+  line-height: 1.3;
+}
+.zone-tail { font-size: 14px; color: var(--green-light); margin-top: 26px; }
+
+@media (min-width: 620px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+}
+@media (min-width: 900px) {
+  .zone-grid { grid-template-columns: repeat(4, 1fr); gap: 30px 24px; }
+  .areas .zone-grid { align-items: start; }
+}
+
 /* ---------- Footer ---------- */
 
 footer { background: #111; color: #9a9a9a; padding: 56px 0 28px; text-align: left; }
@@ -1444,6 +1485,10 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
 </nav>
 
+<div class="container">
+  <p class="crumb"><a href="/hi/">होम</a><span class="sep">/</span>बैंगलोर</p>
+</div>
+
 <section class="hero">
   <div class="hero-photo">
     <img src="/hero-elder-care.jpg" alt="OutdoorSeniors केयरटेकर एक बुज़ुर्ग व्यक्ति को घर पर चलने में सहारा देते हुए" width="1915" height="821" fetchpriority="high" decoding="async">
@@ -1615,11 +1660,61 @@ Ref: OTHER" target="_blank" rel="noopener" class="btn-outline">WhatsApp पर �
 </section>
 
 <!-- AREAS -->
-<section class="areas">
+<section class="areas" id="areas">
   <div class="container">
-    <p class="section-label">कवरेज</p>
+    <p class="section-label">Coverage</p>
     <h2 class="section-title">बैंगलोर में हम कहाँ काम करते हैं</h2>
-    <p class="section-sub">हम कोरमंगला, इंदिरानगर, HSR लेआउट, व्हाइटफ़ील्ड, जयनगर, JP नगर, मराठाहल्ली, हेब्बल, येलहंका, इलेक्ट्रॉनिक सिटी, बनशंकरी, राजाजीनगर, BTM लेआउट, सरजापुर रोड और पूरे बैंगलोर में केयरटेकर और नर्स भेजते हैं। अगर आपका इलाक़ा सूची में नहीं है तो भी पूछिए, आमतौर पर हो जाता है।</p>
+    <p class="section-sub">हम पूरे बैंगलोर में केयरटेकर और नर्स भेजते हैं। अपना इलाक़ा देखिए:</p>
+
+    <div class="zone-grid">
+      <div class="zone">
+        <h3 class="zone-name">उत्तर बैंगलोर<span class="zone-count">6</span></h3>
+        <ul class="chips">
+          <li class="chip">हेब्बल</li>
+          <li class="chip">येलहंका</li>
+          <li class="chip">जक्कूर</li>
+          <li class="chip">तनीसंद्रा</li>
+          <li class="chip">सहकार नगर</li>
+          <li class="chip">RT नगर</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">पूर्व बैंगलोर<span class="zone-count">6</span></h3>
+        <ul class="chips">
+          <li class="chip">इंदिरानगर</li>
+          <li class="chip">व्हाइटफ़ील्ड</li>
+          <li class="chip">मराठाहल्ली</li>
+          <li class="chip">CV रमन नगर</li>
+          <li class="chip">कडुगोडी</li>
+          <li class="chip">महादेवपुरा</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">दक्षिण बैंगलोर<span class="zone-count">8</span></h3>
+        <ul class="chips">
+          <li class="chip">कोरमंगला</li>
+          <li class="chip">HSR लेआउट</li>
+          <li class="chip">जयनगर</li>
+          <li class="chip">JP नगर</li>
+          <li class="chip">BTM लेआउट</li>
+          <li class="chip">बनशंकरी</li>
+          <li class="chip">इलेक्ट्रॉनिक सिटी</li>
+          <li class="chip">सरजापुर रोड</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">पश्चिम बैंगलोर<span class="zone-count">5</span></h3>
+        <ul class="chips">
+          <li class="chip">राजाजीनगर</li>
+          <li class="chip">मल्लेश्वरम</li>
+          <li class="chip">विजयनगर</li>
+          <li class="chip">बसवेश्वरनगर</li>
+          <li class="chip">यशवंतपुर</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="zone-tail">अगर आपका इलाक़ा सूची में नहीं है तो भी पूछिए, आमतौर पर हो जाता है।</p>
   </div>
 </section>
 

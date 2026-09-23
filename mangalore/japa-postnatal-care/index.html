@@ -994,6 +994,47 @@ nav {
 .final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
 .final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
 
+/* ---------- Coverage zones ---------- */
+.zone-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 26px; }
+.zone-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--wa-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.zone-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-xs);
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; }
+.chip {
+  font-size: 13px;
+  color: #444;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 13px;
+  line-height: 1.3;
+}
+.zone-tail { font-size: 14px; color: var(--green-light); margin-top: 26px; }
+
+@media (min-width: 620px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+}
+@media (min-width: 900px) {
+  .zone-grid { grid-template-columns: repeat(4, 1fr); gap: 30px 24px; }
+  .areas .zone-grid { align-items: start; }
+}
+
 /* ---------- Footer ---------- */
 
 footer { background: #111; color: #9a9a9a; padding: 56px 0 28px; text-align: left; }
@@ -1549,13 +1590,61 @@ Ref: JAPA" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
   </div>
 </section>
 
-<section class="areas">
+<section class="local-note">
   <div class="container">
     <p class="section-label">In Mangalore</p>
     <h2 class="section-title">Japa care in Mangalore, and who asks for it</h2>
     <p class="section-sub" style="margin-bottom:14px">The old arrangement was that the mother or mother-in-law moved in for the first few months. In Mangalore that is getting harder: the grandparents are older, or the couple has come back from Bangalore or the Gulf for the delivery and the family is spread out. A japa maid fills that gap without taking it over.</p>
-    <p class="section-sub" style="margin-bottom:14px">We place experienced japa maids who know the routine families here expect: the oil massage and bath for mother and baby, feeding support, swaddling, and the nights. They speak the language of the house too. Between them our Mangalore caregivers cover English, Kannada, Tulu, Konkani and Malayalam.</p>
-    <p class="section-sub" style="margin-bottom:14px">Most families book us before the delivery date and we start the day you are discharged from Father Muller, KMC, A.J. Hospital or Yenepoya. Booking late is fine too; we just have less choice of person. We place across Kadri, Bejai, Kankanady, Falnir, Bendoorwell, Ballalbagh, Kodialbail, Derebail, Kulshekar, Urwa, Attavar, Mangaladevi, Vamanjoor, Bajpe, Surathkal, Deralakatte, Kotekar, Ullal, Mulki and Moodbidri.</p>
+    <p class="section-sub" style="margin-bottom:14px">We place experienced japa maids who know the routine families here expect: the oil massage and bath for mother and baby, feeding support, swaddling, and the nights. They speak the language of the house too, between them English, Kannada, Tulu, Konkani and Malayalam.</p>
+    <p class="section-sub" style="margin-bottom:14px">Most families book before the delivery date and we start the day you come home from Father Muller, KMC, A.J. Hospital or Yenepoya. Booking late is fine, we simply have less choice of person.</p>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="container">
+    <p class="section-label">Coverage</p>
+    <h2 class="section-title">Areas we cover in Mangalore</h2>
+    <p class="section-sub">Our japa maids travel across Mangaluru and Dakshina Kannada:</p>
+
+    <div class="zone-grid">
+      <div class="zone">
+        <h3 class="zone-name">Mangaluru city<span class="zone-count">10</span></h3>
+        <ul class="chips">
+          <li class="chip">Kadri</li>
+          <li class="chip">Bejai</li>
+          <li class="chip">Kankanady</li>
+          <li class="chip">Falnir</li>
+          <li class="chip">Bendoorwell</li>
+          <li class="chip">Ballalbagh</li>
+          <li class="chip">Kodialbail</li>
+          <li class="chip">Urwa</li>
+          <li class="chip">Attavar</li>
+          <li class="chip">Mangaladevi</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">North of the city<span class="zone-count">7</span></h3>
+        <ul class="chips">
+          <li class="chip">Derebail</li>
+          <li class="chip">Kulshekar</li>
+          <li class="chip">Vamanjoor</li>
+          <li class="chip">Bajpe</li>
+          <li class="chip">Surathkal</li>
+          <li class="chip">Mulki</li>
+          <li class="chip">Moodbidri</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">South of the city<span class="zone-count">3</span></h3>
+        <ul class="chips">
+          <li class="chip">Deralakatte</li>
+          <li class="chip">Kotekar</li>
+          <li class="chip">Ullal</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="zone-tail">If your area is not listed, ask anyway. We usually can.</p>
   </div>
 </section>
 

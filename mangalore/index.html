@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caretakers, Japa &amp; Nannies at Home in Mangalore | OutdoorSeniors</title>
-  <meta name="description" content="Background-verified elder care, japa and postnatal care, and baby care nannies at home in Mangalore, across Dakshina Kannada. Trusted help for parents living on their own.">
+  <title>Caretakers &amp; Japa Maids in Mangalore | OutdoorSeniors</title>
+  <meta name="description" content="Verified elder care, japa and baby care at home in Mangaluru and Dakshina Kannada. Kannada, Tulu and Konkani speaking. Ask on WhatsApp.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -994,6 +994,47 @@ nav {
 .final-cta .btn-wa { max-width: 340px; margin: 0 auto; }
 .final-cta .cta-note { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 20px; }
 
+/* ---------- Coverage zones ---------- */
+.zone-grid { display: grid; grid-template-columns: 1fr; gap: 26px; margin-top: 26px; }
+.zone-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  padding-bottom: 9px;
+  border-bottom: 2px solid var(--wa-green);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.zone-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-xs);
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 2px 8px;
+}
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding: 0; }
+.chip {
+  font-size: 13px;
+  color: #444;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  padding: 6px 13px;
+  line-height: 1.3;
+}
+.zone-tail { font-size: 14px; color: var(--green-light); margin-top: 26px; }
+
+@media (min-width: 620px) {
+  .zone-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 24px; }
+}
+@media (min-width: 900px) {
+  .zone-grid { grid-template-columns: repeat(4, 1fr); gap: 30px 24px; }
+  .areas .zone-grid { align-items: start; }
+}
+
 /* ---------- Footer ---------- */
 
 footer { background: #111; color: #9a9a9a; padding: 56px 0 28px; text-align: left; }
@@ -1205,15 +1246,15 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:title" content="Caretakers, Japa &amp; Nannies at Home in Mangalore | OutdoorSeniors">
-  <meta property="og:description" content="Background-verified elder care, japa and postnatal care, and baby care nannies at home in Mangalore, across Dakshina Kannada. Trusted help for parents living on their own.">
+  <meta property="og:title" content="Caretakers &amp; Japa Maids in Mangalore | OutdoorSeniors">
+  <meta property="og:description" content="Verified elder care, japa and baby care at home in Mangaluru and Dakshina Kannada. Kannada, Tulu and Konkani speaking. Ask on WhatsApp.">
   <meta property="og:url" content="https://www.outdoorseniors.com/mangalore/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Caretakers, Japa &amp; Nannies at Home in Mangalore | OutdoorSeniors">
-  <meta name="twitter:description" content="Background-verified elder care, japa and postnatal care, and baby care nannies at home in Mangalore, across Dakshina Kannada. Trusted help for parents living on their own.">
+  <meta name="twitter:title" content="Caretakers &amp; Japa Maids in Mangalore | OutdoorSeniors">
+  <meta name="twitter:description" content="Verified elder care, japa and baby care at home in Mangaluru and Dakshina Kannada. Kannada, Tulu and Konkani speaking. Ask on WhatsApp.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-elder-care.jpg">
   <script type="application/ld+json">
   {
@@ -1245,6 +1286,23 @@ footer a:hover { color: var(--wa-green); }
           "https://www.facebook.com/0OutdoorSeniors"
         ],
         "legalName": "OUTDOORSENIORS HEALTHCARE TECHNOLOGIES LLP"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.outdoorseniors.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Mangalore",
+            "item": "https://www.outdoorseniors.com/mangalore/"
+          }
+        ]
       },
       {
         "@type": "WebSite",
@@ -1412,6 +1470,10 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
 </nav>
 
+<div class="container">
+  <p class="crumb"><a href="/">Home</a><span class="sep">/</span>Mangalore</p>
+</div>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-photo">
@@ -1511,11 +1573,51 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
 </section>
 
 <!-- AREAS SERVED -->
-<section class="areas">
+<section class="areas" id="areas">
   <div class="container">
     <p class="section-label">Coverage</p>
     <h2 class="section-title">Where we work in Mangalore</h2>
-    <p class="section-sub">We place caretakers, japa maids and nannies across Kadri, Bejai, Kankanady, Falnir, Bendoorwell, Ballalbagh, Kodialbail, Derebail, Kulshekar, Urwa, Attavar, Mangaladevi, Vamanjoor, Bajpe, Surathkal, Deralakatte, Kotekar, Ullal, Mulki and Moodbidri, and across Mangaluru and Dakshina Kannada. If your area is not listed, ask anyway. We usually can.</p>
+    <p class="section-sub">We place caretakers, japa maids and nannies across Mangaluru and Dakshina Kannada:</p>
+
+    <div class="zone-grid">
+      <div class="zone">
+        <h3 class="zone-name">Mangaluru city<span class="zone-count">10</span></h3>
+        <ul class="chips">
+          <li class="chip">Kadri</li>
+          <li class="chip">Bejai</li>
+          <li class="chip">Kankanady</li>
+          <li class="chip">Falnir</li>
+          <li class="chip">Bendoorwell</li>
+          <li class="chip">Ballalbagh</li>
+          <li class="chip">Kodialbail</li>
+          <li class="chip">Urwa</li>
+          <li class="chip">Attavar</li>
+          <li class="chip">Mangaladevi</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">North of the city<span class="zone-count">7</span></h3>
+        <ul class="chips">
+          <li class="chip">Derebail</li>
+          <li class="chip">Kulshekar</li>
+          <li class="chip">Vamanjoor</li>
+          <li class="chip">Bajpe</li>
+          <li class="chip">Surathkal</li>
+          <li class="chip">Mulki</li>
+          <li class="chip">Moodbidri</li>
+        </ul>
+      </div>
+      <div class="zone">
+        <h3 class="zone-name">South of the city<span class="zone-count">3</span></h3>
+        <ul class="chips">
+          <li class="chip">Deralakatte</li>
+          <li class="chip">Kotekar</li>
+          <li class="chip">Ullal</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="zone-tail">If your area is not listed, ask anyway. We usually can.</p>
   </div>
 </section>
 
