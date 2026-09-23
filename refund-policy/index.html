@@ -518,6 +518,8 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     try { localStorage.setItem(CITY_KEY, key); } catch (e) {}
     var label = document.querySelector('#cityChip .city-name');
     if (label) { label.textContent = CITY_NAME; }
+    var chipIcon = document.querySelector('#cityChip .chip-icon use');
+    if (chipIcon) { chipIcon.setAttribute('href', '#ic-' + key); }
     var menu = document.getElementById('cityMenu');
     if (menu) {
       Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
@@ -579,6 +581,8 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
     var label = chip.querySelector('.city-name');
     if (label) { label.textContent = CITY_NAME; }
+    var icon = chip.querySelector('.chip-icon use');
+    if (icon) { icon.setAttribute('href', '#ic-' + CITY); }
 
     Array.prototype.forEach.call(menu.querySelectorAll('a[data-city]'), function (a) {
       if (a.getAttribute('data-city') === CITY) { a.className = 'current'; }
