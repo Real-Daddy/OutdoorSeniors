@@ -1801,12 +1801,27 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
 
   var CAMPAIGN = readSource();
 
+  /* The page the enquiry came from. Canonical rather than location.href, so
+     the link is the clean public URL with no query string or preview host. */
+  var PAGE_URL = (function () {
+    var c = document.querySelector('link[rel="canonical"]');
+    var href = c && c.getAttribute('href');
+    return href || (location.origin + location.pathname);
+  })();
+
   /* Appends the campaign tag to the Ref line already at the end of each
-     message, so the enquiry arrives self-identifying. */
+     message, then the page URL on a line of its own.
+
+     The URL is what the team actually needs: WhatsApp renders it as a preview
+     card with the service photo and title, and one tap shows the rep exactly
+     the page the customer was reading, includes and excludes and all. It goes
+     last and unlabelled because WhatsApp previews the first URL in a message
+     and a bare link reads as a link. */
   function withSource(message) {
     // prefix the Ref with the city so every enquiry is market-tagged
     var out = message.replace('Ref: ', 'Ref: ' + CITY_CODE + '-');
-    return CAMPAIGN ? out + ' | ' + CAMPAIGN : out;
+    if (CAMPAIGN) { out = out + ' | ' + CAMPAIGN; }
+    return out + String.fromCharCode(10) + PAGE_URL;
   }
 
   /* ---- Conversion events -------------------------------------------------
