@@ -769,7 +769,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
+  overflow-wrap: break-word;
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -788,6 +788,10 @@ nav {
   font-size: 12px;
   font-weight: 700;
   margin-top: 1px;
+}
+/* narrow screens only: break inside a word if that is what it takes to fit */
+@media (max-width: 599px) {
+  .inex-col li { overflow-wrap: anywhere; }
 }
 .inex-col.yes .mark { background: var(--ok-bg); color: var(--ok); }
 .inex-col.no .mark { background: var(--no-bg); color: var(--no); }
@@ -1435,10 +1439,10 @@ Ref: HOME" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire 
   <div class="container nav-inner">
     <a href="/" class="logo"><img src="/logo.webp" alt="OutdoorSeniors" width="228" height="44"></a>
     <div class="nav-links">
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#how-it-works" class="nav-link">How It Works</a>
-      <a href="#why-us" class="nav-link">Why Us</a>
-      <a href="#contact" class="nav-link">Contact</a>
+      <a href="/#services" class="nav-link">Services</a>
+      <a href="/#how-it-works" class="nav-link">How It Works</a>
+      <a href="/about/" class="nav-link">About</a>
+      <a href="/contact/" class="nav-link">Contact</a>
     </div>
     <div class="nav-right">
       <div class="nav-tools">
@@ -1474,10 +1478,11 @@ Ref: HOME" target="_blank" rel="noopener" class="nav-cta">
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="container">
-      <a href="#services" class="mobile-link">Services</a>
-      <a href="#how-it-works" class="mobile-link">How It Works</a>
-      <a href="#why-us" class="mobile-link">Why Us</a>
-      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="/#services" class="mobile-link">Services</a>
+      <a href="/#how-it-works" class="mobile-link">How It Works</a>
+      <a href="/about/" class="mobile-link">About</a>
+      <a href="/contact/" class="mobile-link">Contact</a>
+      <a href="/careers/" class="mobile-link">Careers</a>
     </div>
   </div>
 </nav>
@@ -1767,6 +1772,8 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/haldwani/">Haldwani</a></li>
           <li><a href="/mangalore/">Mangalore</a></li>
           <li><a href="/careers/">Careers</a></li>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/contact/">Contact</a></li>
           <li><a href="/hi/">हिन्दी में देखें</a></li>
           <li><a href="/privacy-policy/">Privacy Policy</a></li>
           <li><a href="/refund-policy/">Refund Policy</a></li>
@@ -1776,7 +1783,7 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
       <div class="footer-col">
         <h4>Contact</h4>
         <ul>
-          <li><a data-wa-text="Hi OutdoorSeniors. I’d like to know more about your caretaker and nursing services.
+          <li><a data-wa-text="Hi OutdoorSeniors, I’d like to know more about your caretaker and nursing services.
 
 City (Bangalore / Mangalore / Haldwani):
 When I need it:
@@ -1785,7 +1792,7 @@ Area:
 Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
           <li><a href="mailto:support@outdoorseniors.com">support@outdoorseniors.com</a></li>
         </ul>
-        <p class="footer-note">We reply on WhatsApp within minutes, 8am&ndash;8pm.</p>
+        <p class="footer-note">We reply on WhatsApp within minutes, 8am to 8pm.</p>
       </div>
 
     </div>

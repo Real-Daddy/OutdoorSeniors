@@ -769,7 +769,7 @@ nav {
 .inex-col li {
   display: flex;
   min-width: 0;
-  overflow-wrap: anywhere;   /* "Physiotherapy, link" refused to wrap on 320px screens */
+  overflow-wrap: break-word;
   gap: 11px;
   align-items: flex-start;
   font-size: 14.5px;
@@ -788,6 +788,10 @@ nav {
   font-size: 12px;
   font-weight: 700;
   margin-top: 1px;
+}
+/* narrow screens only: break inside a word if that is what it takes to fit */
+@media (max-width: 599px) {
+  .inex-col li { overflow-wrap: anywhere; }
 }
 .inex-col.yes .mark { background: var(--ok-bg); color: var(--ok); }
 .inex-col.no .mark { background: var(--no-bg); color: var(--no); }
@@ -1679,6 +1683,8 @@ Ref: PHYSIO" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/hi/haldwani/">हल्द्वानी</a></li>
           <li><a href="/mangalore/">मंगलुरु</a></li>
           <li><a href="/careers/">करियर</a></li>
+          <li><a href="/about/">हमारे बारे में</a></li>
+          <li><a href="/contact/">संपर्क</a></li>
           <li><a href="/">View in English</a></li>
           <li><a href="/privacy-policy/">गोपनीयता नीति</a></li>
           <li><a href="/refund-policy/">रिफ़ंड नीति</a></li>
