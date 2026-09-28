@@ -140,6 +140,11 @@
 
   <script>
     (function () {
+      /* live site only: a local preview or a scraped copy must not measure
+         into the real property, which is how "localhost" ended up in GA4 */
+      var host = location.hostname;
+      if (host !== 'www.outdoorseniors.com' && host !== 'outdoorseniors.com') { return; }
+
       var c = window.OS_TRACK || {};
 
       /* Google: GA4 and/or Google Ads share one gtag loader */
