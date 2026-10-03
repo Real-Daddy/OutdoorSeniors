@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baby Caretaker &amp; Nanny in Bangalore | Police Verified</title>
-  <meta name="description" content="Trained nannies and baby caretakers in Bangalore for infants and young children. Police verified before placement. A few hours, full day or live-in.">
+  <title>Nanny &amp; Baby Caretaker in Bangalore | Police Verified</title>
+  <meta name="description" content="Trained nannies and baby caretakers in Bangalore, police verified before placement. A few hours, full day or live-in.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1262,15 +1262,15 @@ footer a:hover { color: var(--wa-green); }
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="OutdoorSeniors">
   <meta property="og:locale" content="en_IN">
-  <meta property="og:title" content="Baby Caretaker &amp; Nanny in Bangalore | Police Verified">
-  <meta property="og:description" content="Trained nannies and baby caretakers in Bangalore for infants and young children. Police verified before placement. A few hours, full day or live-in.">
+  <meta property="og:title" content="Nanny &amp; Baby Caretaker in Bangalore | Police Verified">
+  <meta property="og:description" content="Trained nannies and baby caretakers in Bangalore, police verified before placement. A few hours, full day or live-in.">
   <meta property="og:url" content="https://www.outdoorseniors.com/baby-care-nanny/">
   <meta property="og:image" content="https://www.outdoorseniors.com/photo-baby-care-nanny.jpg">
   <meta property="og:image:width" content="1586">
   <meta property="og:image:height" content="992">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Baby Caretaker &amp; Nanny in Bangalore | Police Verified">
-  <meta name="twitter:description" content="Trained nannies and baby caretakers in Bangalore for infants and young children. Police verified before placement. A few hours, full day or live-in.">
+  <meta name="twitter:title" content="Nanny &amp; Baby Caretaker in Bangalore | Police Verified">
+  <meta name="twitter:description" content="Trained nannies and baby caretakers in Bangalore, police verified before placement. A few hours, full day or live-in.">
   <meta name="twitter:image" content="https://www.outdoorseniors.com/photo-baby-care-nanny.jpg">
   <script type="application/ld+json">
   {
@@ -1764,7 +1764,6 @@ Ref: BABY" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/post-operative-care/">Post-Operative Care</a></li>
           <li><a href="/hospital-attendant/">Hospital Attendant</a></li>
           <li><a href="/night-care/">Night Care</a></li>
-          <li><a href="/physiotherapy-at-home/">Physiotherapy at Home</a></li>
           <li><a href="/japa-postnatal-care/">Japa &amp; Postnatal Care</a></li>
           <li><a href="/baby-care-nanny/">Baby Care &amp; Nanny</a></li>
         </ul>
@@ -1930,11 +1929,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 

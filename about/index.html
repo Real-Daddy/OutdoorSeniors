@@ -1446,7 +1446,7 @@ Ref: CAREERS" target="_blank" rel="noopener" class="nav-cta">
     <h2 class="section-title">Finding good care at home is harder than it should be</h2>
     <p class="section-sub" style="margin-bottom:14px">Anyone who has tried to arrange care for an ageing parent knows the pattern: a number passed on by a neighbour, an agency that sends whoever is free, a caretaker who stops turning up, and no way to tell in advance whether the person walking into your parent&rsquo;s house is trustworthy.</p>
     <p class="section-sub" style="margin-bottom:14px">We went through it ourselves. OutdoorSeniors is the service we wanted to find: verification done before the placement rather than after something goes wrong, a caregiver matched to the situation rather than allocated at random, and an honest answer when home care is not the right thing at all.</p>
-    <p class="section-sub">Today families use us for elder care, home nursing, bedridden and dementia care, post-operative support, hospital attendants, night care, physiotherapy, japa and postnatal care, and nannies.</p>
+    <p class="section-sub">Today families use us for elder care, home nursing, bedridden and dementia care, post-operative support, hospital attendants, night care, japa and postnatal care, and nannies.</p>
   </div>
 </section>
 
@@ -1537,7 +1537,6 @@ Ref: ABOUT" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/post-operative-care/">Post-Operative Care</a></li>
           <li><a href="/hospital-attendant/">Hospital Attendant</a></li>
           <li><a href="/night-care/">Night Care</a></li>
-          <li><a href="/physiotherapy-at-home/">Physiotherapy at Home</a></li>
           <li><a href="/japa-postnatal-care/">Japa &amp; Postnatal Care</a></li>
           <li><a href="/baby-care-nanny/">Baby Care &amp; Nanny</a></li>
         </ul>
@@ -1703,11 +1702,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 

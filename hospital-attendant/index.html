@@ -1724,7 +1724,6 @@ Ref: HOSP" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/post-operative-care/">Post-Operative Care</a></li>
           <li><a href="/hospital-attendant/">Hospital Attendant</a></li>
           <li><a href="/night-care/">Night Care</a></li>
-          <li><a href="/physiotherapy-at-home/">Physiotherapy at Home</a></li>
           <li><a href="/japa-postnatal-care/">Japa &amp; Postnatal Care</a></li>
           <li><a href="/baby-care-nanny/">Baby Care &amp; Nanny</a></li>
         </ul>
@@ -1890,11 +1889,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 

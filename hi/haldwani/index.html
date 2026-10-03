@@ -1345,24 +1345,18 @@ footer a:hover { color: var(--wa-green); }
             {
               "@type": "ListItem",
               "position": 7,
-              "name": "घर पर फिजियोथेरेपी",
-              "url": "https://www.outdoorseniors.com/hi/physiotherapy-at-home/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 8,
               "name": "अस्पताल अटेंडेंट",
               "url": "https://www.outdoorseniors.com/hi/hospital-attendant/"
             },
             {
               "@type": "ListItem",
-              "position": 9,
+              "position": 8,
               "name": "जापा और प्रसवोत्तर देखभाल",
               "url": "https://www.outdoorseniors.com/hi/japa-postnatal-care/"
             },
             {
               "@type": "ListItem",
-              "position": 10,
+              "position": 9,
               "name": "शिशु देखभाल और नैनी",
               "url": "https://www.outdoorseniors.com/hi/baby-care-nanny/"
             }
@@ -1619,14 +1613,6 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
           </div>
         </a>
 
-        <a href="/hi/physiotherapy-at-home/" class="tile">
-          <div class="tile-art"><img src="/photo-physiotherapy-at-home.jpg" alt="घर पर फिजियोथेरेपी" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
-          <div class="tile-body">
-            <div class="tile-name">घर पर फिजियोथेरेपी</div>
-            <div class="tile-meta">1 · 6 · 12 सेशन</div>
-          </div>
-        </a>
-
         <a href="/hi/hospital-attendant/" class="tile">
           <div class="tile-art"><img src="/photo-hospital-attendant.jpg" alt="अस्पताल अटेंडेंट" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
@@ -1835,7 +1821,6 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/hi/post-operative-care/">ऑपरेशन के बाद देखभाल</a></li>
           <li><a href="/hi/hospital-attendant/">अस्पताल अटेंडेंट</a></li>
           <li><a href="/hi/night-care/">रात की देखभाल</a></li>
-          <li><a href="/hi/physiotherapy-at-home/">घर पर फिजियोथेरेपी</a></li>
           <li><a href="/hi/japa-postnatal-care/">जापा और प्रसवोत्तर देखभाल</a></li>
           <li><a href="/hi/baby-care-nanny/">शिशु देखभाल और नैनी</a></li>
         </ul>
@@ -2001,11 +1986,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 

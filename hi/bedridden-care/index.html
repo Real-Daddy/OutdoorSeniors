@@ -1620,8 +1620,7 @@ Ref: BED" target="_blank" rel="noopener" class="nav-cta">
       <a href="/hi/home-nursing/" class="related-card"><span class="r-icon" aria-hidden="true">&#128100;</span>होम नर्सिंग<span class="r-arrow">&rarr;</span></a>
       <a href="/hi/elder-care/" class="related-card"><span class="r-icon" aria-hidden="true">&#128100;</span>बुज़ुर्गों की घर पर देखभाल<span class="r-arrow">&rarr;</span></a>
       <a href="/hi/night-care/" class="related-card"><span class="r-icon" aria-hidden="true">&#128100;</span>रात की देखभाल<span class="r-arrow">&rarr;</span></a>
-      <a href="/hi/physiotherapy-at-home/" class="related-card"><span class="r-icon" aria-hidden="true">&#128100;</span>घर पर फिजियोथेरेपी<span class="r-arrow">&rarr;</span></a>
-    </div>
+          </div>
 
     <div class="notlisted" style="margin-top:32px">
       <h3>जो चाहिए वह यहाँ नहीं दिखा?</h3>
@@ -1676,7 +1675,6 @@ Ref: BED" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/hi/post-operative-care/">ऑपरेशन के बाद देखभाल</a></li>
           <li><a href="/hi/hospital-attendant/">अस्पताल अटेंडेंट</a></li>
           <li><a href="/hi/night-care/">रात की देखभाल</a></li>
-          <li><a href="/hi/physiotherapy-at-home/">घर पर फिजियोथेरेपी</a></li>
           <li><a href="/hi/japa-postnatal-care/">जापा और प्रसवोत्तर देखभाल</a></li>
           <li><a href="/hi/baby-care-nanny/">शिशु देखभाल और नैनी</a></li>
         </ul>
@@ -1842,11 +1840,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 

@@ -1281,7 +1281,7 @@ footer a:hover { color: var(--wa-green); }
         "logo": "https://www.outdoorseniors.com/icon-512.png",
         "@id": "https://www.outdoorseniors.com/bangalore/#business",
         "name": "OutdoorSeniors",
-        "description": "Background-verified caretakers and nurses at home in Bangalore for elder care, bedridden care, post-operative care, home nursing, japa and postnatal care, baby care, dementia care and physiotherapy.",
+        "description": "Background-verified caretakers and nurses at home in Bangalore for elder care, bedridden care, post-operative care, home nursing, japa and postnatal care, baby care, dementia care.",
         "url": "https://www.outdoorseniors.com/",
         "telephone": "+91-96203-84645",
         "email": "support@outdoorseniors.com",
@@ -1387,12 +1387,6 @@ footer a:hover { color: var(--wa-green); }
           {
             "@type": "ListItem",
             "position": 9,
-            "name": "Physiotherapy at Home",
-            "url": "https://www.outdoorseniors.com/physiotherapy-at-home/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 10,
             "name": "Hospital Attendant",
             "url": "https://www.outdoorseniors.com/hospital-attendant/"
           }
@@ -1655,15 +1649,6 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
             <div class="tile-meta">1 week &middot; 2 weeks &middot; 1 month</div>
           </div>
         </a>
-
-        <a href="/physiotherapy-at-home/" class="tile">
-          <div class="tile-art"><img src="/photo-physiotherapy-at-home.jpg" alt="Physiotherapy at Home in Bangalore" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
-          <div class="tile-body">
-            <div class="tile-name">Physiotherapy at Home</div>
-            <div class="tile-meta">1 &middot; 6 &middot; 12 sessions</div>
-          </div>
-        </a>
-
         <a href="/hospital-attendant/" class="tile">
           <div class="tile-art"><img src="/photo-hospital-attendant.jpg" alt="Hospital Attendant in Bangalore" width="1586" height="992" loading="lazy" decoding="async"><span class="tile-plus" aria-hidden="true">+</span></div>
           <div class="tile-body">
@@ -1896,7 +1881,6 @@ Ref: HOME" target="_blank" rel="noopener" class="btn-wa">
           <li><a href="/post-operative-care/">Post-Operative Care</a></li>
           <li><a href="/hospital-attendant/">Hospital Attendant</a></li>
           <li><a href="/night-care/">Night Care</a></li>
-          <li><a href="/physiotherapy-at-home/">Physiotherapy at Home</a></li>
           <li><a href="/japa-postnatal-care/">Japa &amp; Postnatal Care</a></li>
           <li><a href="/baby-care-nanny/">Baby Care &amp; Nanny</a></li>
         </ul>
@@ -2062,11 +2046,19 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
     }
 
     // GA4
+    //
+    // NOT campaign_source. That is a reserved GA4 parameter: sending it
+    // overwrites the session's real source with whatever we pass, and since
+    // we never send campaign_medium the medium becomes (not set), which
+    // matches no channel rule and dumps the session into Unassigned. It cost
+    // us a third of our sessions, and worst of all it hit precisely the
+    // sessions that converted, so organic was under-counted exactly where it
+    // was working. enquiry_source is ours and GA4 leaves attribution alone.
     if (typeof window.gtag === 'function' && cfg.ga4) {
       window.gtag('event', 'generate_lead', {
         event_category: 'whatsapp',
         event_label: label,
-        campaign_source: CAMPAIGN || 'direct'
+        enquiry_source: CAMPAIGN || 'direct'
       });
     }
 
