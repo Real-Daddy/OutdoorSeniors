@@ -1247,6 +1247,102 @@ footer a:hover { color: var(--wa-green); }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ---------- Announcement bar ---------- */
+
+.announce { background: #13306B; color: #fff; }
+.announce-in {
+  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+  padding: 10px 46px 10px 16px; position: relative; max-width: 1180px; margin: 0 auto;
+  font-size: 14px; line-height: 1.5;
+}
+.announce-pill {
+  background: #4C9A5B; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px; flex: 0 0 auto;
+}
+.announce-txt { color: #dce7f1; }
+.announce-txt b { color: #fff; font-weight: 700; }
+.announce-link { color: #9fe3b6; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.announce-link:hover { text-decoration: underline; }
+.announce-x {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none;
+  border: 0; color: #9fb6cd; font-size: 20px; line-height: 1; cursor: pointer; padding: 6px 8px;
+  border-radius: 8px;
+}
+.announce-x:hover { color: #fff; background: rgba(255,255,255,.1); }
+
+/* ---------- Registrations strip ---------- */
+
+.creds { background: #fff; border-top: 1px solid #e8eef2; border-bottom: 1px solid #e8eef2; padding: 34px 0; }
+.creds-label {
+  font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a99a3;
+  font-weight: 700; text-align: center; margin: 0 0 6px;
+}
+.creds-ask {
+  text-align: center; color: #55646f; font-size: 14.5px; line-height: 1.6; margin: 0 auto 22px;
+  max-width: 620px;
+}
+.creds-inner { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 14px; }
+.cred {
+  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #e3eaef;
+  border-radius: 14px; background: #fcfdfe; min-width: 268px;
+}
+.cred-ico { flex: 0 0 auto; }
+.cred-t { font-size: 12.5px; line-height: 1.45; color: #55646f; flex: 1 1 auto; }
+.cred-t b { display: block; color: #13306B; font-size: 14px; font-weight: 700; letter-spacing: .2px; margin-top: 2px; }
+.cred-t a { color: #13306B; text-decoration: none; }
+.cred-t a:hover { text-decoration: underline; }
+.cred-copy {
+  display: inline-flex; align-items: center; gap: 5px; margin-left: auto; flex: 0 0 auto;
+  border: 1px solid #d5dfe7; background: #fff; color: #5b6b76; border-radius: 999px; padding: 6px 11px;
+  font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; line-height: 1;
+  transition: background .15s, border-color .15s, color .15s;
+}
+.cred-copy:hover { background: #eef5f9; border-color: #b9ccd9; color: #13306B; }
+.cred-copy.copied { background: #e9f5ec; border-color: #9ed0ae; color: #2f7a46; }
+
+/* ---------- Contact page ---------- */
+
+.ct-section { padding: 46px 0; }
+.ct-grid { display: grid; gap: 18px; }
+.ct-card { border: 1px solid #e3eaef; border-radius: 16px; padding: 24px 22px; background: #fff; }
+.ct-card h3 { font-size: 17px; margin: 0 0 4px; color: #13306B; }
+.ct-card .ct-sub { font-size: 13.5px; color: #8a99a3; margin: 0 0 16px; }
+.ct-list { list-style: none; margin: 0; padding: 0; }
+.ct-list li {
+  display: flex; gap: 12px; padding: 11px 0; border-top: 1px solid #f0f4f7;
+  font-size: 14.5px; line-height: 1.6; color: #44525c;
+}
+.ct-list li:first-child { border-top: 0; padding-top: 0; }
+.ct-k { flex: 0 0 116px; color: #13306B; font-weight: 700; }
+.ct-v { flex: 1 1 auto; }
+.ct-v a { color: #107A6E; text-decoration: none; border-bottom: 1px solid #b9ded8; }
+.ct-v a:hover { border-bottom-color: #107A6E; }
+.ct-office { border: 1px solid #e3eaef; border-radius: 16px; padding: 24px 22px; background: #fbfcfd; }
+.ct-office .ct-eyebrow {
+  font-size: 11.5px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: #8a99a3; font-weight: 700; margin: 0 0 8px;
+}
+.ct-office .ct-name { font-size: 16px; font-weight: 700; color: #13306B; margin: 0 0 8px; line-height: 1.45; }
+.ct-office address { font-style: normal; font-size: 14.5px; line-height: 1.7; color: #55646f; margin: 0 0 12px; max-width: 640px; }
+.ct-office .ct-note { font-size: 13.5px; color: #8a99a3; margin: 0; line-height: 1.65; }
+
+@media (min-width: 760px) {
+  .ct-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+}
+
+@media (max-width: 599px) {
+  .announce-in { font-size: 12.5px; gap: 4px 8px; padding: 8px 40px 9px 14px; justify-content: flex-start; line-height: 1.45; }
+  .announce-pill { font-size: 10px; padding: 3px 7px; }
+  .creds-inner { flex-direction: column; }
+  .creds-label, .creds-ask { text-align: left; }
+  .cred { min-width: 0; width: 100%; }
+}
+
+@media (max-width: 479px) {
+  .ct-list li { flex-direction: column; gap: 2px; }
+  .ct-k { flex: none; }
+}
   </style>
   <!-- seo:start -->
   <link rel="canonical" href="https://www.outdoorseniors.com/mangalore/elder-care/">
@@ -1483,6 +1579,14 @@ Ref: ELD" target="_blank" rel="noopener" class="wa-sticky" aria-label="Enquire o
   <span class="wa-label">Enquire on WhatsApp</span>
 </a>
 
+<div class="announce" data-key="dpiit-2026-10" hidden>
+  <div class="announce-in">
+    <span class="announce-pill">News</span>
+    <span class="announce-txt">Good news. We are now a <b>DPIIT Recognised Startup</b>.</span>
+    <a class="announce-link" href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener">Verify DIPP287320 &rarr;</a>
+    <button type="button" class="announce-x" aria-label="Dismiss this announcement">&times;</button>
+  </div>
+</div>
 <nav id="mainNav">
   <div class="container nav-inner">
     <a href="/" class="logo"><img src="/logo.webp" alt="OutdoorSeniors" width="228" height="44"></a>
@@ -2222,6 +2326,88 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       refresh();
       WA_REBUILDERS.push(refresh);
     })(blocks[b]);
+  }
+})();
+
+/* ---- Copy a registration number -------------------------------------------
+   The whole point of printing LLPIN, DIPP and Udyam numbers is that a
+   customer can check them on the government portal. Checking means pasting
+   the number into a verification form, so the number is one tap from the
+   clipboard rather than something to transcribe from a phone screen. */
+(function () {
+  var buttons = document.querySelectorAll('.cred-copy');
+  if (!buttons.length) { return; }
+
+  function flash(btn, text) {
+    var label = btn.querySelector('.cred-copy-t');
+    if (!label) { return; }
+    var was = label.textContent;
+    label.textContent = text;
+    btn.classList.add('copied');
+    setTimeout(function () {
+      label.textContent = was;
+      btn.classList.remove('copied');
+    }, 1600);
+  }
+
+  /* execCommand is the fallback: the clipboard API needs a secure context,
+     and some in-app browsers on Android do not provide one. */
+  function legacyCopy(value) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = value;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) { return false; }
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var btn = this;
+      var value = btn.getAttribute('data-copy') || '';
+      if (!value) { return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () {
+          flash(btn, 'Copied');
+        }, function () {
+          flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+        });
+      } else {
+        flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+      }
+    });
+  }
+})();
+
+/* ---- The announcement bar -------------------------------------------------
+   Dismissal is remembered per browser and keyed to the announcement, so
+   changing the key later brings the bar back for everyone rather than
+   staying hidden for anyone who closed the previous one. */
+(function () {
+  var bar = document.querySelector('.announce');
+  if (!bar) { return; }
+  var key = 'os_announce_' + (bar.getAttribute('data-key') || 'x');
+
+  try {
+    if (localStorage.getItem(key) === '1') { bar.parentNode.removeChild(bar); return; }
+  } catch (e) { /* private mode: just show it */ }
+
+  bar.hidden = false;
+
+  var close = bar.querySelector('.announce-x');
+  if (close) {
+    close.addEventListener('click', function () {
+      bar.parentNode.removeChild(bar);
+      try { localStorage.setItem(key, '1'); } catch (e) { /* nothing to do */ }
+    });
   }
 })();
 </script>

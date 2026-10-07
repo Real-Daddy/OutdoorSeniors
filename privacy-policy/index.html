@@ -99,7 +99,25 @@
       footer { padding: 64px 0 28px; }
       .footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.1fr; gap: 40px 32px; }
     }
-  </style>
+  
+.announce { background: #13306B; color: #fff; }
+.announce-in { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
+  padding: 10px 46px 10px 16px; position: relative; max-width: 1180px; margin: 0 auto;
+  font-size: 14px; line-height: 1.5; }
+.announce-pill { background: #4C9A5B; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1px;
+  text-transform: uppercase; padding: 4px 9px; border-radius: 999px; flex: 0 0 auto; }
+.announce-txt { color: #dce7f1; }
+.announce-txt b { color: #fff; font-weight: 700; }
+.announce-link { color: #9fe3b6; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.announce-link:hover { text-decoration: underline; }
+.announce-x { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none;
+  border: 0; color: #9fb6cd; font-size: 20px; line-height: 1; cursor: pointer; padding: 6px 8px;
+  border-radius: 8px; }
+.announce-x:hover { color: #fff; background: rgba(255,255,255,.1); }
+@media (max-width: 599px) {
+  .announce-in { font-size: 13px; gap: 8px; padding: 10px 42px 10px 14px; justify-content: flex-start; }
+}
+</style>
   <!-- seo:start -->
   <link rel="canonical" href="https://www.outdoorseniors.com/privacy-policy/">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
@@ -771,6 +789,88 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       refresh();
       WA_REBUILDERS.push(refresh);
     })(blocks[b]);
+  }
+})();
+
+/* ---- Copy a registration number -------------------------------------------
+   The whole point of printing LLPIN, DIPP and Udyam numbers is that a
+   customer can check them on the government portal. Checking means pasting
+   the number into a verification form, so the number is one tap from the
+   clipboard rather than something to transcribe from a phone screen. */
+(function () {
+  var buttons = document.querySelectorAll('.cred-copy');
+  if (!buttons.length) { return; }
+
+  function flash(btn, text) {
+    var label = btn.querySelector('.cred-copy-t');
+    if (!label) { return; }
+    var was = label.textContent;
+    label.textContent = text;
+    btn.classList.add('copied');
+    setTimeout(function () {
+      label.textContent = was;
+      btn.classList.remove('copied');
+    }, 1600);
+  }
+
+  /* execCommand is the fallback: the clipboard API needs a secure context,
+     and some in-app browsers on Android do not provide one. */
+  function legacyCopy(value) {
+    try {
+      var ta = document.createElement('textarea');
+      ta.value = value;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch (e) { return false; }
+  }
+
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var btn = this;
+      var value = btn.getAttribute('data-copy') || '';
+      if (!value) { return; }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () {
+          flash(btn, 'Copied');
+        }, function () {
+          flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+        });
+      } else {
+        flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+      }
+    });
+  }
+})();
+
+/* ---- The announcement bar -------------------------------------------------
+   Dismissal is remembered per browser and keyed to the announcement, so
+   changing the key later brings the bar back for everyone rather than
+   staying hidden for anyone who closed the previous one. */
+(function () {
+  var bar = document.querySelector('.announce');
+  if (!bar) { return; }
+  var key = 'os_announce_' + (bar.getAttribute('data-key') || 'x');
+
+  try {
+    if (localStorage.getItem(key) === '1') { bar.parentNode.removeChild(bar); return; }
+  } catch (e) { /* private mode: just show it */ }
+
+  bar.hidden = false;
+
+  var close = bar.querySelector('.announce-x');
+  if (close) {
+    close.addEventListener('click', function () {
+      bar.parentNode.removeChild(bar);
+      try { localStorage.setItem(key, '1'); } catch (e) { /* nothing to do */ }
+    });
   }
 })();
 </script>
