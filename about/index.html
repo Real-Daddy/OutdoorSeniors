@@ -1248,17 +1248,18 @@ footer a:hover { color: var(--wa-green); }
   }
 }
   
-.creds { background: #fff; border-top: 1px solid #e8eef2; border-bottom: 1px solid #e8eef2; padding: 26px 0; }
-.creds-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 26px; }
-.creds-label { font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a99a3; font-weight: 700; width: 100%; text-align: center; margin-bottom: 4px; }
-.cred { display: inline-flex; align-items: center; gap: 9px; font-size: 13.5px; color: #33475a; text-decoration: none; line-height: 1.35; }
+.creds { background: #fff; border-top: 1px solid #e8eef2; border-bottom: 1px solid #e8eef2; padding: 28px 0; }
+.creds-label { font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a99a3;
+  font-weight: 700; text-align: center; margin: 0 0 18px; }
+.creds-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 18px 44px; }
+.cred { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #33475a; }
 .cred svg { flex: 0 0 auto; }
-.cred b { color: #13306B; font-weight: 700; }
-a.cred:hover b { text-decoration: underline; }
+.cred-t { font-size: 12.5px; line-height: 1.45; }
+.cred-t b { display: block; color: #13306B; font-size: 13.5px; font-weight: 700; letter-spacing: .2px; }
+a.cred:hover .cred-t b { text-decoration: underline; }
 @media (max-width: 599px) {
-  .creds-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .creds-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
   .creds-label { text-align: left; }
-  .cred { font-size: 13px; }
 }
 </style>
   <!-- seo:start -->
@@ -1529,11 +1530,11 @@ Ref: ABOUT" target="_blank" rel="noopener" class="btn-wa">
 
 <section class="creds" aria-label="Registrations and recognitions">
   <div class="container">
+    <p class="creds-label">Registered and recognised</p>
     <div class="creds-inner">
-      <p class="creds-label">Registered and recognised</p>
-      <a class="cred" href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span>DPIIT Recognised Startup &middot; <b>DIPP287320</b></span></a>
-      <a class="cred" href="https://udyamregistration.gov.in/Udyam_Verify.aspx" target="_blank" rel="noopener"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span>Udyam Registered MSME &middot; <b>UDYAM-KR-03-0765888</b></span></a>
-      <span class="cred"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span>Limited Liability Partnership &middot; <b>LLPIN ADC-2090</b></span></span>
+      <a class="cred" href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">DPIIT Recognised Startup<b>DIPP287320</b></span></a>
+      <a class="cred" href="https://udyamregistration.gov.in/Udyam_Verify.aspx" target="_blank" rel="noopener"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Udyam Registered MSME<b>UDYAM-KR-03-0765888</b></span></a>
+      <span class="cred"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Limited Liability Partnership<b>LLPIN ADC-2090</b></span></span>
     </div>
   </div>
 </section>
