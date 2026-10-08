@@ -775,70 +775,14 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 })();
 
-/* ---- Copy a registration number -------------------------------------------
-   The whole point of printing LLPIN, DIPP and Udyam numbers is that a
-   customer can check them on the government portal. Checking means pasting
-   the number into a verification form, so the number is one tap from the
-   clipboard rather than something to transcribe from a phone screen. */
-(function () {
-  var buttons = document.querySelectorAll('.cred-copy');
-  if (!buttons.length) { return; }
-
-  function flash(btn, text) {
-    var label = btn.querySelector('.cred-copy-t');
-    if (!label) { return; }
-    var was = label.textContent;
-    label.textContent = text;
-    btn.classList.add('copied');
-    setTimeout(function () {
-      label.textContent = was;
-      btn.classList.remove('copied');
-    }, 1600);
-  }
-
-  /* execCommand is the fallback: the clipboard API needs a secure context,
-     and some in-app browsers on Android do not provide one. */
-  function legacyCopy(value) {
-    try {
-      var ta = document.createElement('textarea');
-      ta.value = value;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'absolute';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = document.execCommand('copy');
-      document.body.removeChild(ta);
-      return ok;
-    } catch (e) { return false; }
-  }
-
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var btn = this;
-      var value = btn.getAttribute('data-copy') || '';
-      var done = btn.getAttribute('data-done') || 'Copied';
-      var hold = btn.getAttribute('data-hold') || 'Press and hold to copy';
-      if (!value) { return; }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(function () {
-          flash(btn, done);
-        }, function () {
-          flash(btn, legacyCopy(value) ? done : hold);
-        });
-      } else {
-        flash(btn, legacyCopy(value) ? done : hold);
-      }
-    });
-  }
-})();
-
-/* ---- The announcement bar -------------------------------------------------
+/* ---- The announcement bar ------------------------------------------------
    Dismissal is remembered per browser and keyed to the announcement, so
    changing the key later brings the bar back for everyone rather than
-   staying hidden for anyone who closed the previous one. */
+   staying hidden for anyone who closed the previous one.
+
+   The slides cross-fade on a timer. It pauses on hover and on focus, so a
+   slide cannot change out from under someone reading it or tabbing through
+   its links. */
 (function () {
   var bar = document.querySelector('.announce');
   if (!bar) { return; }
@@ -857,6 +801,32 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       try { localStorage.setItem(key, '1'); } catch (e) { /* nothing to do */ }
     });
   }
+
+  var slides = bar.querySelectorAll('.announce-slide');
+  if (slides.length < 2) { return; }
+
+  var at = 0;
+  var held = false;
+
+  function show(n) {
+    for (var i = 0; i < slides.length; i++) {
+      if (i === n) { slides[i].classList.add('is-on'); }
+      else { slides[i].classList.remove('is-on'); }
+    }
+  }
+
+  setInterval(function () {
+    if (held || document.hidden) { return; }
+    at = (at + 1) % slides.length;
+    show(at);
+  }, 5200);
+
+  function hold() { held = true; }
+  function release() { held = false; }
+  bar.addEventListener('mouseenter', hold);
+  bar.addEventListener('mouseleave', release);
+  bar.addEventListener('focusin', hold);
+  bar.addEventListener('focusout', release);
 })();
 </script>
 

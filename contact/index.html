@@ -1250,26 +1250,48 @@ footer a:hover { color: var(--wa-green); }
 
 /* ---------- Announcement bar ---------- */
 
+/* Two slides cross-fade in a grid cell, so the bar is as tall as the taller
+   slide and nothing can overflow sideways on a phone. */
 .announce { background: #13306B; color: #fff; }
-.announce-in {
-  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
-  padding: 10px 46px 10px 16px; position: relative; max-width: 1180px; margin: 0 auto;
-  font-size: 14px; line-height: 1.5;
+.announce-in { position: relative; max-width: 1180px; margin: 0 auto; padding: 9px 46px 9px 16px; }
+.announce-track { display: grid; }
+.announce-slide {
+  grid-area: 1 / 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 6px 12px; font-size: 14px; line-height: 1.5; opacity: 0; transform: translateY(5px);
+  transition: opacity .45s ease, transform .45s ease; pointer-events: none;
 }
+.announce-slide.is-on { opacity: 1; transform: none; pointer-events: auto; }
 .announce-pill {
   background: #4C9A5B; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1px;
   text-transform: uppercase; padding: 4px 9px; border-radius: 999px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+.announce-pill.live { background: #d93a3a; }
+.announce-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: announce-blink 1.6s ease-in-out infinite; }
+@keyframes announce-blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 .announce-txt { color: #dce7f1; }
 .announce-txt b { color: #fff; font-weight: 700; }
 .announce-link { color: #9fe3b6; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .announce-link:hover { text-decoration: underline; }
+.announce-city {
+  display: inline-flex; align-items: center; gap: 6px; color: #fff; font-weight: 600;
+  text-decoration: none; white-space: nowrap; padding: 2px 4px; border-radius: 7px;
+  transition: background .15s;
+}
+.announce-city:hover { background: rgba(255,255,255,.12); }
+.announce-ico { width: 16px; height: 16px; fill: none; stroke: #9fe3b6; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.announce-sep { color: #4a6f96; }
 .announce-x {
   position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none;
   border: 0; color: #9fb6cd; font-size: 20px; line-height: 1; cursor: pointer; padding: 6px 8px;
   border-radius: 8px;
 }
 .announce-x:hover { color: #fff; background: rgba(255,255,255,.1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .announce-slide { transition: none; transform: none; }
+  .announce-dot { animation: none; }
+}
 
 /* ---------- Registrations strip ---------- */
 
@@ -1293,14 +1315,6 @@ footer a:hover { color: var(--wa-green); }
 .cred-t b { display: block; color: #13306B; font-size: 19px; font-weight: 800; letter-spacing: .2px; margin-top: 3px; white-space: nowrap; }
 .cred-t a { color: #13306B; text-decoration: none; }
 .cred-t a:hover { text-decoration: underline; }
-.cred-copy {
-  display: inline-flex; align-items: center; gap: 5px; margin-left: auto; flex: 0 0 auto;
-  border: 1px solid #d5dfe7; background: #fff; color: #5b6b76; border-radius: 999px; padding: 7px 13px;
-  font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; line-height: 1;
-  transition: background .15s, border-color .15s, color .15s;
-}
-.cred-copy:hover { background: #eef5f9; border-color: #b9ccd9; color: #13306B; }
-.cred-copy.copied { background: #e9f5ec; border-color: #9ed0ae; color: #2f7a46; }
 
 /* ---------- Contact page ---------- */
 
@@ -1331,13 +1345,13 @@ footer a:hover { color: var(--wa-green); }
 @media (min-width: 760px) {
   .ct-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
   .creds-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .cred-copy-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .cred-copy { padding: 9px; }
 }
 
 @media (max-width: 599px) {
-  .announce-in { font-size: 12.5px; gap: 4px 8px; padding: 8px 40px 9px 14px; justify-content: flex-start; line-height: 1.45; }
+  .announce-in { padding: 8px 38px 9px 14px; }
+  .announce-slide { font-size: 12.5px; gap: 4px 9px; justify-content: flex-start; line-height: 1.45; }
   .announce-pill { font-size: 10px; padding: 3px 7px; }
+  .announce-ico { width: 14px; height: 14px; }
   .creds-inner { flex-direction: column; }
   .creds-label { text-align: left; }
   .cred { min-width: 0; width: 100%; padding: 15px 16px; }
@@ -1523,9 +1537,17 @@ Ref: CAREERS" target="_blank" rel="noopener" class="wa-sticky" aria-label="Messa
 
 <div class="announce" data-key="dpiit-2026-10" hidden>
   <div class="announce-in">
-    <span class="announce-pill">News</span>
-    <span class="announce-txt">Good news. We are now a <b>DPIIT Recognised Startup</b>.</span>
-    <a class="announce-link" href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener">Verify DIPP287320 &rarr;</a>
+    <div class="announce-track">
+      <div class="announce-slide is-on">
+        <span class="announce-pill">News</span>
+        <span class="announce-txt">Good news. We are now a <b>DPIIT Recognised Startup</b>.</span>
+        <a class="announce-link" href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener">Verify DIPP287320 &rarr;</a>
+      </div>
+      <div class="announce-slide">
+        <span class="announce-pill live"><span class="announce-dot" aria-hidden="true"></span>Live in</span>
+        <a class="announce-city" href="/bangalore/"><svg class="announce-ico" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 2.5c1.6 0 2.9 1.2 3.1 2.8H7.9C8.1 3.7 9.4 2.5 11 2.5Z"/><path d="M5.5 5.3h11"/><path d="M7 8v7M11 8v7M15 8v7"/><path d="M4.5 8h13"/><path d="M3 18.5h16"/><path d="M3 15h16"/></svg><span>Bangalore</span></a><span class="announce-sep" aria-hidden="true">|</span><a class="announce-city" href="/mangalore/"><svg class="announce-ico" viewBox="0 0 22 22" aria-hidden="true"><path d="M11.5 20.5c-.4-4 0-7.2 1.2-9.6"/><path d="M12.7 10.9c-2.9-.6-5.1.8-6.1 2.9M12.7 10.9c2.9-.6 5.1.8 6.1 2.9"/><path d="M12.7 10.9c-1.7-2.1-4.1-2.7-6.4-1.7M12.7 10.9c1.7-2.1 4.1-2.7 6.4-1.7"/><path d="M3 20.5h16"/></svg><span>Mangalore</span></a><span class="announce-sep" aria-hidden="true">|</span><a class="announce-city" href="/haldwani/"><svg class="announce-ico" viewBox="0 0 22 22" aria-hidden="true"><path d="M2 17.5 8 7l4 6.5"/><path d="M10 17.5 14.5 9l5.5 8.5z"/><path d="M2 17.5h18"/><path d="M6.4 9.8h3.2M12.8 11.6h3.4"/></svg><span>Haldwani</span></a>
+      </div>
+    </div>
     <button type="button" class="announce-x" aria-label="Dismiss this announcement">&times;</button>
   </div>
 </div>
@@ -1681,9 +1703,9 @@ Ref: CONTACT" target="_blank" rel="noopener" class="btn-wa">
   <div class="container">
     <p class="creds-label">Registered and recognised</p>
     <div class="creds-inner">
-      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">DPIIT Recognised Startup<b><a href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener">DIPP287320</a></b></span><button type="button" class="cred-copy" data-copy="DIPP287320" data-done="Copied" data-hold="Press and hold to copy" aria-label="Copy DPIIT Recognised Startup" title="Copy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H4.4A1.4 1.4 0 0 1 3 13.6V4.4A1.4 1.4 0 0 1 4.4 3h9.2A1.4 1.4 0 0 1 15 4.4v1.1"/></svg><span class="cred-copy-t">Copy</span></button></div>
-      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Udyam Registered MSME<b><a href="https://udyamregistration.gov.in/Udyam_Verify.aspx" target="_blank" rel="noopener">UDYAM-KR-03-0765888</a></b></span><button type="button" class="cred-copy" data-copy="UDYAM-KR-03-0765888" data-done="Copied" data-hold="Press and hold to copy" aria-label="Copy Udyam Registered MSME" title="Copy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H4.4A1.4 1.4 0 0 1 3 13.6V4.4A1.4 1.4 0 0 1 4.4 3h9.2A1.4 1.4 0 0 1 15 4.4v1.1"/></svg><span class="cred-copy-t">Copy</span></button></div>
-      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Limited Liability Partnership<b><a href="https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do" target="_blank" rel="noopener">LLPIN ADC-2090</a></b></span><button type="button" class="cred-copy" data-copy="ADC-2090" data-done="Copied" data-hold="Press and hold to copy" aria-label="Copy Limited Liability Partnership" title="Copy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.4"/><path d="M5.5 15H4.4A1.4 1.4 0 0 1 3 13.6V4.4A1.4 1.4 0 0 1 4.4 3h9.2A1.4 1.4 0 0 1 15 4.4v1.1"/></svg><span class="cred-copy-t">Copy</span></button></div>
+      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">DPIIT Recognised Startup<b><a href="https://www.startupindia.gov.in/content/sih/en/startupgov/validate-startup-recognition.html" target="_blank" rel="noopener">DIPP287320</a></b></span></div>
+      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Udyam Registered MSME<b><a href="https://udyamregistration.gov.in/Udyam_Verify.aspx" target="_blank" rel="noopener">UDYAM-KR-03-0765888</a></b></span></div>
+      <div class="cred"><svg class="cred-ico" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#4C9A5B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7.5 3.2v5.3c0 4.8-3.1 8.8-7.5 10.5-4.4-1.7-7.5-5.7-7.5-10.5V6.2L12 3z"/><path d="M8.6 12l2.4 2.4 4.4-4.6"/></svg><span class="cred-t">Limited Liability Partnership<b><a href="https://www.mca.gov.in/mcafoportal/viewCompanyMasterData.do" target="_blank" rel="noopener">LLPIN ADC-2090</a></b></span></div>
     </div>
   </div>
 </section>
@@ -2185,70 +2207,14 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
   }
 })();
 
-/* ---- Copy a registration number -------------------------------------------
-   The whole point of printing LLPIN, DIPP and Udyam numbers is that a
-   customer can check them on the government portal. Checking means pasting
-   the number into a verification form, so the number is one tap from the
-   clipboard rather than something to transcribe from a phone screen. */
-(function () {
-  var buttons = document.querySelectorAll('.cred-copy');
-  if (!buttons.length) { return; }
-
-  function flash(btn, text) {
-    var label = btn.querySelector('.cred-copy-t');
-    if (!label) { return; }
-    var was = label.textContent;
-    label.textContent = text;
-    btn.classList.add('copied');
-    setTimeout(function () {
-      label.textContent = was;
-      btn.classList.remove('copied');
-    }, 1600);
-  }
-
-  /* execCommand is the fallback: the clipboard API needs a secure context,
-     and some in-app browsers on Android do not provide one. */
-  function legacyCopy(value) {
-    try {
-      var ta = document.createElement('textarea');
-      ta.value = value;
-      ta.setAttribute('readonly', '');
-      ta.style.position = 'absolute';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = document.execCommand('copy');
-      document.body.removeChild(ta);
-      return ok;
-    } catch (e) { return false; }
-  }
-
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-      var btn = this;
-      var value = btn.getAttribute('data-copy') || '';
-      var done = btn.getAttribute('data-done') || 'Copied';
-      var hold = btn.getAttribute('data-hold') || 'Press and hold to copy';
-      if (!value) { return; }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(value).then(function () {
-          flash(btn, done);
-        }, function () {
-          flash(btn, legacyCopy(value) ? done : hold);
-        });
-      } else {
-        flash(btn, legacyCopy(value) ? done : hold);
-      }
-    });
-  }
-})();
-
-/* ---- The announcement bar -------------------------------------------------
+/* ---- The announcement bar ------------------------------------------------
    Dismissal is remembered per browser and keyed to the announcement, so
    changing the key later brings the bar back for everyone rather than
-   staying hidden for anyone who closed the previous one. */
+   staying hidden for anyone who closed the previous one.
+
+   The slides cross-fade on a timer. It pauses on hover and on focus, so a
+   slide cannot change out from under someone reading it or tabbing through
+   its links. */
 (function () {
   var bar = document.querySelector('.announce');
   if (!bar) { return; }
@@ -2267,6 +2233,32 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       try { localStorage.setItem(key, '1'); } catch (e) { /* nothing to do */ }
     });
   }
+
+  var slides = bar.querySelectorAll('.announce-slide');
+  if (slides.length < 2) { return; }
+
+  var at = 0;
+  var held = false;
+
+  function show(n) {
+    for (var i = 0; i < slides.length; i++) {
+      if (i === n) { slides[i].classList.add('is-on'); }
+      else { slides[i].classList.remove('is-on'); }
+    }
+  }
+
+  setInterval(function () {
+    if (held || document.hidden) { return; }
+    at = (at + 1) % slides.length;
+    show(at);
+  }, 5200);
+
+  function hold() { held = true; }
+  function release() { held = false; }
+  bar.addEventListener('mouseenter', hold);
+  bar.addEventListener('mouseleave', release);
+  bar.addEventListener('focusin', hold);
+  bar.addEventListener('focusout', release);
 })();
 </script>
 </body>

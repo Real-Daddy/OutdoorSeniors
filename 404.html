@@ -1248,26 +1248,48 @@ footer a:hover { color: var(--wa-green); }
 
 /* ---------- Announcement bar ---------- */
 
+/* Two slides cross-fade in a grid cell, so the bar is as tall as the taller
+   slide and nothing can overflow sideways on a phone. */
 .announce { background: #13306B; color: #fff; }
-.announce-in {
-  display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;
-  padding: 10px 46px 10px 16px; position: relative; max-width: 1180px; margin: 0 auto;
-  font-size: 14px; line-height: 1.5;
+.announce-in { position: relative; max-width: 1180px; margin: 0 auto; padding: 9px 46px 9px 16px; }
+.announce-track { display: grid; }
+.announce-slide {
+  grid-area: 1 / 1; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 6px 12px; font-size: 14px; line-height: 1.5; opacity: 0; transform: translateY(5px);
+  transition: opacity .45s ease, transform .45s ease; pointer-events: none;
 }
+.announce-slide.is-on { opacity: 1; transform: none; pointer-events: auto; }
 .announce-pill {
   background: #4C9A5B; color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1px;
   text-transform: uppercase; padding: 4px 9px; border-radius: 999px; flex: 0 0 auto;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+.announce-pill.live { background: #d93a3a; }
+.announce-dot { width: 6px; height: 6px; border-radius: 50%; background: #fff; animation: announce-blink 1.6s ease-in-out infinite; }
+@keyframes announce-blink { 0%, 100% { opacity: 1; } 50% { opacity: .25; } }
 .announce-txt { color: #dce7f1; }
 .announce-txt b { color: #fff; font-weight: 700; }
 .announce-link { color: #9fe3b6; font-weight: 700; text-decoration: none; white-space: nowrap; }
 .announce-link:hover { text-decoration: underline; }
+.announce-city {
+  display: inline-flex; align-items: center; gap: 6px; color: #fff; font-weight: 600;
+  text-decoration: none; white-space: nowrap; padding: 2px 4px; border-radius: 7px;
+  transition: background .15s;
+}
+.announce-city:hover { background: rgba(255,255,255,.12); }
+.announce-ico { width: 16px; height: 16px; fill: none; stroke: #9fe3b6; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.announce-sep { color: #4a6f96; }
 .announce-x {
   position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none;
   border: 0; color: #9fb6cd; font-size: 20px; line-height: 1; cursor: pointer; padding: 6px 8px;
   border-radius: 8px;
 }
 .announce-x:hover { color: #fff; background: rgba(255,255,255,.1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .announce-slide { transition: none; transform: none; }
+  .announce-dot { animation: none; }
+}
 
 /* ---------- Registrations strip ---------- */
 
@@ -1291,14 +1313,6 @@ footer a:hover { color: var(--wa-green); }
 .cred-t b { display: block; color: #13306B; font-size: 19px; font-weight: 800; letter-spacing: .2px; margin-top: 3px; white-space: nowrap; }
 .cred-t a { color: #13306B; text-decoration: none; }
 .cred-t a:hover { text-decoration: underline; }
-.cred-copy {
-  display: inline-flex; align-items: center; gap: 5px; margin-left: auto; flex: 0 0 auto;
-  border: 1px solid #d5dfe7; background: #fff; color: #5b6b76; border-radius: 999px; padding: 7px 13px;
-  font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; line-height: 1;
-  transition: background .15s, border-color .15s, color .15s;
-}
-.cred-copy:hover { background: #eef5f9; border-color: #b9ccd9; color: #13306B; }
-.cred-copy.copied { background: #e9f5ec; border-color: #9ed0ae; color: #2f7a46; }
 
 /* ---------- Contact page ---------- */
 
@@ -1329,13 +1343,13 @@ footer a:hover { color: var(--wa-green); }
 @media (min-width: 760px) {
   .ct-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
   .creds-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .cred-copy-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .cred-copy { padding: 9px; }
 }
 
 @media (max-width: 599px) {
-  .announce-in { font-size: 12.5px; gap: 4px 8px; padding: 8px 40px 9px 14px; justify-content: flex-start; line-height: 1.45; }
+  .announce-in { padding: 8px 38px 9px 14px; }
+  .announce-slide { font-size: 12.5px; gap: 4px 9px; justify-content: flex-start; line-height: 1.45; }
   .announce-pill { font-size: 10px; padding: 3px 7px; }
+  .announce-ico { width: 14px; height: 14px; }
   .creds-inner { flex-direction: column; }
   .creds-label { text-align: left; }
   .cred { min-width: 0; width: 100%; padding: 15px 16px; }
