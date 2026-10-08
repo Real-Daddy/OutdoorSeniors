@@ -836,15 +836,17 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       e.stopPropagation();
       var btn = this;
       var value = btn.getAttribute('data-copy') || '';
+      var done = btn.getAttribute('data-done') || 'Copied';
+      var hold = btn.getAttribute('data-hold') || 'Press and hold to copy';
       if (!value) { return; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(value).then(function () {
-          flash(btn, 'Copied');
+          flash(btn, done);
         }, function () {
-          flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+          flash(btn, legacyCopy(value) ? done : hold);
         });
       } else {
-        flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+        flash(btn, legacyCopy(value) ? done : hold);
       }
     });
   }

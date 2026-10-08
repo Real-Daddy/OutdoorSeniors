@@ -1273,29 +1273,30 @@ footer a:hover { color: var(--wa-green); }
 
 /* ---------- Registrations strip ---------- */
 
-.creds { background: #fff; border-top: 1px solid #e8eef2; border-bottom: 1px solid #e8eef2; padding: 34px 0; }
+/* Sits directly under the hero, where the old trust bar was, so it is the
+   first thing after the pitch rather than a footnote above the footer. */
+.creds { background: #F2F7FA; border-top: 1px solid #e1eaf0; border-bottom: 1px solid #e1eaf0; padding: 32px 0; }
 .creds-label {
-  font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; color: #8a99a3;
-  font-weight: 700; text-align: center; margin: 0 0 6px;
+  font-size: 12.5px; letter-spacing: 1.8px; text-transform: uppercase; color: #7d8d99;
+  font-weight: 800; text-align: center; margin: 0 0 20px;
 }
-.creds-ask {
-  text-align: center; color: #55646f; font-size: 14.5px; line-height: 1.6; margin: 0 auto 22px;
-  max-width: 620px;
-}
-.creds-inner { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: 14px; }
+/* Grid rather than flex: the Udyam number makes its card far wider than the
+   other two, so a flex row wrapped to 2 + 1. Equal columns keep all three on
+   one line. */
+.creds-inner { display: grid; grid-template-columns: 1fr; gap: 14px; }
 .cred {
-  display: flex; align-items: center; gap: 12px; padding: 14px 16px; border: 1px solid #e3eaef;
-  border-radius: 14px; background: #fcfdfe; min-width: 268px;
+  display: flex; align-items: center; gap: 13px; padding: 17px 20px; border: 1px solid #dfe8ee;
+  border-radius: 16px; background: #fff; box-shadow: 0 1px 2px rgba(19,48,107,.04); min-width: 0;
 }
 .cred-ico { flex: 0 0 auto; }
-.cred-t { font-size: 12.5px; line-height: 1.45; color: #55646f; flex: 1 1 auto; }
-.cred-t b { display: block; color: #13306B; font-size: 14px; font-weight: 700; letter-spacing: .2px; margin-top: 2px; }
+.cred-t { font-size: 13px; line-height: 1.4; color: #6b7a85; flex: 1 1 auto; font-weight: 600; }
+.cred-t b { display: block; color: #13306B; font-size: 19px; font-weight: 800; letter-spacing: .2px; margin-top: 3px; white-space: nowrap; }
 .cred-t a { color: #13306B; text-decoration: none; }
 .cred-t a:hover { text-decoration: underline; }
 .cred-copy {
   display: inline-flex; align-items: center; gap: 5px; margin-left: auto; flex: 0 0 auto;
-  border: 1px solid #d5dfe7; background: #fff; color: #5b6b76; border-radius: 999px; padding: 6px 11px;
-  font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer; line-height: 1;
+  border: 1px solid #d5dfe7; background: #fff; color: #5b6b76; border-radius: 999px; padding: 7px 13px;
+  font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; line-height: 1;
   transition: background .15s, border-color .15s, color .15s;
 }
 .cred-copy:hover { background: #eef5f9; border-color: #b9ccd9; color: #13306B; }
@@ -1329,14 +1330,18 @@ footer a:hover { color: var(--wa-green); }
 
 @media (min-width: 760px) {
   .ct-grid { grid-template-columns: 1fr 1fr; gap: 22px; }
+  .creds-inner { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .cred-copy-t { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .cred-copy { padding: 9px; }
 }
 
 @media (max-width: 599px) {
   .announce-in { font-size: 12.5px; gap: 4px 8px; padding: 8px 40px 9px 14px; justify-content: flex-start; line-height: 1.45; }
   .announce-pill { font-size: 10px; padding: 3px 7px; }
   .creds-inner { flex-direction: column; }
-  .creds-label, .creds-ask { text-align: left; }
-  .cred { min-width: 0; width: 100%; }
+  .creds-label { text-align: left; }
+  .cred { min-width: 0; width: 100%; padding: 15px 16px; }
+  .cred-t b { font-size: 17px; }
 }
 
 @media (max-width: 479px) {
@@ -2218,15 +2223,17 @@ Ref: HOME" target="_blank" rel="noopener">+91 96203 84645</a></li>
       e.stopPropagation();
       var btn = this;
       var value = btn.getAttribute('data-copy') || '';
+      var done = btn.getAttribute('data-done') || 'Copied';
+      var hold = btn.getAttribute('data-hold') || 'Press and hold to copy';
       if (!value) { return; }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(value).then(function () {
-          flash(btn, 'Copied');
+          flash(btn, done);
         }, function () {
-          flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+          flash(btn, legacyCopy(value) ? done : hold);
         });
       } else {
-        flash(btn, legacyCopy(value) ? 'Copied' : 'Press and hold to copy');
+        flash(btn, legacyCopy(value) ? done : hold);
       }
     });
   }
